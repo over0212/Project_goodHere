@@ -1,11 +1,13 @@
 package com.goodHere.web.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.goodHere.config.auth.PrincipalDetails;
 import com.goodHere.web.service.SignService;
 
 import lombok.RequiredArgsConstructor;
@@ -17,11 +19,11 @@ public class PageController {
 	private final SignService signService;
 
 	@GetMapping({ "/", "/index" })
-	public String index() {
+	public String index(@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		return "index";
 	}
 
-	@GetMapping({ "/sign-in", "/login" })
+	@GetMapping("/login")
 	public String loginPage() {
 		return "sign-in";
 	}

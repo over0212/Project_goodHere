@@ -51,7 +51,7 @@
                 <div class="login-form">
                     <div class="email-ip">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" class="email" placeholder="이메일 주소">
+                        <input type="email" class="email" placeholder="이메일 주소">
                     </div>
                     <label class="msg"></label>
 

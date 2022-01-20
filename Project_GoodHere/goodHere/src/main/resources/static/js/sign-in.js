@@ -5,6 +5,7 @@ const password_border = document.querySelector('.password-ip');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const login_btn = document.querySelector('.login-btn');
+const inputAll = document.querySelectorAll('input');
 const msg = document.querySelectorAll('.msg'); // label message
 
 /* 텍스트 지우기 */
@@ -41,69 +42,78 @@ password.addEventListener('click', function() {
 });
 
 // 로그인 버튼 클릭 시
-/*login_btn.onclick = () => {
-	
-}*/
-
-function loginCheck() {
-	// 이메일이 입력했을 때
-	if (email.value.length != 0) {
-		let emailCheckFlag = emailCheck(email.value);
-
-		if (emailCheckFlag == false) {
-			alert('잘못된 이메일 형식입니다.');
-			email.focus();
-
-			// 이메일 형식이 맞을 경우
-		} else {
-			if (password.value.length != 0) {
-				let passwordFlag = passwordCheck(password.value);
-
-				if (passwordFlag == false) {
-					alert('비밀번호를 확인해주세요');
-					password.focus();
-
-				} else {
-					// ajax 통신
-				}
-			}
-		}
-
-		// 이메일을 입력하지 않았을 때
-	} else {
-		alert('이메일을 입력해주세요.');
+login_btn.onclick = () => {
+	let signInObj = {
+		'email' : inputAll[0].value,
+		'password' : inputAll[1].value
 	}
+	$.ajax({
+		type: "post",
+		url: "/sign-in",
+		contentType: "application/json; charset=UTF-8",
+		data: JSON.stringify(signInObj),
+		dataType: "text"
+	})
+}
 
+for (let i = 0; i < inputAll.length; i++) {
+	inputAll[i].onkeyup = () => {
+		if (i == 0) {
+			clearMsgText(msg[i]);
+			emailCheck(inputAll[i].value, i);
+		} else if (i == 1) {
+			clearMsgText(msg[i]);
+			passwordCheck(inputAll[i].value, i);
+		}
+	}
+}
+
+// input 값의 유무 체크
+function isEmpty(str) {
+	if (typeof str == 'undefined' || str == null || str == '') {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 //이메일 정규식 체크
-function emailCheck(email) {
+function emailCheck(email, ipNumber) {
 	var check_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-	if (check_email.test(email)) {
-		return true;
+	if (isEmpty(email) == true) {
+		if (check_email.test(email)) {
+			return true;
+		} else {
+			msg[ipNumber].textContent = '잘못된 이메일 형식입니다.';
+			return false;
+		}
 	} else {
-		return false;
+		msg[ipNumber].textContent = '이메일을 입력해주세요.';
 	}
 }
 
 // 비밀번호 정규식
-function passwordCheck(password) {
+function passwordCheck(password, ipNumber) {
 
-	var passwordValue = password.value;
-	var checkNumber = passwordValue.search(/[0-9]/g);
-	var checkEnglish = passwordValue.search(/[a-z]/ig);
+	var checkNumber = password.search(/[0-9]/g);
+	var checkEnglish = password.search(/[a-z]/ig);
 
-	if (/(\w)\1\1\1/.test(passwordValue)) {
-		alert('같은 문자를 4번 이상 사용하실 수 없습니다.');
-		return false;
+	if (isEmpty(password) == true) {
+		if (/(\w)\1\1\1/.test(password)) {
+			msg[ipNumber].textContent = '같은 문자를 4번 이상 사용하실 수 없습니다.';
+			return false;
+		}
+		if (checkNumber < 0 || checkEnglish < 0) {
+			msg[ipNumber].textContent = "숫자와 영문자를 혼용하여야 합니다.";
+			return false;
+		}
+		if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(password)) {
+			msg[ipNumber].textContent = '숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.';
+			return false;
+		}
+		return true;
+		
+	} else {
+		msg[ipNumber].textContent = '비밀번호를 입력해주세요.';
 	}
-	if (checkNumber < 0 || checkEnglish < 0) {
-		alert("숫자와 영문자를 혼용하여야 합니다.");
-		return false;
-	}
-	if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(passwordValue)) {
-		alert('숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.');
-		return false;
-	}
-	return true;
 }

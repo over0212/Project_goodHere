@@ -22,10 +22,10 @@ public class PrincipalDetailsService implements UserDetailsService {
 		User user = userRepository.getUser(username);
 		if(user == null) {
 			return null;
+			
 		} else {
 			UserDetails principalDetails = new PrincipalDetails(user);
 			return principalDetails;
 		}
 	}
-
 }
