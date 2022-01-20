@@ -1,0 +1,11 @@
+package com.goodHere.web.service;
+
+import org.springframework.validation.BindingResult;
+
+import com.goodHere.web.model.dto.SignReqDto;
+
+public interface AuthService {
+	
+	public int signUp(SignReqDto signReqDto, BindingResult bindingResult);
+
+}

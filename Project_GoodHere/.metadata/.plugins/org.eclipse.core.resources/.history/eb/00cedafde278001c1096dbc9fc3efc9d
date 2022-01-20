@@ -1,0 +1,5 @@
+package com.goodHere.web.model.dto;
+
+public class NickNameReqDto {
+	
+}

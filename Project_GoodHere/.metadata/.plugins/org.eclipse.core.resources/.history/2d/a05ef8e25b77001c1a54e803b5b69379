@@ -1,0 +1,20 @@
+server:
+  port: 8000
+  servlet:    context-path: /
+    encoding:      charset: utf-8
+      enabled: true
+
+spring:  mvc:    view:      prefix: /WEB-INF/views
+      suffix: .jsp
+        servlet:    multipart:
+      enabled: true      max-file-size: 50MB
+      max-request-size: 50MB
+      
+  datasource:    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/goodhere?serverTimezone=Asia/Seoul
+    username: root
+    password: toor
+    
+mybatis:  mapper-locations:  - /mapper/*.xml
+  
+logging:  file:    path: D:\Project_GoodHere\images/

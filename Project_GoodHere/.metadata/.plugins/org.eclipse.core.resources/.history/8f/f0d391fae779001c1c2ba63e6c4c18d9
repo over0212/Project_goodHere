@@ -1,0 +1,152 @@
+#container{
+    margin-top: 7.5em;
+}
+.in-container{
+    width: 336px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+.header a h2{
+    font-size: 24px;
+    font-family: 'herefont';
+    color: #f2114c;
+}
+
+/* auth-btns */
+#sns-btns{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#sns-btns button{
+    width: 100%;
+    height: 4em;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.6em;
+}
+#sns-btns img{
+    width: 26px;
+    height: 26px;
+}
+#sns-btns span{
+    font-size: 1.2em;
+    font-family: sans-serif;
+}
+.kakao-btn{
+    background-color: #fce51e;
+    color: black;
+}
+.facebook-btn{
+    background-color: #1877f2;
+    color: white;
+}
+.naver-btn{
+    background-color: #28d111;
+    color: white;
+}
+
+/* 라인 */
+#divid-line{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 12px;
+    margin: 8px 0;
+}
+#divid-line span{
+    font-size: 16px;
+    padding: 1em;
+    color: #d0d0d0;
+}
+#divid-line::before,
+#divid-line::after{
+    content: "";
+    flex-grow: 1;
+    background-color: #d0d0d0;
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+/* login-form */
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.login-form div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #d0d0d0;
+    height: 3.5em;
+    border-radius: 5px;
+    padding: 3px 0;
+    opacity: 0.4;
+}
+.login-form i{
+    font-size: 1.6em;
+    text-align: center;
+    opacity: 0.4;
+    margin: 0.8em;
+}
+.login-form input{
+    border: none;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 100;
+    outline: none;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #d0d0d0;
+}
+.email-ip{
+    width: 100%;
+}
+
+/* 에러 및 확인 메세지 */
+.msg {
+	padding: 5px 0 0 12px;
+	width: 100%;
+	display: block;
+	font-size: 11px;
+	color: red;
+}
+
+.login-btn{
+    margin-top: 4px;
+    padding: 1.2em;
+    background-color: #fb0652;
+    border: none;
+    border-radius: 5px;
+}
+.login-btn span{
+    font-size: 16px;
+    color: white;
+}
+.info-set{
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info-set a{
+    width: 50%;
+    text-align: center;
+    padding: 1em;
+}
+.info-set a span{
+    font-size: 16px;
+}

@@ -1,0 +1,33 @@
+package com.goodHere.web.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.goodHere.web.model.dto.SignReqDto;
+import com.goodHere.web.service.SignService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+public class SignRestController {
+	
+	private final SignService signService;
+	
+	@GetMapping("/choose/nickname")
+	public String chooseNickName() {
+		return signService.chooseNickName();
+	}
+	
+	@PostMapping("/user/sign-up")
+	public Object signUpForm(@Valid SignReqDto signReqDto, BindingResult bindingResult) {
+		System.out.println(signReqDto);
+		
+		return "sign-up";
+	}
+	
+}

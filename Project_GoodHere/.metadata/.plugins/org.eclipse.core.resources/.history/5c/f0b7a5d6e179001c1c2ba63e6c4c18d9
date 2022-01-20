@@ -1,0 +1,16 @@
+package com.goodHere.domain.user;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserRepository {
+	
+	public User getUser(String email);
+	
+	public int signUp(User user);
+	
+	public int userEmailCheck(String email);
+	
+	public int userNickNameCheck(String username);
+	
+}

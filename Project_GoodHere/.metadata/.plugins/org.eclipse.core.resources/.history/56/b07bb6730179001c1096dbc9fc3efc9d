@@ -1,0 +1,53 @@
+package com.goodHere.web.service;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+
+import com.goodHere.domain.user.User;
+import com.goodHere.domain.user.UserRepository;
+import com.goodHere.web.model.dto.SignReqDto;
+import com.goodHere.web.model.dto.SignResDto;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AuthServiceImpl implements AuthService{
+	
+	private final UserRepository userRepository;
+	
+//	@Override
+//	public int signUp(SignReqDto signReqDto, BindingResult bindingResult) {
+//		int signUpFlag = 0;
+//		
+//		User user = signReqDto.toEntity();
+//		int userNameCheckFlag = userRepository.userEmailCheck(user);
+//		
+//		if(userNameCheckFlag == 0) {
+//			signUpFlag = userRepository.signUp(user);
+//			user.setRole("ROLE_USER");
+//		}
+//		return signUpFlag;
+//	}
+	
+	@Override
+	public SignResDto<?> signUp(SignReqDto signReqDto, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
+			
+			for(FieldError error : bindingResult.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			
+			SignResDto<Map<String, String>> signResDto = new SignResDto<Map<String,String>>();
+		}
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.goodHere.web.service;
+
+import org.springframework.stereotype.Service;
+
+import com.goodHere.domain.nickname.NickNameRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class SignServiceImpl implements SignService{
+	
+	private final NickNameRepository nickNameRepository;
+	
+	@Override
+	public String chooseNickName() {
+		return nickNameRepository.chooseNickName().toString();
+	}
+
+}

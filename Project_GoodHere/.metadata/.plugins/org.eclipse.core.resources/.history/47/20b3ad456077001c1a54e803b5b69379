@@ -1,0 +1,21 @@
+package com.goodHere.domain.user;
+
+import java.util.Date;
+
+public class User {
+	
+	private int id;
+	private String email;
+	private String username;
+	private String password;
+	private String name;
+	private String phone;
+	private String booker;
+	private String profile_image;
+	private String provider;
+	private String role;
+	private Date create_date;
+	private Date update_date;
+	
+
+}

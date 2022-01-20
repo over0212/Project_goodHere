@@ -1,0 +1,5 @@
+package com.goodHere.web.controller;
+
+public class PhoneNumberCheckController {
+
+}

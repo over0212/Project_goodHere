@@ -1,0 +1,7 @@
+package com.goodHere.domain.nickname;
+
+public class NickName {
+
+	private String adjective_word;
+	private String noun_word;
+}

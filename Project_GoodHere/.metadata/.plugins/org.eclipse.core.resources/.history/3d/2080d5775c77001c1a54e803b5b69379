@@ -1,0 +1,5 @@
+package com.goodHere.domain.place;
+
+public interface PlaceRepository {
+
+}

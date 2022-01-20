@@ -1,0 +1,115 @@
+#container {
+	margin-top: 8.5em;
+}
+
+.in-container {
+	width: 336px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#header {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+
+#header a h1 {
+	font-size: 24px;
+	font-family: 'herefont';
+	color: #f2114c;
+}
+
+/* sign-up-form */
+#main {
+	display: flex;
+	flex-direction: column;
+}
+
+#main strong {
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+	margin: 1em 0;
+}
+
+#main b {
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	opacity: 0.6;
+	margin-bottom: 12px;
+}
+
+.sign-up-detail {
+	margin-bottom: 2em;
+}
+/* 에러 및 확인 메세지 */
+.msg {
+	padding: 5px 0 0 12px;
+	width: 100%;
+	display: block;
+	font-size: 11px;
+	color: red;
+	/* visibility: hidden; */
+}
+
+.sign-up-ips {
+	padding: 1em 0.5em 0.7em;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+.sign-up-ip {
+	opacity: 0.8;
+	width: 100%;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+.nickname-ip {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nickname-border {
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	width: 60%;
+	padding: 12px 12px;
+	border-radius: 5px;
+}
+
+.nickname {
+	opacity: 0.8;
+	width: 100%;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+.nick-btn {
+	font-size: 14px;
+	border: none;
+	border-radius: 5px;
+	padding: 1em;
+}
+
+.sign-up-btn {
+	margin-top: 1.3em;
+	width: 100%;
+	border: none;
+	padding: 1.2em;
+	border-radius: 10px;
+	opacity: 0.4;
+	pointer-events: auto;
+}
+
+.sign-up-btn span {
+	font-size: 16px;
+	color: #c0bfbf;
+}

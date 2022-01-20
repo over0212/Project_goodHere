@@ -1,0 +1,5 @@
+package com.goodHere.config;
+
+public class SecurityConfig {
+
+}

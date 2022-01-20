@@ -1,0 +1,9 @@
+package com.goodHere.web.service;
+
+import com.goodHere.web.model.dto.SignReqDto;
+
+public interface AuthService {
+	
+	public int signUp(SignReqDto signReqDto);
+
+}

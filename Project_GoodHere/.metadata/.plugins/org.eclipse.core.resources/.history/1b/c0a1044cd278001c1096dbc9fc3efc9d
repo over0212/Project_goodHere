@@ -1,0 +1,7 @@
+package com.goodHere.domain.nickname;
+
+public interface NickNameRepository {
+	
+	public NickName chooseNickName();
+
+}

@@ -1,0 +1,30 @@
+package com.goodHere.domain.place;
+
+import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Place {
+	
+	private int id;
+	private String booker;
+	private Date start_date;
+	private Date end_date;
+	private String place_name;
+	private String address;
+	private String place_image;
+	private int time_price;
+	private int place_price;
+	private String check_in_time;
+	private String check_out_time;
+	private Date create_date;
+	private Date update_date;
+
+}

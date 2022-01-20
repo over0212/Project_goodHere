@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.goodHere.domain.nickname.NickNameRepository">
+  	<select id="chooseNickName" parameterType="com.goodHere.domain.nickname.NickName" resultType="String">
+  		select
+  			nm.adjective_word,
+  			nm2.noun_word
+  		from
+  			nickname_mst nm
+  			left outer join nickname_mst nm2 on(nm2.noun_index != nm.adjective_index)
+  		order by
+  			rand() limit 1;
+  	</select>
+  </mapper>

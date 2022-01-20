@@ -1,0 +1,142 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/change-pwd.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <!-- 전체 틀 -->
+    <div id="container">
+        <!-- 상단 -->
+        <header id="header">
+            <section class="header_in">
+                <!-- 메인 로고 -->
+                <div class="logo">
+                    <h1><a href="#">여기어때.</a></h1>
+                </div>
+                <!-- 상단 메뉴 -->
+                <ul class="in_menu">
+                    <li><a href="#"><i class="fas fa-search"></i></a></li>
+                    <li><a href="#">내주변</a></li>
+                    <li><a href="#">예약내역</a></li>
+                    <li class="more-btn">
+                        <a>더보기</a>
+                        <div class="more-menu">
+                            <ul>
+                                <li><a href="">공지사항</a></li>
+                                <li><a href="">이벤트</a></li>
+                                <li><a href="">혁신 프로젝트</a></li>
+                                <li><a href="">자주 묻는 질문</a></li>
+                                <li><a href="">1:1 문의</a></li>
+                                <li><a href="">약관 및 정책</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="login-btn"><a href="#">로그인</a></li>
+                    <li class="sub-user-info">
+                        <a href="#"><img src="icons/user-icon.png" alt=""></a>
+                        <div class="user-menu">
+                            <ul>
+                                <li><b>청와대조류학잔</b></li>
+                                <li><a href="">내정보</a></li>
+                                <li><a href="">포인트</a></li>
+                                <li><a href="">쿠폰함</a></li>
+                                <li><a href="">예약내역</a></li>
+                                <li><a href="">로그아웃</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </header>
+
+        <div class="modal">
+            <div class="logout-window">
+                <div class="logout-text">로그아웃 하시겠습니까?</div>
+                <div class="logout-btns">
+                    <button type="button" class="cancel-logout">취소</button>
+                    <button type="button" class="ok-logout">로그아웃</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 내정보 타이틀 박스 -->
+        <section id="sub-box">
+            <div class="sub-title">
+                <h2>내정보</h2>
+            </div>
+        </section>
+
+        <!-- 메인 컨텐츠 -->
+        <main>
+            <nav class="info-nav">
+                <ul class="nav-menu">
+                    <li><a href="">포인트</a></li>
+                    <li><a href="">쿠폰함</a></li>
+                    <li><a href="">예약 내역</a></li>
+                    <li><a href="">내 정보 관리</a></li>
+                    <li><a href="">여기어때 상품권 잔액 조회</a></li>
+                </ul>
+            </nav>
+
+            <div class="information">
+                <section class="password-info">
+
+                    <strong>비밀번호 변경</strong>
+
+                    <div class="password-detail">
+                        <b>기존 비밀번호</b>
+                        <div class="ip-border">
+                            <input type="password" class="original-pwd" placeholder="기존 비밀번호를 입력해 주세요.">
+                        </div>
+                        <label class="msg">msg</label>
+                    </div>
+
+                    <div class="password-detail">
+                        <b>새 비밀번호</b>
+                        <div class="ip-border">
+                            <input type="password" class="new-pwd" placeholder="비밀번호(최소 8자 이상)">
+                        </div>
+                        <label class="msg">msg</label>
+                    </div>
+
+                    <div class="password-detail">
+                        <b>새 비밀번호 확인</b>
+                        <div class="ip-border">
+                            <input type="password" class="new-repwd" placeholder="변경할 비밀번호를 재입력해 주세요.">
+                        </div>
+                        <label class="msg">msg</label>
+                    </div>
+
+
+                    <p class="change-user-info"><a href="">내 정보 수정</a></p>
+
+                    <button type="button" class="change-pwd-btn">변경</button>
+
+                    <div class="sign-out-btn">
+                        <p>여기어때를 이용하고 싶지 않으신가요?</p>
+                        <a href="">로그아웃</a>
+                        <a href="">회원탈퇴</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- 하단 -->
+        <jsp:include page="include/footer.jsp" />
+    </div>
+    <script src="https://kit.fontawesome.com/364bcbe9ac.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

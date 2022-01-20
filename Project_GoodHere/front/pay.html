@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+</head>
+
+<body>
+    <button type="button">결제하기</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        var IMP = window.IMP; // 생략 가능
+        IMP.init("imp92505075"); // 예: imp00000000
+        var IMP_paramsObj = null;
+
+        btn.onclick = () => {
+            IMP_paramsObj = {
+                pg: "html5_inicis",
+                pay_method: "card",
+                merchant_uid: "merchant_" + new Date().getTime,
+                name: "노르웨이 회전 의자",
+                amount: 1000,
+                buyer_email: "liberty0212@gmail.com",
+                buyer_name: "정상우",
+                buyer_tel: "010-5798-2274",
+                buyer_addr: "부산광역시 부산진구 부전동",
+                buyer_postcode: "01181"
+            };
+        }
+
+        IMP.request_pay( // param
+            IMP_paramsObj
+            , function (rsp) { // callback
+                if (rsp.success) {
+                    // 결제 성공 시 로직,
+                    alert('결제 성공!');
+
+                } else {
+                    // 결제 실패 시 로직,
+                    alert('결제 실패' + rsp.console.error_msg);
+                }
+            });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+package com.goodHere.config.auth;
+
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.goodHere.domain.user.User;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class PrincipalDetails implements UserDetails {
+	
+	private User user;
+
+	@Override
+	public String getPassword() {
+		return user.getPassword();
+	}
+	
+	@Override
+	public String getUsername() {
+		return user.getEmail();
+	}
+	
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	
+	// 1년 이상 계정을 사용하지 않으면 휴면 계정으로 전환
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+}

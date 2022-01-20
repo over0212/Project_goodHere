@@ -1,0 +1,75 @@
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10em;
+    width: 100%;
+    background-color: #f5f5f5;
+    box-shadow:inset 0 1px 2px #ccc;
+}
+
+.footer-area{
+    width: 1024px;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+}
+
+/* 링크들 */
+.footer-group{
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0 2.5em;
+}
+.footer-group span{
+    font-size: 11px;
+    color: #b3b3b5;
+    margin-left: 5px;
+}
+.footer-group a{
+    font-size: 13px;
+    cursor: pointer;
+    color: #b3b3b5;
+}
+
+/* 고객센터 */
+.call-info p{
+    display: block;
+    padding: 1em 0 2.5em;
+    font-size: 13px;
+    color: #b3b3b5;
+}
+.call-info b{
+    margin-right: 1em;
+}
+
+/* 주소 */
+.addr-txt{
+    padding-bottom: 2em;
+    border-bottom: 1px solid #eeecec;
+}
+.addr-txt span{
+    display: block;
+    padding: 0.5em 0 1em;
+    font-style: normal;
+    color: #b3b3b5;
+}
+.addr-txt p{
+    display: block;
+    font-style: normal;
+    line-height: 1.8;
+    color: #b3b3b5;
+}
+
+/* company sns link */
+.company-sns{
+    margin-top: 2em;
+}
+.company-sns a:first-child{
+    margin-right: 2em;
+}
+.company-sns img{
+    width: 2.1em;
+    height: 2.1em;
+    opacity: 0.5;
+}

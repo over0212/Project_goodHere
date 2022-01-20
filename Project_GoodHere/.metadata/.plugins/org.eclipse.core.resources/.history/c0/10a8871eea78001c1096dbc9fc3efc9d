@@ -1,0 +1,29 @@
+package com.goodHere.web.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.goodHere.web.service.SignService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+public class SignRestController {
+	
+	private final SignService signService;
+	
+//	@GetMapping("/user/sign-up")
+//	public String signUpForm(@RequestParam String phone) {
+//		return "sign-up";
+//	}
+	
+	@GetMapping("/choose/nickname")
+	public String chooseNickName() {
+		String nick = signService.chooseNickName();
+		System.out.println(nick);
+		return nick;
+	}
+
+
+}

@@ -1,0 +1,92 @@
+const login_form = document.querySelector('.login-form');
+const ip_img = document.querySelectorAll('.login-form i')
+const email_border = document.querySelector('.email-ip');
+const password_border = document.querySelector('.password-ip');
+const email = document.querySelector('.email');
+const password = document.querySelector('.password');
+const login_btn = document.querySelector('login-btn');
+
+email.addEventListener('click', function() {
+	email.onfocus = () => {
+		email_border.style.border = '1px solid #666';
+		ip_img[0].style.opacity = 0.7;
+	}
+
+	email.onblur = () => {
+		email_border.style.border = '1px solid #d0d0d0';
+		ip_img[0].style.opacity = 0.4;
+	}
+
+});
+
+password.addEventListener('click', function() {
+	password.onfocus = () => {
+		password_border.style.border = '1px solid #666';
+		ip_img[1].style.opacity = 0.7;
+	}
+
+	password.onblur = () => {
+		password_border.style.border = '1px solid #d0d0d0';
+		ip_img[1].style.opacity = 0.4;
+	}
+
+});
+
+// 로그인 버튼 클릭 시
+/*login_btn.onclick = () => {
+	
+}*/
+
+function loginCheck() {
+	// 이메일이 입력했을 때
+	if(email.value.length != 0){
+		let emailCheckFlag = emailCheck(email.value);
+		if(emailCheckFlag == false){
+			alert('잘못된 이메일 형식입니다.');
+			email.focus();
+			
+		} else{
+			
+			if(password.value.length != 0){
+				
+			}
+		}
+		
+		// 이메일을 입력하지 않았을 때
+	} else{
+		alert('이메일을 입력해주세요.');
+	}
+	
+}
+
+//이메일 정규식 체크
+function emailCheck(email) {
+	var check_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+	if (check_email.test(email)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+// 비밀번호 정규식
+function passwordCheck() {
+
+	var passwordValue = password.value;
+	var checkNumber = passwordValue.search(/[0-9]/g);
+	var checkEnglish = passwordValue.search(/[a-z]/ig);
+
+	if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(passwordValue)) {
+		alert('숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.');
+		return false;
+	}
+	if (checkNumber < 0 || checkEnglish < 0) {
+		alert("숫자와 영문자를 혼용하여야 합니다.");
+		return false;
+	}
+	if (/(\w)\1\1\1/.test(passwordValue)) {
+		alert('같은 문자를 4번 이상 사용하실 수 없습니다.');
+		return false;
+	}
+	return true;
+}

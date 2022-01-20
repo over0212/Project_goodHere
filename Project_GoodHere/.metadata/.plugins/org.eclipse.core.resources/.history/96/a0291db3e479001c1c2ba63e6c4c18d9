@@ -1,0 +1,22 @@
+package com.goodHere.domain.user;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserRepository {
+	
+	public User getUser(String email);
+	
+	// 휴대폰 번호를 검사
+	public int userPhoneNumberCheck(String phone);
+	
+	// 유저의 이메일을 검사
+	public int userEmailCheck(String email);
+	
+	// 유저의 닉네임(username)을 검사
+	public int userNickNameCheck(String username);
+
+	// 회원가입
+	public int signUp(User user);
+	
+}

@@ -1,0 +1,25 @@
+const login_form = document.querySelector('.login-form');
+const ip_img = document.querySelectorAll('.login-form i')
+const email_border = document.querySelector('.email-ip');
+const password_border = document.querySelector('.password-ip');
+const email = document.querySelector('.email');
+const password = document.querySelector('.password');
+const login_btn = document.querySelector('login-btn');
+
+email.addEventListener('click', function(){
+	email.onfocus = () => {
+		email_border.style.border = '1px solid #ccc';
+		ip_img[0].style.opacity = 0.5;
+	}
+	
+	email.onblur = () => {
+		email_border.style.opacity = 0.4;
+		ip_img[0].style.opacity = 0.4;
+	}
+	
+});
+
+// 로그인 버튼 클릭 시
+/*login_btn.onclick = () => {
+	
+}*/

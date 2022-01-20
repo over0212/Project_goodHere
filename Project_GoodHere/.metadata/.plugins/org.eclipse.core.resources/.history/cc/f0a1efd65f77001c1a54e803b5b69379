@@ -1,0 +1,5 @@
+package com.goodHere.config.auth;
+
+public class PrincipalDetailsService {
+
+}

@@ -1,0 +1,6 @@
+const moreBtn = document.querySelector('.more-btn');
+const moreMenu = document.querySelector('.more-menu');
+const subUserInfo = document.querySelector('.sub-user-info');
+const userMenu = document.querySelector('.user-menu');
+const cancel_logout = document.querySelector('.cancel-logout');
+const ok_logout = document.querySelector('.ok-logout');

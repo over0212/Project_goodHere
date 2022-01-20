@@ -1,0 +1,199 @@
+#sub-box{
+    width: 100%;
+    padding: 8.5em 0 6em;
+    background-color: #f7323f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-title{
+    width: 1024px;
+}
+.sub-title h2{
+    font-size: 38px;
+    color: white;
+    font-weight: 400;
+}
+
+main{
+    margin-top: 5em;
+    width: 1024px;
+    display: flex;
+}
+/* nav 메뉴 */
+.info-nav{
+    width: 30%;
+}
+.nav-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.nav-menu li{
+    margin-bottom: 2.2em;
+}
+.nav-menu li a{
+    font-size: 18px;
+}
+
+/* 내정보 수정 */
+.information{
+    width: 100%;
+    margin-left: 3em;
+}
+.user-info{
+    padding-top: 11em;
+}
+.user-detail{
+    display: flex;
+    flex-direction: column;
+}
+.user-detail strong{
+    font-size: 18px;
+    margin-bottom: 2em;
+}
+.user-detail img{
+    width: 128px;
+    height: 128px;
+    margin-bottom: 2.5em;
+}
+.user-email{
+    font-size: 15px;
+    color: #adadad;
+    margin-bottom: 2.5em;
+    font-weight: 600;
+}
+
+/* 닉네임 예약자 이름 휴대폰 번호 */
+.info-detail{
+    width: 100%;
+    margin-bottom: 4em;
+}
+.nickname-detail, 
+.reserve-name-detail, 
+.phone-detail{
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+}
+.info-detail b{
+    width: 8em;
+    font-size: 18px;
+    font-weight: 100;
+}
+.info-detail span{
+    font-size: 18px;
+    font-weight: 100;
+    color: #adadad;
+}
+.update-btn{
+    font-size: 15px;
+    padding: 0.8em 3.5em;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.info-detail p{
+    color: #adadad;
+    margin-bottom: 1em;
+    font-size: 14px;
+}
+.user-phone{
+    padding-bottom: 5em;
+    border-bottom: 1px solid #adadad;
+}
+.user-phone-number{
+    letter-spacing: 1px;
+    color: #949393;
+}
+
+/* 비밀번호 변경 */
+.change-pwd{
+    font-size: 18px;
+    border-bottom: 1px solid #adadad;
+    padding: 2em 0 5em;
+}
+.change-pwd a{
+    font-size: 18px;
+    text-decoration: underline;
+    margin-right: 8px;
+    color: black;
+}
+.change-pwd::after{
+    content: ">";
+}
+
+/* 로그아웃 및 회원탈퇴 */
+.sign-out-btn{
+    padding-top: 3em;
+    display: flex;
+}
+.sign-out-btn p{
+    font-size: 16px;
+    margin-right: 1em;
+    color: rgba(0,0,0,0.56);
+}
+.sign-out-btn a{
+    font-size: 16px;
+    margin-right: 1em;
+    color: black;
+    text-decoration: underline;
+}
+
+
+/* 수정 버튼을 눌렀을 때 */
+.update-info{
+    display: none;
+    flex-direction: column;
+}
+.change-ip{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3em;
+}
+.ip-border{
+    width: 41%;
+    margin-right: 1em;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    padding: 1em;
+}
+.update-nickname{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 0.2em 0;
+}
+.change-nick-btn{
+    border: none;
+    border-radius: 5px;
+    padding: 0 1.2em;
+    background-color: #ed1848;
+    color: white;    
+}
+.change-btns button{
+    font-size: 15px;
+    padding: 0.8em 2.7em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ok-btn{
+    background-color: #ed1848;
+    color: white;
+    border: none;
+    margin-right: 1em;
+}
+.cancel-btn{
+    background-color: white;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+}
+.send-sms-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: #cccccc;
+    color: white;
+    cursor: pointer;
+}

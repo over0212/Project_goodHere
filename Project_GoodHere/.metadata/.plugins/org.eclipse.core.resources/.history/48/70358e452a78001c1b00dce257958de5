@@ -1,0 +1,13 @@
+package com.goodHere.web.model.dto;
+
+import lombok.Data;
+
+@Data
+public class SignReqDto {
+	
+	private int id;
+	private String email;
+	private String password;
+	private String username;
+	
+}

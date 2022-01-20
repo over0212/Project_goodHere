@@ -1,0 +1,18 @@
+package com.goodHere.web.service;
+
+import org.springframework.stereotype.Service;
+
+import com.goodHere.web.model.dto.SignReqDto;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AuthServiceImpl implements AuthService{
+	
+	@Override
+	public int signUp(SignReqDto signReqDto) {
+		return 0;
+	}
+
+}

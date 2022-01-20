@@ -1,0 +1,28 @@
+package com.goodHere.web.service;
+
+import org.springframework.stereotype.Service;
+
+import com.goodHere.domain.nickname.NickNameRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class SignServiceImpl implements SignService{
+	
+	private final NickNameRepository nickNameRepository;
+	
+	@Override
+	public String chooseNickName() {
+		String adjectiveWord = nickNameRepository.chooseNickName().getAdjective_word();
+		String nounWord = nickNameRepository.chooseNickName().getNoun_word();
+		System.out.println(adjectiveWord + nounWord);
+		return adjectiveWord + nounWord;
+	}
+	
+	@Override
+	public String signUp() {
+		
+		return null;
+	}
+}

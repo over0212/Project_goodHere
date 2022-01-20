@@ -1,0 +1,5 @@
+package com.goodHere.domain.nickname;
+
+public class NickName {
+
+}

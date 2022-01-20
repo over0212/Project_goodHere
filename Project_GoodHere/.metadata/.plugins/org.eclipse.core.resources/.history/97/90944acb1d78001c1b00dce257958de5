@@ -1,0 +1,28 @@
+package com.goodHere.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class PageController {
+	
+	@GetMapping({"/", "/index"})
+	public String index() {
+		return "index";
+	}
+	
+	@GetMapping({"/sign-in", "/login"})
+	public String loginPage() {
+		return "sign-in";
+	}
+	
+	@GetMapping("/user/join")
+	public String phoneCheck() {
+		return "phone-check";
+	}
+	
+	public String signUpForm() {
+		return "sign-up";
+	}
+
+}

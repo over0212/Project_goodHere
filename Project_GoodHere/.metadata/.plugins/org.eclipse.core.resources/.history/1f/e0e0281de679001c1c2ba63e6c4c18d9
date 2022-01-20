@@ -1,0 +1,5 @@
+const moreBtn = document.querySelector('.more-btn');
+const moreMenu = document.querySelector('.more-menu');
+const subUserInfo = document.querySelector('.sub-user-info');
+const userMenu = document.querySelector('.user-menu');
+const 

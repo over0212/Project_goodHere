@@ -1,0 +1,12 @@
+package com.goodHere.web.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class SignServiceImpl implements SignService{
+	
+	@Override
+	public String signUp() {
+		return null;
+	}
+}
