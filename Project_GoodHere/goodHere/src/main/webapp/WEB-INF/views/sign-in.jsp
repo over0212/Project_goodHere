@@ -48,20 +48,20 @@
                     <!-- <div class="line"></div> -->
                 </div>
 
-                <div class="login-form">
+                <form action="/sign-in" method="post" class="login-form">
                     <div class="email-ip">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" class="email" placeholder="이메일 주소">
+                        <input type="email" class="email" name="username" placeholder="이메일 주소">
                     </div>
                     <label class="msg"></label>
 
                     <div class="password-ip">
                         <i class="fas fa-lock"></i>
-                        <input type="password" class="password" placeholder="비밀번호">
+                        <input type="password" class="password" name="password" placeholder="비밀번호">
                     </div>
                     <label class="msg"></label>
-                    <button type="button" class="login-btn"><span>로그인</span></button>
-                </div>
+                    <button type="submit" class="login-btn"><span>로그인</span></button>
+                </form>
 
                 <div class="info-set">
                     <a href="#"><span>비밀번호 재설정</span></a>

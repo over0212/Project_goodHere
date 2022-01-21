@@ -32,6 +32,10 @@ main{
 .nav-menu li{
     margin-bottom: 2.2em;
 }
+#user-page{
+	color: red;
+	font-weight: 600;
+}
 .nav-menu li a{
     font-size: 18px;
 }
@@ -159,7 +163,7 @@ main{
     border-radius: 5px;
     padding: 1em;
 }
-.update-nickname{
+.update-ip{
     width: 100%;
     border: none;
     outline: none;

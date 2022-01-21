@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.csrf().disable(); // 토큰 생성 X
 		http.authorizeRequests()
-				.antMatchers()
+				.antMatchers("/user/info", "/user/password")
 				.authenticated()
 				.anyRequest()
 				.permitAll()

@@ -11,7 +11,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/logout.css">
     <link rel="stylesheet" href="/css/change-pwd.css">
     <link rel="stylesheet" href="/css/footer.css">
 </head>
@@ -38,7 +37,7 @@
                     <li><a href="#">포인트</a></li>
                     <li><a href="#">쿠폰함</a></li>
                     <li><a href="#">예약 내역</a></li>
-                    <li><a href="#">내 정보 관리</a></li>
+                    <li><a href="#" id="user-page">내 정보 관리</a></li>
                     <li><a href="#">여기어때 상품권 잔액 조회</a></li>
                 </ul>
             </nav>

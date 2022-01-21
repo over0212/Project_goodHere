@@ -38,7 +38,7 @@
 				</c:when>
 				<c:otherwise>
 					<li class="sub-user-info">
-					<a href="#"><img src="/icons/user-icon.png" alt=""></a>
+						<a href="#"><img src="/icons/user-icon.png" alt=""></a>
 						<div class="user-menu">
 							<ul>
 								<li><b>${principal.user.username }</b></li>
@@ -46,7 +46,7 @@
 								<li><a href="#">포인트</a></li>
 								<li><a href="#">쿠폰함</a></li>
 								<li><a href="#">예약내역</a></li>
-								<li><a href="#">로그아웃</a></li>
+								<li><a href="#" id="logout">로그아웃</a></li>
 							</ul>
 						</div>
 					</li>

@@ -20,4 +20,6 @@ public interface UserRepository {
 	// 회원가입
 	public int signUp(User user);
 	
+	public int changeNickname(String email);
+	
 }

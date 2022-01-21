@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal" />
+</sec:authorize>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,9 +16,9 @@
     <title>취향대로 머물다 여기어때</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/logout.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -164,7 +169,6 @@
 
     </div>
     <script src="/js/header.js"></script>
-    <script src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/364bcbe9ac.js" crossorigin="anonymous"></script>
 </body>
 

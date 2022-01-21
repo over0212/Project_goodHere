@@ -2,12 +2,15 @@ package com.goodHere.web.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.goodHere.config.auth.PrincipalDetails;
 import com.goodHere.web.model.dto.SignReqDto;
 import com.goodHere.web.service.AuthService;
 import com.goodHere.web.service.SignService;
@@ -28,8 +31,12 @@ public class SignRestController {
 	
 	@PostMapping("/user/sign-up")
 	public Object signUpForm(@Valid @RequestBody SignReqDto signReqDto, BindingResult bindingResult) {
-		System.out.println(signReqDto);
 		return authService.signUp(signReqDto, bindingResult);
+	}
+	
+	@PatchMapping("/change/nickname")
+	public String changeNickname(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestBody String username) {
+		return signService.updateNickName(principalDetails.getUser().getEmail());
 	}
 	
 }

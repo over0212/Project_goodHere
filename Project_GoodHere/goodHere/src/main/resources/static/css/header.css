@@ -31,8 +31,15 @@
     width: 45%;
     align-items: center;
 }
-.in_menu li{
-    padding: 5px;
+.in_menu > li{
+    padding: 15px 5px;
+    opacity: 0.8;
+}
+.in_menu li:hover{
+	opacity: 1;
+}
+.in_menu ul:last-child{
+	opacity: 1;
 }
 
 /* fontawesome image */
@@ -49,7 +56,7 @@
 
 /* 로그인 되었을 때 이미지 */
 .sub-user-info{
-    display: none;
+    display: block;
 }
 .sub-user-info a{
     display: flex;
@@ -60,7 +67,7 @@
     height: 30px;
     margin-right: 10px;
 }
-.sub-user-info a::after{
+.sub-user-info img::after{
     content: "▼";
     font-size: 10px;
 }
@@ -79,13 +86,15 @@
 .more-menu ul{
     line-height: 1.2;
 }
-.more-menu li{
+.more-menu > ul > li{
+	padding: 5px 0;
     text-align: start;
 }
 .more-menu li a{
     color: black;
     font-size: 16px;
 }
+
 /* 로그인 되었을 때 */
 .user-menu{
     display: none;
@@ -103,7 +112,8 @@
     width: 100%;
     line-height: 1.2;
 }
-.user-menu li{
+.user-menu > ul > li{
+	padding: 5px 0;
     text-align: start;
 }
 .user-menu b{

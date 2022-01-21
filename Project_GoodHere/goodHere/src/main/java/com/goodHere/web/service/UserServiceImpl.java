@@ -1,5 +1,8 @@
 package com.goodHere.web.service;
 
-public class UserServiceImpl implements UserService{
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService {
 
 }

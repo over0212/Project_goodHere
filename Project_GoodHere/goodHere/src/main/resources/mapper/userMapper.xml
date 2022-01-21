@@ -58,4 +58,13 @@
 		where
 			username = #{username};
 	</select>
+	
+	<update id="changeNickname" parameterType="com.goodHere.domain.user.User">
+		update
+			user_mst
+		set
+			username = #{username}
+		where
+			email = #{email};
+	</update>
 </mapper>

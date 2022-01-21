@@ -41,21 +41,6 @@ password.addEventListener('click', function() {
 
 });
 
-// 로그인 버튼 클릭 시
-login_btn.onclick = () => {
-	let signInObj = {
-		'email' : inputAll[0].value,
-		'password' : inputAll[1].value
-	}
-	$.ajax({
-		type: "post",
-		url: "/sign-in",
-		contentType: "application/json; charset=UTF-8",
-		data: JSON.stringify(signInObj),
-		dataType: "text"
-	})
-}
-
 for (let i = 0; i < inputAll.length; i++) {
 	inputAll[i].onkeyup = () => {
 		if (i == 0) {

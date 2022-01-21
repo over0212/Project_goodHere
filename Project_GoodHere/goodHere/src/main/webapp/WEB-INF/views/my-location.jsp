@@ -11,7 +11,6 @@
     <title>내주변</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/logout.css">
     <link rel="stylesheet" href="/css/location.css">
     <link rel="stylesheet" href="/css/contents-list.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
