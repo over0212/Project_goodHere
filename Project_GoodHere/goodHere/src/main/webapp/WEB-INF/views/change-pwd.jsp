@@ -57,7 +57,7 @@
 					<div class="password-detail">
 						<b>기존 비밀번호</b>
 						<div class="ip-border">
-							<input type="password" class="original-pwd" id="pwd-ip"
+							<input type="password" class="original-pwd pwd-ip"
 								placeholder="기존 비밀번호를 입력해 주세요.">
 						</div>
 						<label class="msg"></label>
@@ -66,7 +66,7 @@
 					<div class="password-detail">
 						<b>새 비밀번호</b>
 						<div class="ip-border">
-							<input type="password" class="new-pwd" id="pwd-ip"
+							<input type="password" class="new-pwd pwd-ip"
 								placeholder="비밀번호(최소 8자 이상)">
 						</div>
 						<label class="msg"></label>
@@ -75,7 +75,7 @@
 					<div class="password-detail">
 						<b>새 비밀번호 확인</b>
 						<div class="ip-border">
-							<input type="password" class="new-repwd" id="pwd-ip"
+							<input type="password" class="new-repwd pwd-ip"
 								placeholder="변경할 비밀번호를 재입력해 주세요.">
 						</div>
 						<label class="msg"></label>
@@ -102,7 +102,7 @@
 	</div>
 
 	<script src="/js/header.js"></script>
-	<script src="/js/chage-pwd"></script>
+	<script src="/js/change-pwd.js"></script>
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>
 </body>

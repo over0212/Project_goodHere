@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.goodHere.config.auth.PrincipalDetails;
-import com.goodHere.web.model.dto.SignReqDto;
+import com.goodHere.web.model.reqDto.SignReqDto;
+import com.goodHere.web.model.reqDto.passwordReqDto;
 import com.goodHere.web.service.AuthService;
 import com.goodHere.web.service.PhoneMaskingService;
 import com.goodHere.web.service.SignService;
@@ -55,6 +56,11 @@ public class SignRestController {
 		phone = phone.replaceAll("\\\"", "");
 		principalDetails.getUser().setPhone(phoneMaskingService.phoneMasking(phone));
 		return signService.updatePhoneNumber(principalDetails.getUser().getEmail(), phone);
+	}
+	
+	@PatchMapping("/change/password")
+	public Object changePassword(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestBody passwordReqDto passwordReqDto) {
+		return signService.updatePassword(principalDetails, passwordReqDto);
 	}
 
 }

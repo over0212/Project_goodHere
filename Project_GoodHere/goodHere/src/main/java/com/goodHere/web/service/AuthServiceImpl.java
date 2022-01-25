@@ -9,8 +9,8 @@ import org.springframework.validation.FieldError;
 
 import com.goodHere.domain.user.User;
 import com.goodHere.domain.user.UserRepository;
-import com.goodHere.web.model.dto.SignReqDto;
-import com.goodHere.web.model.dto.SignResDto;
+import com.goodHere.web.model.reqDto.SignReqDto;
+import com.goodHere.web.model.resDto.SignResDto;
 
 import lombok.RequiredArgsConstructor;
 

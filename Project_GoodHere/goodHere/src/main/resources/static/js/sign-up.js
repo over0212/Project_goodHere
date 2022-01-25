@@ -127,7 +127,6 @@ function submit() {
 
 function signUpValidationMsg(data) {
 	let signUpData = JSON.parse(data);
-	alert(signUpData);
 	if (signUpData.code == 400) {
 		alert(
 			'유효성 검사 오류.' + '\n' +

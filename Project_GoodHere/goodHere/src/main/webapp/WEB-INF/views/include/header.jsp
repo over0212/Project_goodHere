@@ -18,7 +18,7 @@
 		<!-- 상단 메뉴 -->
 		<ul class="in_menu">
 			<li><a href="#"><i class="fas fa-search"></i></a></li>
-			<li><a href="#">내주변</a></li>
+			<li><a href="/my-location">내주변</a></li>
 			<li><a href="#">예약내역</a></li>
 			<li class="more-btn"><a>더보기</a>
 				<div class="more-menu">

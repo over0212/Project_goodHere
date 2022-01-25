@@ -1,4 +1,4 @@
-package com.goodHere.web.model.dto;
+package com.goodHere.web.model.reqDto;
 
 import javax.validation.constraints.NotBlank;
 

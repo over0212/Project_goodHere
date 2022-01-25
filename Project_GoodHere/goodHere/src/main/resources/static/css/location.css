@@ -145,10 +145,6 @@ input[type=date]{
     color: rgba(0,0,0,0.56);
     cursor: pointer;
 }
-.label-chk{
-    background: url(//icons/icon-chk.png) no-repeat 0 0;
-    background-size: 21px auto;
-}
 
 #earlybird{
     display: flex;

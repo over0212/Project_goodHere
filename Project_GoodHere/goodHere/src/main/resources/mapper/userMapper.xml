@@ -10,7 +10,8 @@
 		from
 		user_mst
 		where
-		email = #{email};
+		email =
+		#{email};
 	</select>
 
 	<insert id="signUp"
@@ -70,7 +71,8 @@
 		set
 		username = #{username}
 		where
-		email = #{email};
+		email =
+		#{email};
 	</update>
 
 	<select id="userBookerNameCheck"
@@ -90,15 +92,26 @@
 		set
 		booker = #{booker}
 		where
-		email = #{email};
+		email =
+		#{email};
 	</update>
-	
+
 	<update id="changePhoneNumber"
 		parameterType="com.goodHere.domain.user.User">
 		update
 		user_mst
 		set
 		phone = #{phone}
+		where
+		email = #{email};
+	</update>
+
+	<update id="changePassword"
+		parameterType="com.goodHere.domain.user.User">
+		update
+		user_mst
+		set
+		password = #{password}
 		where
 		email = #{email};
 	</update>

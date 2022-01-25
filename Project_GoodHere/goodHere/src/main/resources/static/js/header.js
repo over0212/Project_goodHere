@@ -10,7 +10,7 @@ const cancel_logout = document.querySelector('.cancel-logout');
 const ok_logout = document.querySelector('.ok-logout');
 
 // 회원탈퇴
-const deleteUser = document.querySelector('#delete');
+const deleteUser = document.querySelectorAll('#delete');
 const deleteWindow = document.querySelector('.delete-modal');
 const cancel_delete = document.querySelector('.cancel-delete');
 const ok_delete = document.querySelector('.ok-delete');
@@ -48,17 +48,20 @@ ok_logout.onclick = () => {
 }
 
 /* 회원탈퇴 */
-if (deleteWindow.style.display = 'none') {
-	deleteUser.onclick = () => {
+for (let i = 0; i < deleteUser.length; i++) {
+	deleteUser[i].onclick = () => {
 		deleteWindow.style.display = 'flex';
 	}
 }
 
-cancel_delete.onclick = () => {
-	deleteWindow.style.display = 'none';
+if (deleteWindow.style.display == 'flex') {
+	cancel_delete.onclick = () => {
+		deleteWindow.style.display = 'none';
+
+	}
 }
 
-if (deleteWindow.style.display = 'flex') {
+if (deleteWindow.style.display == 'flex') {
 	ok_delete.onclick = () => {
 		$.ajax({
 			type: "delete",
