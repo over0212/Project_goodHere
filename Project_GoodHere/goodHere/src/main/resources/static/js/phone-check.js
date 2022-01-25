@@ -39,7 +39,6 @@ sendNumberBtn.onclick = () => {
 				} else {
 					check_sms.style.display = 'flex';
 					smsTimer;
-					alert(data);
 					smsCode = data;
 				}
 			},
@@ -68,7 +67,7 @@ sms.onkeyup = () => {
 
 receiveSMSBtn.onclick = () => {
 	smsObj = sms.value;
-	smsFlag = false;
+	let smsFlag = false;
 	if (checkNumberSMS == true && smsCode == smsObj) {
 		alert('인증 성공');
 		smsFlag = true;
@@ -78,6 +77,7 @@ receiveSMSBtn.onclick = () => {
 		alert('인증 실패!');
 		sendNumberBtn.style.backgroundColor = '#ff0055';
 		check_sms.style.display = 'none';
+		smsFlag = false;
 		return;
 	}
 

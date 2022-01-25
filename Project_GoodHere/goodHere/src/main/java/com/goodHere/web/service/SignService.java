@@ -4,6 +4,10 @@ public interface SignService {
 	
 	public String chooseNickName();
 	
-	public String updateNickName(String email);
+	public int updateNickName(String email, String username);
+	
+	public int updateBookerName(String email, String booker);
+	
+	public int updatePhoneNumber(String email, String phone);
 
 }

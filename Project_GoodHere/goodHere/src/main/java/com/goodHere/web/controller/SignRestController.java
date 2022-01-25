@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.goodHere.config.auth.PrincipalDetails;
 import com.goodHere.web.model.dto.SignReqDto;
 import com.goodHere.web.service.AuthService;
+import com.goodHere.web.service.PhoneMaskingService;
 import com.goodHere.web.service.SignService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class SignRestController {
 	
 	private final SignService signService;
 	private final AuthService authService;
+	private final PhoneMaskingService phoneMaskingService;
 	
 	@GetMapping("/choose/nickname")
 	public String chooseNickName() {
@@ -35,8 +37,24 @@ public class SignRestController {
 	}
 	
 	@PatchMapping("/change/nickname")
-	public String changeNickname(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestBody String username) {
-		return signService.updateNickName(principalDetails.getUser().getEmail());
+	public int changeNickname(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestBody String username) {
+		username = username.replaceAll("\\\"", "");
+		principalDetails.getUser().setUsername(username);
+		return signService.updateNickName(principalDetails.getUser().getEmail(), username);
 	}
 	
+	@PatchMapping("/change/booker")
+	public int changeBookerName(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestBody String booker) {
+		booker = booker.replaceAll("\\\"", "");
+		principalDetails.getUser().setBooker(booker);
+		return signService.updateBookerName(principalDetails.getUser().getEmail(), booker);
+	}
+	
+	@PatchMapping("/change/phone")
+	public int changePhoneNumber(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestBody String phone) {
+		phone = phone.replaceAll("\\\"", "");
+		principalDetails.getUser().setPhone(phoneMaskingService.phoneMasking(phone));
+		return signService.updatePhoneNumber(principalDetails.getUser().getEmail(), phone);
+	}
+
 }

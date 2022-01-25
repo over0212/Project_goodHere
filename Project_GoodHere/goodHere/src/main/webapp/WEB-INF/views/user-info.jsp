@@ -44,7 +44,7 @@
 					<li><a href="#">포인트</a></li>
 					<li><a href="#">쿠폰함</a></li>
 					<li><a href="#">예약 내역</a></li>
-					<li><a href="#" id="user-page">내 정보 관리</a></li>
+					<li><a href="/user/info" id="user-page">내 정보 관리</a></li>
 					<li><a href="#">여기어때 상품권 잔액 조회</a></li>
 				</ul>
 			</nav>
@@ -103,18 +103,31 @@
 						<p>개인 정보 보호를 위해 내 정보는 모두 안전하게 암호화됩니다.</p>
 						<button type="button" class="update-btn">수정</button>
 
-						<div class="update-info">
+						 <div class="update-info">
 							<div class="change-ip">
 								<div class="ip-border">
-									<input type="text" class="update-ip" placeholder="체크인시 필요한 정보입니다.">
+									<input type="text" class="update-ip" maxlength="11" placeholder="체크인시 필요한 정보입니다.">
 								</div>
 								<button type="button" class="send-sms-btn">인증번호 전송</button>
 							</div>
+							
+							<!-- 인증번호 확인 -->
+			                <div class="check-sms">
+			                    <b>인증 번호</b>
+			                    <div class="check-form">
+			                        <div class="sms-ip">
+			                            <input type="tel" class="sms" maxlength="4" placeholder="인증번호 입력">
+			                            <div id="timer"></div>
+			                        </div>
+			                        <button type="button" class="receive-sms">확인</button>
+			                    </div>
+			                </div>
+			                
 							<div class="change-btns">
 								<button type="button" class="ok-btn">수정완료</button>
 								<button type="button" class="cancel-btn">수정취소</button>
 							</div>
-						</div>
+						 </div> 
 					</div>
 
 					<p class="change-pwd">
@@ -123,11 +136,13 @@
 
 					<div class="sign-out-btn">
 						<p>여기어때를 이용하고 싶지 않으신가요?</p>
-						<a href="#" id="logout">로그아웃</a> <a href="#">회원탈퇴</a>
+						<a href="#" id="logout">로그아웃</a> <a href="#" id="delete">회원탈퇴</a>
 					</div>
 				</section>
 			</div>
 		</main>
+		
+		<jsp:include page="include/delete.jsp" />
 
 		<!-- 하단 -->
 		<jsp:include page="include/footer.jsp" />

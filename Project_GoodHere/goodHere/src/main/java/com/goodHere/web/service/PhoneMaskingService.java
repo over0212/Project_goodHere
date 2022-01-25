@@ -21,6 +21,7 @@ public class PhoneMaskingService {
 				middleNumber += "*";
 			}
 			String changePhone = phone.replace(rePlaceTarget, String.valueOf(middleNumber));
+			System.out.println(changePhone);
 			return changePhone;
 		}
 		return phone;

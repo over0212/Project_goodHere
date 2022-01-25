@@ -8,63 +8,98 @@
 		select
 		*
 		from
-			user_mst
+		user_mst
 		where
-			email = #{email};
+		email = #{email};
 	</select>
 
-	<insert id="signUp" parameterType="com.goodHere.domain.user.User">
+	<insert id="signUp"
+		parameterType="com.goodHere.domain.user.User">
 		insert into
-			user_mst
+		user_mst
 		values(
-			0,
-			#{email},
-			#{username},
-			#{password},
-			#{name},
-			#{phone},
-			#{booker},
-			#{profile_image},
-			#{provider},
-			#{role},
-			now(),
-			now()
+		0,
+		#{email},
+		#{username},
+		#{password},
+		#{name},
+		#{phone},
+		#{booker},
+		#{profile_image},
+		#{provider},
+		#{role},
+		now(),
+		now()
 		);
 	</insert>
-	
-	<select id="userPhoneNumberCheck" parameterType="com.goodHere.domain.user.User" resultType="Integer">
+
+	<select id="userPhoneNumberCheck"
+		parameterType="com.goodHere.domain.user.User" resultType="Integer">
 		select
-			count(phone)
+		count(phone)
 		from
-			user_mst
+		user_mst
 		where
-			phone = #{phone};
+		phone = #{phone};
 	</select>
-	
-	<select id="userEmailCheck" parameterType="com.goodHere.domain.user.User" resultType="Integer">
+
+	<select id="userEmailCheck"
+		parameterType="com.goodHere.domain.user.User" resultType="Integer">
 		select
-			count(email)
+		count(email)
 		from
-			user_mst
+		user_mst
 		where
-			email = #{email};
+		email = #{email};
 	</select>
-	
-	<select id="userNickNameCheck" parameterType="com.goodHere.domain.user.User" resultType="Integer">
+
+	<select id="userNickNameCheck"
+		parameterType="com.goodHere.domain.user.User" resultType="Integer">
 		select
-			count(username)
+		count(username)
 		from
-			user_mst
+		user_mst
 		where
-			username = #{username};
+		username = #{username};
 	</select>
-	
-	<update id="changeNickname" parameterType="com.goodHere.domain.user.User">
+
+	<update id="changeNickname"
+		parameterType="com.goodHere.domain.user.User">
 		update
-			user_mst
+		user_mst
 		set
-			username = #{username}
+		username = #{username}
 		where
-			email = #{email};
+		email = #{email};
+	</update>
+
+	<select id="userBookerNameCheck"
+		parameterType="com.goodHere.domain.user.User" resultType="Integer">
+		select
+		count(booker)
+		from
+		user_mst
+		where
+		booker = #{booker};
+	</select>
+
+	<update id="changeBookerName"
+		parameterType="com.goodHere.domain.user.User">
+		update
+		user_mst
+		set
+		booker = #{booker}
+		where
+		email = #{email};
+	</update>
+	
+	<update id="changePhoneNumber"
+		parameterType="com.goodHere.domain.user.User">
+		update
+		user_mst
+		set
+		phone = #{phone}
+		where
+		email = #{email};
 	</update>
 </mapper>
