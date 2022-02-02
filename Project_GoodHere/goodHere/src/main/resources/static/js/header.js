@@ -54,12 +54,9 @@ for (let i = 0; i < deleteUser.length; i++) {
 	}
 }
 
-if (deleteWindow.style.display == 'flex') {
 	cancel_delete.onclick = () => {
 		deleteWindow.style.display = 'none';
-
 	}
-}
 
 if (deleteWindow.style.display == 'flex') {
 	ok_delete.onclick = () => {

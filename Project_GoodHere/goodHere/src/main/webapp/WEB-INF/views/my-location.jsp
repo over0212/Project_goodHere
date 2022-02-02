@@ -18,9 +18,12 @@
 <title>내주변</title>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/map.css">
 <link rel="stylesheet" href="/css/location.css">
 <link rel="stylesheet" href="/css/contents-list.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c97d4a93761fde066b11f85273412c7&libraries=services,clusterer,drawing"></script>
 </head>
 
 <body>
@@ -191,6 +194,8 @@
 						<button type="button" class="map-btn">지도</button>
 					</section>
 
+
+
 					<section class="recommend">
 						<h3>TOP 추천</h3>
 						<span>광고</span>
@@ -232,10 +237,15 @@
 				</div>
 			</section>
 		</main>
+		
+		<jsp:include page="include/map.jsp" />
 		<jsp:include page="include/delete.jsp" />
 
 	</div>
+
 	<script src="/js/header.js"></script>
+	<script src="/js/map.js"></script>
+	<script src="/js/location.js"></script>
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>
 </body>

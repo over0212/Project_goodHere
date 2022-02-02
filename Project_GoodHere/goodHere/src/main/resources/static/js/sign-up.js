@@ -1,3 +1,5 @@
+
+
 const email = document.querySelector('#email'); // email ip
 const password = document.querySelector('#password'); // password ip
 const re_password = document.querySelector('#re-pwd'); // re-pwd ip

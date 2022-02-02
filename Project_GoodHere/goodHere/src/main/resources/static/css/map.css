@@ -1,0 +1,28 @@
+ #map{
+    display: flex;
+	width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.78);
+    z-index: 9999;
+}
+
+#map i{
+	position: fixed;
+	top: 7%;
+	right: 23%;
+	z-index: 9999;
+	font-size: 30px;
+	color: #cccccc;
+	cursor: pointer;
+}
+
+#map-window{
+    display: block;
+    width: 962px;
+    height: 736px;
+}
