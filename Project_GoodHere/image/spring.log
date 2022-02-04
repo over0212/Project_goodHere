@@ -1,120 +1,28 @@
-2022-02-02 14:33:41.409  INFO 15960 --- [restartedMain] com.goodHere.GoodHereApplication         : Starting GoodHereApplication using Java 16.0.2 on DESKTOP-CU8F96E with PID 15960 (D:\ProjectGoodHere\Project_GoodHere\goodHere\target\classes started by admin in D:\ProjectGoodHere\Project_GoodHere\goodHere)
-2022-02-02 14:33:41.412  INFO 15960 --- [restartedMain] com.goodHere.GoodHereApplication         : No active profile set, falling back to default profiles: default
-2022-02-02 14:33:41.482  INFO 15960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-02-02 14:33:41.483  INFO 15960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-02-02 14:33:42.269  INFO 15960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-02-02 14:33:42.283  INFO 15960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
-2022-02-02 14:33:42.924  INFO 15960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-2022-02-02 14:33:42.935  INFO 15960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-02 14:33:42.936  INFO 15960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
-2022-02-02 14:33:43.204  INFO 15960 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-02-02 14:33:43.213  INFO 15960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-02 14:33:43.213  INFO 15960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1729 ms
-2022-02-02 14:33:43.286  WARN 15960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [6EAB81073D1781AC699A8E8B52046DCE]
-2022-02-02 14:33:43.847  INFO 15960 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19260d80, org.springframework.security.web.context.SecurityContextPersistenceFilter@12756fc6, org.springframework.security.web.header.HeaderWriterFilter@25278f7a, org.springframework.security.web.authentication.logout.LogoutFilter@1d485b79, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@781659cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@114328fb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@114859fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@154a7df, org.springframework.security.web.session.SessionManagementFilter@562219d0, org.springframework.security.web.access.ExceptionTranslationFilter@469a6da9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@212a670b]
-2022-02-02 14:33:44.085  INFO 15960 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-02-02 14:33:44.193  INFO 15960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-02-02 14:33:44.278  INFO 15960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-02-02 14:33:44.465  INFO 15960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-02-02 14:33:44.539  INFO 15960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-2022-02-02 14:33:44.556  INFO 15960 --- [restartedMain] com.goodHere.GoodHereApplication         : Started GoodHereApplication in 3.74 seconds (JVM running for 4.799)
-2022-02-02 14:33:51.803  INFO 15960 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-02-02 14:33:51.803  INFO 15960 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-02-02 14:33:51.804  INFO 15960 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-02-02 14:51:27.582  WARN 15960 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m42s967ms13µs900ns).
-2022-02-02 15:03:14.325  INFO 15960 --- [RMI TCP Connection(38)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-02-02 15:03:14.362  INFO 15960 --- [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-02-02 15:03:14.370  INFO 15960 --- [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-02-02 15:32:03.937  INFO 10152 --- [restartedMain] com.goodHere.GoodHereApplication         : Starting GoodHereApplication using Java 16.0.2 on DESKTOP-CU8F96E with PID 10152 (D:\ProjectGoodHere\Project_GoodHere\goodHere\target\classes started by admin in D:\ProjectGoodHere\Project_GoodHere\goodHere)
-2022-02-02 15:32:03.938  INFO 10152 --- [restartedMain] com.goodHere.GoodHereApplication         : No active profile set, falling back to default profiles: default
-2022-02-02 15:32:03.985  INFO 10152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-02-02 15:32:03.985  INFO 10152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-02-02 15:32:04.766  INFO 10152 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-02-02 15:32:04.789  INFO 10152 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
-2022-02-02 15:32:05.562  INFO 10152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-2022-02-02 15:32:05.582  INFO 10152 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-02 15:32:05.583  INFO 10152 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
-2022-02-02 15:32:06.037  INFO 10152 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-02-02 15:32:06.053  INFO 10152 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-02 15:32:06.053  INFO 10152 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2067 ms
-2022-02-02 15:32:06.120  WARN 10152 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [7A01F329ECC9ECDC64A9421AC43A08E5]
-2022-02-02 15:32:06.124 ERROR 10152 --- [restartedMain] o.a.catalina.session.StandardManager     : Exception loading sessions from persistent storage
-
-java.io.StreamCorruptedException: invalid type code: 00
-	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1720) ~[na:na]
-	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2554) ~[na:na]
-	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:633) ~[na:na]
-	at java.base/java.lang.Throwable.readObject(Throwable.java:912) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
-	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1224) ~[na:na]
-	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2378) ~[na:na]
-	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2212) ~[na:na]
-	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1689) ~[na:na]
-	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:495) ~[na:na]
-	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:453) ~[na:na]
-	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1564) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1050) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:219) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.session.StandardManager.load(StandardManager.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:356) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5247) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:927) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:473) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:206) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) ~[spring-context-5.3.14.jar:5.3.14]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.2.jar:2.6.2]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-2.6.2.jar:2.6.2]
-	at com.goodHere.GoodHereApplication.main(GoodHereApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.6.2.jar:2.6.2]
-
-2022-02-02 15:32:06.753  INFO 10152 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f54c7b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@4565ea91, org.springframework.security.web.header.HeaderWriterFilter@65e83d0f, org.springframework.security.web.authentication.logout.LogoutFilter@68704045, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@647242bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e4a9e6c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67069ad4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6649e416, org.springframework.security.web.session.SessionManagementFilter@7bdc3798, org.springframework.security.web.access.ExceptionTranslationFilter@649010fe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56747541]
-2022-02-02 15:32:07.144  INFO 10152 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-02-02 15:32:07.345  INFO 10152 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-02-02 15:32:07.462  INFO 10152 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-02-02 15:32:07.590  INFO 10152 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-02-02 15:32:07.691  INFO 10152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-2022-02-02 15:32:07.711  INFO 10152 --- [restartedMain] com.goodHere.GoodHereApplication         : Started GoodHereApplication in 4.361 seconds (JVM running for 5.431)
-2022-02-02 15:32:08.977  INFO 10152 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-02-02 15:32:08.977  INFO 10152 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-02-02 15:32:08.979  INFO 10152 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-02-02 16:24:52.512  WARN 10152 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m44s276ms451µs400ns).
-2022-02-02 16:26:57.253  INFO 10152 --- [RMI TCP Connection(53)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-02-02 16:26:57.294  INFO 10152 --- [RMI TCP Connection(53)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-02-02 16:26:57.299  INFO 10152 --- [RMI TCP Connection(53)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-03 14:07:49.033  INFO 12740 --- [restartedMain] com.goodHere.GoodHereApplication         : Starting GoodHereApplication using Java 16.0.2 on DESKTOP-CU8F96E with PID 12740 (D:\ProjectGoodHere\Project_GoodHere\goodHere\target\classes started by admin in D:\ProjectGoodHere\Project_GoodHere\goodHere)
+2022-02-03 14:07:49.035  INFO 12740 --- [restartedMain] com.goodHere.GoodHereApplication         : No active profile set, falling back to default profiles: default
+2022-02-03 14:07:49.073  INFO 12740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 14:07:49.073  INFO 12740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 14:07:49.638  INFO 12740 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-02-03 14:07:49.650  INFO 12740 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2022-02-03 14:07:50.154  INFO 12740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2022-02-03 14:07:50.168  INFO 12740 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-03 14:07:50.168  INFO 12740 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-03 14:07:50.393  INFO 12740 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-02-03 14:07:50.401  INFO 12740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-03 14:07:50.401  INFO 12740 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1327 ms
+2022-02-03 14:07:50.448  WARN 12740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [CA7DD89BA3208C83F70FF78C50A2A18A]
+2022-02-03 14:07:50.862  INFO 12740 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3254edc6, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d9b9dfa, org.springframework.security.web.header.HeaderWriterFilter@3eb71aa0, org.springframework.security.web.authentication.logout.LogoutFilter@6c4c14e0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37e6bd83, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37cf7e08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9d7b532, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@404615b8, org.springframework.security.web.session.SessionManagementFilter@4dd2272c, org.springframework.security.web.access.ExceptionTranslationFilter@37e0de55, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@449bb706]
+2022-02-03 14:07:51.036  INFO 12740 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-02-03 14:07:51.128  INFO 12740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-03 14:07:51.181  INFO 12740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-03 14:07:51.292  INFO 12740 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-02-03 14:07:51.356  INFO 12740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2022-02-03 14:07:51.367  INFO 12740 --- [restartedMain] com.goodHere.GoodHereApplication         : Started GoodHereApplication in 2.665 seconds (JVM running for 3.397)
+2022-02-03 14:09:24.371  INFO 12740 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-03 14:09:24.371  INFO 12740 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-03 14:09:24.372  INFO 12740 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-02-03 18:48:41.415  WARN 12740 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m5s836ms733µs100ns).
+2022-02-03 18:55:14.786  WARN 12740 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m33s384ms646µs900ns).
+2022-02-03 18:58:18.241  INFO 12740 --- [RMI TCP Connection(274)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-03 18:58:18.363  INFO 12740 --- [RMI TCP Connection(274)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-03 18:58:18.372  INFO 12740 --- [RMI TCP Connection(274)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -21,9 +21,12 @@
 <link rel="stylesheet" href="/css/map.css">
 <link rel="stylesheet" href="/css/location.css">
 <link rel="stylesheet" href="/css/contents-list.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c97d4a93761fde066b11f85273412c7&libraries=services,clusterer,drawing"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c97d4a93761fde066b11f85273412c7&libraries=services,clusterer,drawing"></script>
 </head>
 
 <body>
@@ -40,7 +43,7 @@
 				<h2>내주변</h2>
 			</div>
 			<div class="locations">
-				<p class="now-location">부산진구 가야동</p>
+				<p class="now-location"></p>
 				<button class="reset-location-btn">내 위치 재설정</button>
 			</div>
 		</section>
@@ -62,7 +65,7 @@
 					<section id="select-date">
 						<h3>날짜</h3>
 						<div class="date-border">
-							<input type="date">
+							<input type="text" name="dates" value="">
 						</div>
 					</section>
 
@@ -237,7 +240,7 @@
 				</div>
 			</section>
 		</main>
-		
+
 		<jsp:include page="include/map.jsp" />
 		<jsp:include page="include/delete.jsp" />
 
@@ -246,6 +249,7 @@
 	<script src="/js/header.js"></script>
 	<script src="/js/map.js"></script>
 	<script src="/js/location.js"></script>
+	<script src="/js/date-picker.js"></script>
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>
 </body>
