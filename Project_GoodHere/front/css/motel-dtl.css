@@ -1,0 +1,227 @@
+main{
+    margin-top: 9.5em;
+    width: 1024px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 사진 및 간단한 정보 */
+.place-info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2em;
+}
+.big-pics{
+    margin-bottom: 14px;
+}
+.big-pics li img{
+    width: 490px;
+    height: 348px;
+}
+.small-place-pics{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+}
+.small-pics{
+    display: flex;
+    justify-content: space-between;
+    width: 490px;
+}
+
+.small-pics li img{
+    width: 109px;
+    height: 80px;
+}
+
+/* right(정보창) */
+.place-simple-info{
+    width: 47%;
+}
+.place-simple-info h2{
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* 추천 */
+.place-recommend{
+    display: flex;
+}
+.place-recommend span{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.recommend{
+    color: #ffa726;
+}
+.review-text{
+    color: #9fa1a3;
+    margin-left: 0.8em;
+}
+.address{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 1em;
+}
+.benefits{
+    display: flex;
+}
+.benefits span{
+    background-color: #f4f4f4;
+    font-size: 16px;
+    margin: 0 8px 0 0;
+    padding: 5px;
+}
+.event-message{
+    margin-top: 2em;
+    padding: 1.5em;
+    width: 80%;
+    background-color: rgb(74, 145, 228);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.event-message ul{
+    padding-left: 1em;
+}
+.event-message ul li{
+    font-size: 15px;
+    list-style: disc;
+    color: white;
+}
+
+.place-info-btns{
+    margin-top: 4em;
+    padding: 0 2em 1em;
+    border-bottom: 1px solid #f4f4f4;
+}
+.place-info-btns button{
+    padding: 1em 0;
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 2em;
+}
+.place-info-btns button span{
+    font-size: 18px;
+}
+.room-reserve span{
+    color: #f2114c;
+    font-weight: 600;
+}
+.room-info span, .review span{
+    color: #d3d3d3;
+    font-weight: 50;
+}
+
+.place-detail{
+    margin-top: 4em;
+}
+
+/* 날짜 선택 */
+.date-border{
+    width: 300px;
+    border: 1px solid #ebebeb;
+    background-color: #fbfbfb;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 2em;
+}
+.date-border span{
+	display: inline-flex;
+	font-size: 18px;
+	color: red;
+	width: 50px;
+}
+#datepicker{
+	margin-bottom: 5px;
+}
+#datepicker, #datepicker2{
+    font-size: 18px;
+    background-color: #fbfbfb;
+    width: 70%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* 룸 설명 */
+.room-detail{
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+.room-image img{
+    width: 376px;
+    height: 226px;
+}
+
+/* 객실 정보 */
+.room-condition{
+    display: flex;
+    flex-direction: column;
+    width: 58%;
+}
+.room-condition-info{
+    display: flex;
+}
+.room-title{
+    font-size: 20px;
+    margin-bottom: 0.8em;
+}
+
+/* 대살 및 숙박 정보 */
+.time-room{
+    padding: 0 2em 0 0;
+}
+.time-room{
+    border-right: 1px solid #f4f4f4;
+}
+.day-room{
+    padding: 0 0 0 2em;
+}
+.time-room strong, .day-room strong{
+    font-size: 18px;
+}
+.price{
+    margin-top: 3em;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 8px;
+}
+.price p{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: end;
+}
+.time-set{
+    margin: 1em 0;
+}
+.time-set li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+.time-set li span, .time-set li{
+    font-size: 16px;
+    font-weight: 100;
+}
+.ask-btn, .reserve-btn{
+    font-size: 16px;
+    width: 250px;
+    padding: 7px 0;
+    border: none;
+    border-radius: 5px;
+}
+/* 문의 버튼 */
+.ask-btn{
+    color: #676767;
+}
+/* 예약 버튼 */
+.reserve-btn{
+    background-color: #fa0751;
+    color: white;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/motel-insert.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <!-- 전체 틀 -->
+    <div id="container">
+        <!-- 상단 -->
+        <header id="header">
+            <section class="header_in">
+                <!-- 메인 로고 -->
+                <div class="logo">
+                    <h1><a href="#">여기어때.</a></h1>
+                </div>
+                <!-- 상단 메뉴 -->
+                <ul class="in_menu">
+                    <li><a href="#"><i class="fas fa-search"></i></a></li>
+                    <li><a href="#">내주변</a></li>
+                    <li><a href="#">예약내역</a></li>
+                    <li class="more-btn">
+                        <a>더보기</a>
+                        <div class="more-menu">
+                            <ul>
+                                <li><a href="">공지사항</a></li>
+                                <li><a href="">이벤트</a></li>
+                                <li><a href="">혁신 프로젝트</a></li>
+                                <li><a href="">자주 묻는 질문</a></li>
+                                <li><a href="">1:1 문의</a></li>
+                                <li><a href="">약관 및 정책</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="login-btn"><a href="#">로그인</a></li>
+                    <li class="sub-user-info">
+                        <a href="#"><img src="icons/user-icon.png" alt=""></a>
+                        <div class="user-menu">
+                            <ul>
+                                <li><b>청와대조류학잔</b></li>
+                                <li><a href="">내정보</a></li>
+                                <li><a href="">포인트</a></li>
+                                <li><a href="">쿠폰함</a></li>
+                                <li><a href="">예약내역</a></li>
+                                <li><a href="">로그아웃</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </header>
+
+        <div class="modal">
+            <div class="logout-window">
+                <div class="logout-text">로그아웃 하시겠습니까?</div>
+                <div class="logout-btns">
+                    <button type="button" class="cancel-logout">취소</button>
+                    <button type="button" class="ok-logout">로그아웃</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 컨텐츠 -->
+        <main>
+            <!-- 사진 및 간단한 정보 -->
+            <section class="place-info">
+                <!-- 사진(left) -->
+                <div class="place-pics">
+                    <span>추가할 사진</span>
+                    <input type="file">
+
+                    <div class="small-place-pics">
+
+                    </div>
+                </div>
+
+                <!-- 정보(right) -->
+                <div class="place-simple-info">
+                    <input type="text" class="place-name">
+                    <!-- recommend & review -->
+                    <div class="place-recommend">
+                        <!-- <span class="recommend">추천해요</span>
+                        <span class="review-text">리뷰 1,777개</span> -->
+                    </div>
+                    <input type="text" class="address-name">
+                    <!-- benefit -->
+                    <div class="benefits">
+                        <div class="benefit-btns">
+                            <button class="benefit-insert-btn">추가</button>
+                            <button class="benefit-delete-btn">삭제</button>
+                        </div>
+                        <input type="text" class="benefit-detail">
+                        <!-- <span>예약취소가능</span><span>혜택존</span> -->
+                    </div>
+                    <div class="event-message">
+                        <div class="event-btns">
+                            <button class="event-insert-btn">추가</button>
+                            <button class="event-delete-btn">삭제</button>
+                        </div>
+                        <input type="text" class="event-message-detail">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 숙소의 정보 버튼들 -->
+            <section class="place-info-btns">
+                <button type="button" class="room-reserve"><span>객실안내/예약</span></button>
+                <button type="button" class="room-info"><span>숙소정보</span></button>
+                <button type="button" class="review"><span>리뷰</span></button>
+            </section>
+
+            <!-- room detail -->
+            <section class="place-detail">
+
+                <!-- 태그 추가 및 삭제 버튼 -->
+                <div class="room-detail-insert-btn">
+                    <button type="button" id="tag-insert-btn">추가</button>
+                    <button type="button" id="tag-delete-btn">삭제</button>
+                </div>
+
+                <div class="room-detail">
+
+                    <!-- 이미지 -->
+                    <div class="room-image">
+                        <div>
+                            <input type="file">
+                        </div>
+                        <img src="" alt="">
+                    </div>
+
+                    <!-- 객실 정보 -->
+                    <div class="room-condition">
+                        <input type="text" class="room-condition-title">
+
+                        <div class="room-condition-info">
+                            <!-- 대실 -->
+                            <div class="time-room">
+                                <input type="text" class="time-room-title">
+                                <div class="price">
+                                    <input type="text" class="time-price">
+                                </div>
+                                <ul class="time-set">
+                                    <li><span>마감시간</span><input type="text"></li>
+                                    <li><span>이용시간</span><input type="text"></li>
+                                </ul>
+                                <input type="radio" class="time-ask-radio" value="0">
+                                <label for="time-ask-radio">문의 버튼</label>
+                                <input type="radio" class="time-reserve-radio" value="1">
+                                <label for="time-reserve-radio">예약버튼</label>
+                            </div>
+
+                            <!-- 숙박 -->
+                            <div class="day-room">
+                                <input type="text" class="day-room-title">
+                                <div class="price">
+                                    <input type="text" class="day-price">
+                                </div>
+                                <ul class="time-set">
+                                    <li><span>입실시간</span><span><input type="text"></span></li>
+                                    <li><span>퇴실시간</span><span><input type="text"></span></li>
+                                </ul>
+                                <input type="radio" id="day-ask-radio" value="0">
+                                <label for="day-ask-radio">문의 버튼</label>
+                                <input type="radio" id="day-reserve-radio" value="1">
+                                <label for="day-reserve-radio">예약 버튼</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <button type="button" class="insert-all-data">추가</button>
+        </main>
+
+        <footer id="footer">
+            <div class="footer-area">
+                <ul class="footer-group">
+                    <li class="link-btns">
+                        <a href="#">회사소개</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">이용약관</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">개인정보처리방침</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">사업자 정보확인</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">여기어때 마케팅센터</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">액티비티 호스트센터</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">HOTEL 여기어때</a>
+                        <span>｜</span>
+                    </li>
+                    <li class="link-btns">
+                        <a href="#">콘텐츠산업진흥법에의한 표시</a>
+                    </li>
+                </ul>
+
+                <div class="call-info">
+                    <p><b>고객행복센터 1670-6250</b>오전 9시 - 새벽 3시</p>
+                </div>
+
+                <address class="addr-txt">
+                    <span>(주) 여기어때컴퍼니</span>
+                    <p>
+                        주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층 <br>
+                        대표이사 : 정명훈 | 사업자등록번호: 742-86-00224 <br>
+                        통신판매번호 : 2017-서울강남-01779 | 관광사업자 등록번호: 제1026-24호 <br>
+                        전화번호 : 1670-6250 <br>
+                        전자우편주소 : help@goodchoice.kr <br>
+                        Copyright GC COMPANY Corp. All rights reserved.
+                    </p>
+                </address>
+
+                <div class="company-sns">
+                    <a href="#"><img src="images/facebookIcon.png" alt="facebook"></a>
+                    <a href="#"><img src="images/blogIcon.png" alt=""></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://kit.fontawesome.com/364bcbe9ac.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

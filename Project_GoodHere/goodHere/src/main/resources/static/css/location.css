@@ -103,12 +103,22 @@ main{
     padding: 8px 10px;
     border-radius: 5px;
 }
-input[type=date]{
+.date-border span{
+	display: inline-flex;
+	font-size: 18px;
+	color: red;
+	width: 50px;
+}
+#datepicker{
+	margin-bottom: 5px;
+}
+#datepicker, #datepicker2{
     font-size: 18px;
     background-color: #fbfbfb;
-    width: 100%;
+    width: 70%;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 /* 상세조건 */

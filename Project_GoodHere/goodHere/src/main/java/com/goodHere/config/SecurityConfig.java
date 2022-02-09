@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import lombok.RequiredArgsConstructor;
 
-@Configuration
+@Configuration // IoC 등록을 한다.
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -19,10 +19,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.csrf().disable(); // 토큰 생성 X
-		http.authorizeRequests()
-				.antMatchers("/user/info", "/user/password")
-				.authenticated()
-				.anyRequest()
+		http.authorizeRequests() // 사용자의 인증객체
+				.antMatchers("/user/info", "/user/password") // 해당 페이지들은 인증이 필요하다.
+				.authenticated() // 다른 Request의 요청들은
+				.anyRequest() // 모든 권한이 부여되어 요청이 없어도 된다.
 				.permitAll()
 				.and()
 				.logout()

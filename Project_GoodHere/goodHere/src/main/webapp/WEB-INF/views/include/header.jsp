@@ -25,7 +25,7 @@
 					<ul>
 						<li><a href="#">공지사항</a></li>
 						<li><a href="#">이벤트</a></li>
-						<li><a href="#">혁신 프로젝트</a></li>
+						<li><a href="/insert-place">혁신 프로젝트</a></li>
 						<li><a href="#">자주 묻는 질문</a></li>
 						<li><a href="#">1:1 문의</a></li>
 						<li><a href="#">약관 및 정책</a></li>

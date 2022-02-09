@@ -21,12 +21,21 @@
 <link rel="stylesheet" href="/css/map.css">
 <link rel="stylesheet" href="/css/location.css">
 <link rel="stylesheet" href="/css/contents-list.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c97d4a93761fde066b11f85273412c7&libraries=services,clusterer,drawing"></script>
+<style type="text/css">
+/* datepicker 버튼 롤오버 시 손가락 모양 표시 */
+.ui-datepicker-trigger{
+	cursor: pointer;
+}
+/* datepicker input 롤오버 시 손가락 모양 표시 */
+.hasdatepicker{
+	cursor: pointer;
+}
+</style>
 </head>
 
 <body>
@@ -51,12 +60,12 @@
 		<!-- 메인 컨텐츠 -->
 		<main>
 			<ul id="place-btns">
-				<li><a href="#">모텔</a></li>
-				<li><a href="#">호텔</a></li>
-				<li><a href="#">펜션</a></li>
-				<li><a href="#">리조트</a></li>
-				<li><a href="#">게스트하우스</a></li>
-				<li><a href="#">캠핑</a></li>
+				<li><a href="#" class="motel">모텔</a></li>
+				<li><a href="#" class="hotel">호텔</a></li>
+				<li><a href="#" class="pension">펜션</a></li>
+				<li><a href="#" class="resort">리조트</a></li>
+				<li><a href="#" class="guest-house">게스트하우스</a></li>
+				<li><a href="#" class="camping">캠핑</a></li>
 			</ul>
 
 			<section id="contents">
@@ -65,7 +74,8 @@
 					<section id="select-date">
 						<h3>날짜</h3>
 						<div class="date-border">
-							<input type="text" name="dates" value="">
+							<span>From</span> <input type="text" id="datepicker" value=""> <br>
+							<span>To</span> <input type="text" id="datepicker2" value="">
 						</div>
 					</section>
 

@@ -15,5 +15,9 @@ public class LocationController {
 		return "my-location";
 	}
 	
+	@GetMapping("/insert-place")
+	public String insertDetailLocation(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		return "motel-insert";
+	}
 
 }

@@ -43,4 +43,4 @@ spring:  mvc:    view:      prefix: /WEB-INF/views/
     
 mybatis:  mapper-locations:  - /mapper/*.xml
   
-logging:  file:    path: D:\ProjectGoodHere\Project_GoodHere\image\
+file:  path: D:/ProjectGoodHere/Project_GoodHere/image/

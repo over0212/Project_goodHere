@@ -1,0 +1,238 @@
+main{
+    margin-top: 9.5em;
+    width: 1024px;
+    display: flex;
+    flex-direction: column;
+}
+input[type="text"]{
+    outline: none;
+}
+/* 사진 및 간단한 정보 */
+.place-info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2em;
+}
+.place-pics{
+    width: 48%;
+}
+.big-pics{
+    margin-bottom: 14px;
+}
+.big-pics li img{
+    width: 490px;
+    height: 348px;
+}
+.small-place-pics{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* right(정보창) */
+.place-simple-info{
+    width: 47%;
+}
+.place-name{
+    font-size: 28px;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+/* 추천 */
+.place-recommend{
+    display: flex;
+}
+.place-recommend span{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.recommend{
+    color: #ffa726;
+}
+.review-text{
+    color: #9fa1a3;
+    margin-left: 0.8em;
+}
+.address-name{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 1em;
+    outline: none;
+    width: 300px;
+}
+.benefits{
+    display: flex;
+    flex-direction: column;
+}
+.benefit-btns{
+    margin-bottom: 10px;
+}
+.benefits input{
+    width: min-content;
+    outline: none;
+    margin-bottom: 5px;
+}
+.benefits span{
+    background-color: #f4f4f4;
+    font-size: 16px;
+    margin: 0 8px 0 0;
+    padding: 5px;
+}
+.event-message{
+    margin-top: 2em;
+    padding: 1.5em;
+    width: 80%;
+    background-color: rgb(74, 145, 228);
+    border-radius: 4px;
+}
+.event-btns{
+    margin-bottom: 10px;
+}
+.event-message input{
+    width: 100%;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+.place-info-btns{
+    margin-top: 4em;
+    padding: 0 2em 1em;
+    border-bottom: 1px solid #f4f4f4;
+}
+.place-info-btns button{
+    padding: 1em 0;
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 2em;
+}
+.place-info-btns button span{
+    font-size: 18px;
+}
+.room-reserve span{
+    color: #f2114c;
+    font-weight: 600;
+}
+.room-info span, .review span{
+    color: #d3d3d3;
+    font-weight: 50;
+}
+
+.place-detail{
+    margin-top: 4em;
+}
+.room-detail-insert-btn{
+    margin-bottom: 1em;
+}
+.room-detail-insert-btn button{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 0.4em 1em;
+}
+#tag-insert-btn{
+    margin-right: 0.5em;
+    background-color: #f2114c;
+    color: white;
+}
+/* 룸 설명 */
+.room-detail{
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    margin-bottom: 1em;
+}
+.room-image img{
+    width: 376px;
+    height: 226px;
+}
+
+/* 객실 정보 */
+.room-condition{
+    display: flex;
+    flex-direction: column;
+    width: 58%;
+}
+.room-condition-info{
+    display: flex;
+}
+.room-condition-title{
+    font-size: 20px;
+    margin-bottom: 0.8em;
+    outline: none;
+}
+
+/* 대살 및 숙박 정보 */
+.time-room{
+    padding: 0 2em 0 0;
+}
+.time-room{
+    border-right: 1px solid #f4f4f4;
+}
+.day-room{
+    padding: 0 0 0 2em;
+}
+.time-room strong, .day-room strong{
+    font-size: 18px;
+}
+.price{
+    margin-top: 3em;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 8px;
+}
+.price p{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: end;
+}
+.time-set{
+    margin: 1em 0;
+}
+.time-set li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+.time-set li span, .time-set li{
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.time-choice-btns, .day-choice-btns{
+	font-size: 16px;
+	padding: 5px;
+}
+.ask-btn, .reserve-btn{
+    font-size: 16px;
+    width: 250px;
+    padding: 7px 0;
+    border: none;
+    border-radius: 5px;
+}
+/* 문의 버튼 */
+.ask-btn{
+    color: #676767;
+}
+/* 예약 버튼 */
+.reserve-btn{
+    background-color: #fa0751;
+    color: white;
+}
+
+.insert-all-data{
+    text-align: center;
+    margin-top: 3em;
+    font-size: 20px;
+    background-color: #f2114c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 0;
+}
