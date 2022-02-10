@@ -32,12 +32,12 @@
 		<jsp:include page="include/logout.jsp" />
 
 		<!-- 메인 컨텐츠 -->
-		<form>
+		<form action="/motel-insert" method="post" enctype="multipart/form-data">
 			<!-- 사진 및 간단한 정보 -->
 			<section class="place-info">
 				<!-- 사진(left) -->
 				<div class="place-pics">
-					<span>추가할 사진</span> <input type="file" multiple="multiple" class="place-images-ip">
+					<span>추가할 사진</span> <input type="file" name="place_img" multiple="multiple" class="place-images-ip">
 					
 					<button type="button" class="delete-img-btn">삭제</button>
 
@@ -46,31 +46,26 @@
 
 				<!-- 정보(right) -->
 				<div class="place-simple-info">
-					<input type="text" class="place-name">
+					<input type="text" class="place-name" name="place_name">
 					<!-- recommend & review -->
-					<div class="place-recommend">
-						<!-- <span class="recommend">추천해요</span>
-                        <span class="review-text">리뷰 1,777개</span> -->
-					</div>
-					<input type="text" class="address-name">
+					<input type="text" class="address-name" name="place_address">
 					<!-- benefit -->
 					<div class="benefits">
 						<div class="benefit-btns">
-							<button class="benefit-insert-btn">추가</button>
-							<button class="benefit-delete-btn">삭제</button>
+							<button type="button" class="benefit-insert-btn">추가</button>
+							<button type="button" class="benefit-delete-btn">삭제</button>
 						</div>
 						<div class="benefit-ip">
-							<input type="text" class="benefit-detail">
+							<input type="text" class="benefit-detail" name="benefit_detail">
 						</div>
-						<!-- <span>예약취소가능</span><span>혜택존</span> -->
 					</div>
 					<div class="event-message">
 						<div class="event-btns">
-							<button class="event-insert-btn">추가</button>
-							<button class="event-delete-btn">삭제</button>
+							<button type="button" class="event-insert-btn">추가</button>
+							<button type="button" class="event-delete-btn">삭제</button>
 						</div>
 						<div class="event-msg-list">
-							<input type="text" class="event-message-detail">
+							<input type="text" class="event-message-detail" name="event_msg">
 						</div>
 					</div>
 				</div>
@@ -102,47 +97,49 @@
 					<div class="room-detail">
 						<!-- 이미지 -->
 						<div class="room-image">
-								<input type="file" class="room-img-ip">
+								<input type="file" class="room-img-ip" name="room_condition_img">
 							<div class="room-img">
 							</div>
 						</div>
 
 						<!-- 객실 정보 -->
 						<div class="room-condition">
-							<input type="text" class="room-condition-title">
+							<input type="text" class="room-condition-title" name="room_title">
 
 							<div class="room-condition-info">
 								<!-- 대실 -->
 								<div class="time-room">
-									<input type="text" class="time-room-title">
+									<input type="text" class="time-room-title" name="time_room">
 									<div class="price">
-										<input type="text" class="time-price">
+										<input type="text" class="time-price" name="time_price">
 									</div>
 									<ul class="time-set">
-										<li><span>마감시간</span><input type="text"></li>
-										<li><span>이용시간</span><input type="text"></li>
+										<li><span>마감시간</span><input type="text" name="dead_line"></li>
+										<li><span>이용시간</span><input type="text" name="stay_time"></li>
 									</ul>
-									<select class="time-choice-box">
+									<select class="time-choice-box" name="select_time_flag">
 										<option value="">=====선택=====</option>
-										<option value="0">문의</option>
-										<option value="1">예약</option>
+										<option value="0">숙소에 문의</option>
+										<option value="1">대실 예약</option>
+										<option value="2">숙박 예약</option>
 									</select>
 								</div>
 
 								<!-- 숙박 -->
 								<div class="day-room">
-									<input type="text" class="day-room-title">
+									<input type="text" class="day-room-title" name="day_room">
 									<div class="price">
-										<input type="text" class="day-price">
+										<input type="text" class="day-price" name="day_price">
 									</div>
 									<ul class="time-set">
-										<li><span>입실시간</span><span><input type="text"></span></li>
-										<li><span>퇴실시간</span><span><input type="text"></span></li>
+										<li><span>입실시간</span><span><input type="text" name="check_in_time"></span></li>
+										<li><span>퇴실시간</span><span><input type="text" name="check_out_time"></span></li>
 									</ul>
-									<select class="day-choice-box">
+									<select class="day-choice-box" name="select_day_flag">
 										<option value="">=====선택=====</option>
-										<option value="0">문의</option>
-										<option value="1">예약</option>
+										<option value="0">숙소에 문의</option>
+										<option value="1">대실 예약</option>
+										<option value="2">숙박 예약</option>
 									</select>
 								</div>
 							</div>
@@ -150,7 +147,7 @@
 					</div>
 				</div>
 			</section>
-			<button type="button" class="insert-all-data">추가</button>
+			<button type="submit" class="insert-all-data">추가</button>
 		</form>
 		<jsp:include page="include/delete.jsp" />
 		<!-- 하단 -->

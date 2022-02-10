@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.goodHere.config.auth.PrincipalDetails;
 import com.goodHere.web.service.PhoneMaskingService;
 import com.goodHere.web.service.SignService;
-import com.goodHere.web.service.UserServiceImpl;
+import com.goodHere.web.service.PlaceServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 

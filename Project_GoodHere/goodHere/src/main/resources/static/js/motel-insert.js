@@ -34,12 +34,14 @@ place_imgs_ip.onchange = () => {
 	showImages();
 }
 
-if (place_imgs_ip.files.length == 0) {
-	delete_img_btn.onclick = () => {
-		if (file_count > 0) {
-			small_imgs.lastChild.remove();
-			file_count--;
-		}
+delete_img_btn.onclick = () => {
+	if (file_count > 0) {
+		small_imgs.lastChild.remove();
+		file_count--;
+	}
+	if (file_count == 0) {
+		file_count = 0;
+		place_imgs_ip.value = null;
 	}
 }
 
@@ -70,6 +72,7 @@ benefit_insert_btn.onclick = () => {
 	if (benefit_count < 6) {
 		benefit_text.setAttribute('type', 'text');
 		benefit_text.className = 'benefit-detail';
+		benefit_text.name = 'benefit_detail';
 		benefit_ip.appendChild(benefit_text);
 		benefit_count++;
 	}
@@ -89,6 +92,7 @@ event_insert_btn.onclick = () => {
 	if (event_msg_count < 4) {
 		event_ip.setAttribute('type', 'text');
 		event_ip.className = 'event-message-detail';
+		event_ip.name = 'event_msg';
 		event_msg_list.appendChild(event_ip);
 		event_msg_count++;
 	}
@@ -101,6 +105,9 @@ event_delete_btn.onclick = () => {
 	}
 }
 
+// 기존에 있는 태그가 실행할 수 있게 한번 실행해준다.
+repeatOnchange();
+
 // room datail condition list
 let tag_count = 1;
 tag_insert_btn.onclick = () => {
@@ -109,49 +116,51 @@ tag_insert_btn.onclick = () => {
 	if (tag_count < 6) {
 		room_datail_ip.innerHTML = `
 						<div class="room-image">
-								<input type="file" class="room-img-ip">
+								<input type="file" class="room-img-ip" name="room_condition_img">
 							<div class="room-img">
 							</div>
 						</div>
 						<div class="room-condition">
-							<input type="text" class="room-condition-title">
+							<input type="text" class="room-condition-title" name="room_title">
 
 							<div class="room-condition-info">
 								<div class="time-room">
-									<input type="text" class="time-room-title">
+									<input type="text" class="time-room-title" name="time_room">
 									<div class="price">
-										<input type="text" class="time-price">
+										<input type="text" class="time-price" name="time_price">
 									</div>
 									<ul class="time-set">
-										<li><span>마감시간</span><input type="text"></li>
-										<li><span>이용시간</span><input type="text"></li>
+										<li><span>마감시간</span><input type="text" name="dead_line"></li>
+										<li><span>이용시간</span><input type="text" name="stay_time"></li>
 									</ul>
-									<select class="time-choice-btns">
+									<select class="time-choice-btns" name="select_time_flag">
 										<option value="">=====선택=====</option>
-										<option value="0">문의</option>
-										<option value="1">예약</option>
+										<option value="0">숙소에 문의</option>
+										<option value="1">대실 예약</option>
+										<option value="2">숙박 예약</option>
 									</select>
 								</div>
 								<div class="day-room">
-									<input type="text" class="day-room-title">
+									<input type="text" class="day-room-title" name="day_room">
 									<div class="price">
-										<input type="text" class="day-price">
+										<input type="text" class="day-price" name="day_price">
 									</div>
 									<ul class="time-set">
-										<li><span>입실시간</span><span><input type="text"></span></li>
-										<li><span>퇴실시간</span><span><input type="text"></span></li>
+										<li><span>입실시간</span><span><input type="text" name="check_in_time"></span></li>
+										<li><span>퇴실시간</span><span><input type="text" name="check_out_time"></span></li>
 									</ul>
-									<select class="day-choice-btns">
+									<select class="day-choice-btns" name="select_day_flag">
 										<option value="">=====선택=====</option>
-										<option value="0">문의</option>
-										<option value="1">예약</option>
+										<option value="0">숙소에 문의</option>
+										<option value="1">대실 예약</option>
+										<option value="2">숙박 예약</option>
 									</select>
 								</div>
 							</div>
 						</div>`;
 		room_detail_repeat.appendChild(room_datail_ip);
 		tag_count++;
-		repeatOnchange(); // 태그가 삽입되고 
+		repeatOnchange(); // 태그가 삽입되었을 때 먼저 선언되었던 input 변수에 덮어씌운다.
 	}
 }
 

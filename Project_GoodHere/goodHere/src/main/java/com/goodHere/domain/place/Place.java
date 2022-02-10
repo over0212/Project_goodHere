@@ -1,6 +1,7 @@
 package com.goodHere.domain.place;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,23 +14,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Place {
 	
+	// place_mst
 	private int id;
-	private String booker;	// 예약자 이름
-	
-	private Date start_date;	// 입실 날짜
-	private Date end_date;	// 퇴실 날짜
-	
-	private String place_name;	// 장소 이름
-	private String address;			// 장소 위치
-	private String place_image;	// 장소의 이미지
-	
-	private int time_price;		// 대실 금액
-	private int place_price;	// 숙박 금액
-	
-	private String check_in_time;	// 입실 시간
-	private String check_out_time;	// 퇴실 시간
-	
-	private Date create_date;
+	private String place_name;
+	private String place_address;
+	private String benefit_detail;
+	private String event_msg;
+	// place_img_mst
+	private List<String> place_img;
+	// place_dtl
+	private List<PlaceDetail> place_dtl;
 	private Date update_date;
+	private Date create_date;
 
 }
