@@ -32,12 +32,14 @@
 		<jsp:include page="include/logout.jsp" />
 
 		<!-- 메인 컨텐츠 -->
-		<main>
+		<form>
 			<!-- 사진 및 간단한 정보 -->
 			<section class="place-info">
 				<!-- 사진(left) -->
 				<div class="place-pics">
-					<span>추가할 사진</span> <input type="file" multiple="multiple">
+					<span>추가할 사진</span> <input type="file" multiple="multiple" class="place-images-ip">
+					
+					<button type="button" class="delete-img-btn">삭제</button>
 
 					<div class="small-place-pics"></div>
 				</div>
@@ -100,8 +102,8 @@
 					<div class="room-detail">
 						<!-- 이미지 -->
 						<div class="room-image">
-							<div>
-								<input type="file">
+								<input type="file" class="room-img-ip">
+							<div class="room-img">
 							</div>
 						</div>
 
@@ -120,7 +122,7 @@
 										<li><span>마감시간</span><input type="text"></li>
 										<li><span>이용시간</span><input type="text"></li>
 									</ul>
-									<select class="time-choice-btns">
+									<select class="time-choice-box">
 										<option value="">=====선택=====</option>
 										<option value="0">문의</option>
 										<option value="1">예약</option>
@@ -137,7 +139,7 @@
 										<li><span>입실시간</span><span><input type="text"></span></li>
 										<li><span>퇴실시간</span><span><input type="text"></span></li>
 									</ul>
-									<select class="day-choice-btns">
+									<select class="day-choice-box">
 										<option value="">=====선택=====</option>
 										<option value="0">문의</option>
 										<option value="1">예약</option>
@@ -149,7 +151,7 @@
 				</div>
 			</section>
 			<button type="button" class="insert-all-data">추가</button>
-		</main>
+		</form>
 		<jsp:include page="include/delete.jsp" />
 		<!-- 하단 -->
 		<jsp:include page="include/footer.jsp" />

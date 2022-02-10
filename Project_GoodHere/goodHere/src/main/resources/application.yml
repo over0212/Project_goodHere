@@ -11,9 +11,9 @@ spring:  mvc:    view:      prefix: /WEB-INF/views/
       max-request-size: 50MB
       
   datasource:    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/goodhere?serverTimezone=Asia/Seoul
-    username: root
-    password: toor
+    url: jdbc:mariadb://database-study.coviweicjpvs.us-east-1.rds.amazonaws.com:3306/goodhere?serverTimezone=Asia/Seoul
+    username: aiden
+    password: wjdtkddn!1
     
   security:    user:      name: test
       password: 1234
@@ -44,3 +44,4 @@ spring:  mvc:    view:      prefix: /WEB-INF/views/
 mybatis:  mapper-locations:  - /mapper/*.xml
   
 file:  path: D:/ProjectGoodHere/Project_GoodHere/image/
+  #path: /home/ubuntu/Project_GoodHere/image/

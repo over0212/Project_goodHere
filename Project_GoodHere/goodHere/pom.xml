@@ -11,6 +11,7 @@
 	<groupId>com.goodHere</groupId>
 	<artifactId>goodHere</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>goodHere</name>
 	<description>goodHere project for Spring Boot</description>
 	<properties>
@@ -19,6 +20,7 @@
 	
 	<!-- library -->
 	<dependencies>
+	<!-- AWS 배포 : 배포 전 필요 -->
 	<!-- spring-boot-starter-tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -147,10 +149,19 @@
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
       </dependency>
+      
+      <!-- https://mvnrepository.com/artifact/net.nurigo/javaSDK -->
+		<dependency>
+		    <groupId>net.nurigo</groupId>
+		    <artifactId>javaSDK</artifactId>
+		    <version>2.2</version>
+		</dependency>
 		
 	</dependencies>
 
 	<build>
+	<!--빌드 후 버전명이 자꾸 따라 붙기에 설정을 해준다.  -->
+		<finalName>${artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
