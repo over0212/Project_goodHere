@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,6 +48,7 @@ public class PlaceServiceImpl implements PlaceService {
 				e.printStackTrace();
 			}
 			arrFiles.add(multipartFile.toString());
+			System.out.println(arrFiles);
 		}
 		return arrFiles;
 	}
@@ -85,12 +87,27 @@ public class PlaceServiceImpl implements PlaceService {
 		place.setEvent_msg(sbEvent.toString());
 		
 		// place_img
-		List<String> fileName = fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getPlace_img());
-		for (String str : fileName) {
-			List<String> tempName = new ArrayList<String>();
-			
-		}
-		return 1;
+		place.setPlace_img(fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getPlace_img()));
+		
+		PlaceDetail placeDetail = place.toPlaceDetail();
+		List<PlaceDetail> placeDetails = new ArrayList<PlaceDetail>();
+		
+		placeDetail.setRoom_condition_img(fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getRoom_condition_img()));
+//		placeDetail.setRoom_title(motelInsertReqDto.getRoom_title());
+//		placeDetail.setTime_room(motelInsertReqDto.getTime_room());
+//		placeDetail.setTime_price(motelInsertReqDto.getTime_price());
+//		placeDetail.setDead_line(motelInsertReqDto.getDead_line());
+//		placeDetail.setAvailability_time(motelInsertReqDto.getAvailability_time());
+//		placeDetail.setSelect_time_flag(motelInsertReqDto.getSelect_time_flag());
+//		placeDetail.setDay_room(motelInsertReqDto.getDay_room());
+//		placeDetail.setDay_price(motelInsertReqDto.getDay_price());
+//		placeDetail.setCheck_in_time(motelInsertReqDto.getCheck_in_time());
+//		placeDetail.setCheck_out_time(motelInsertReqDto.getCheck_out_time());
+//		placeDetail.setSelect_day_flag(motelInsertReqDto.getSelect_day_flag());
+		
+		place.setPlace_dtl(placeDetails);
+		
+		return placeRepository.motelInsert(place);
 	}
 
 }

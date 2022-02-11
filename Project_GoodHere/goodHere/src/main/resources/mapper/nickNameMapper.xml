@@ -9,7 +9,7 @@
   			concat(nm.adjective_word, nm2.noun_word) as nickname
   		from
   			nickname_mst nm
-  			left outer join nickname_mst nm2 on(nm2.noun_index = nm.noun_index)
+  			left outer join nickname_mst nm2 on(1=1)
   		order by
   			rand() limit 1;
   	</select>

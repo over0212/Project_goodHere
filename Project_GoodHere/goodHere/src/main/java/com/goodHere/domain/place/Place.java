@@ -26,5 +26,9 @@ public class Place {
 	private List<PlaceDetail> place_dtl;
 	private Date update_date;
 	private Date create_date;
+	
+	public PlaceDetail toPlaceDetail() {
+		return PlaceDetail.builder().build();
+	}
 
 }

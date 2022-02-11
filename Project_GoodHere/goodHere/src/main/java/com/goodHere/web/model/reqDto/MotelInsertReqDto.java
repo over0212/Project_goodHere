@@ -29,7 +29,7 @@ public class MotelInsertReqDto {
 	private List<String> time_room;
 	private List<String> time_price;
 	private List<String> dead_line;
-	private List<String> stay_time;
+	private List<String> availability_time;
 	private List<Integer> select_time_flag;
 	private List<String> day_room;
 	private List<String> day_price;
