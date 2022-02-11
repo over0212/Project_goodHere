@@ -115,7 +115,7 @@
 									</div>
 									<ul class="time-set">
 										<li><span>마감시간</span><input type="text" name="dead_line"></li>
-										<li><span>이용시간</span><input type="text" name="stay_time"></li>
+										<li><span>이용시간</span><input type="text" name="availability_time"></li>
 									</ul>
 									<select class="time-choice-box" name="select_time_flag">
 										<option value="">=====선택=====</option>
