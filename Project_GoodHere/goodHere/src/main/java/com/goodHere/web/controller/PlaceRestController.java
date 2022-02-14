@@ -15,12 +15,12 @@ import lombok.RequiredArgsConstructor;
 @RestController
 public class PlaceRestController {
 	
-	private PlaceService placeService;
+	private final PlaceService placeService;
 	
 	@PostMapping("/motel-insert")
 	public int MotelInsert(@Valid MotelInsertReqDto motelInsertReqDto, BindingResult result) {
 		System.out.println(motelInsertReqDto);
-		placeService.motelInsert(motelInsertReqDto);
-		return 1;
+		int flag = placeService.motelInsert(motelInsertReqDto);
+		return flag;
 	}
 }

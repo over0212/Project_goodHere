@@ -1,7 +1,5 @@
 package com.goodHere.domain.place;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,17 +11,17 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PlaceDetail {
 	
-	private List<String> room_condition_img;
-	private List<String> room_title;
-	private List<String> time_room;
-	private List<String> time_price;
-	private List<String> dead_line;
-	private List<String> availability_time;
-	private List<Integer> select_time_flag;
-	private List<String> day_room;
-	private List<String> day_price;
-	private List<String> check_in_time;
-	private List<String> check_out_time;
-	private List<Integer> select_day_flag;
+	private String room_condition_img;
+	private String room_title;
+	private String time_room;
+	private String time_price;
+	private String dead_line;
+	private String availability_time;
+	private int select_time_flag;
+	private String day_room;
+	private String day_price;
+	private String check_in_time;
+	private String check_out_time;
+	private int select_day_flag;
 
 }

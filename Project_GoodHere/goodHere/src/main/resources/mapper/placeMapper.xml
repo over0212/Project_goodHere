@@ -20,9 +20,9 @@
 		place_mst
 	values(
 		#{place_id},
-		#{address},
+		#{place_address},
 		#{benefit_detail},
-		#{event_msg}
+		#{event_msg},
 		now(),
 		now()
 	);
@@ -51,11 +51,12 @@
 		#{dtl.time_price},
 		#{dtl.dead_line},
 		#{dtl.availability_time},
+		#{dtl.select_time_flag},
 		#{dtl.day_room},
 		#{dtl.day_price},
 		#{dtl.check_in_time},
 		#{dtl.check_out_time},
-		#{dtl.select_btn_flag}
+		#{dtl.select_day_flag}
 	);
 	</foreach>
 	</insert>

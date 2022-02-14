@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Place {
 	
 	// place_mst
-	private int id;
+	private int place_id;
 	private String place_name;
 	private String place_address;
 	private String benefit_detail;

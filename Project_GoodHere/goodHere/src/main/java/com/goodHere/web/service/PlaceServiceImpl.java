@@ -29,7 +29,7 @@ public class PlaceServiceImpl implements PlaceService {
 	private String filePath;
 
 	// 이미지 반복 리스트
-	public List<String> fileUpload(String placeName, List<MultipartFile> multipartFiles) {
+	public List<String> filesUpload(String placeName, List<MultipartFile> multipartFiles) {
 		List<String> arrFiles = new ArrayList<String>();
 		
 		for (MultipartFile multipartFile : multipartFiles) {
@@ -37,6 +37,7 @@ public class PlaceServiceImpl implements PlaceService {
 			String originFileExtension = imageFileName.substring(imageFileName.lastIndexOf("."));
 			String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
 			String imageFilePath = filePath + placeName + "/";
+			String insertFileName = placeName + "/" + imageName;
 			
 			File file = new File(imageFilePath, imageName);
 			if(!file.exists()) {
@@ -47,66 +48,67 @@ public class PlaceServiceImpl implements PlaceService {
 			} catch (IllegalStateException | IOException e) {
 				e.printStackTrace();
 			}
-			arrFiles.add(multipartFile.toString());
+			arrFiles.add(insertFileName);
 			System.out.println(arrFiles);
 		}
 		return arrFiles;
 	}
 	
-//	public String makeString(String[] item) {
-//		List<String> items = Arrays.asList(item);
-//		StringBuilder sb = new StringBuilder();
-//		for (String str : items) {
-//			sb.append(str);
-//			sb.append(",");
-//		}
-//		sb.delete(sb.length() - 1, sb.length());
-//		return sb.toString();
-//	}
+	public String fileUpload(String placeName, MultipartFile multipartFile) {
+		String imageFileName = multipartFile.getOriginalFilename();
+		String originFileExtension = imageFileName.substring(imageFileName.lastIndexOf("."));
+		String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
+		String imageFilePath = filePath + placeName + "/";
+		String insertFileName = placeName + "/" + imageName;
+		File file = new File(imageFilePath, imageName);
+		if(!file.exists()) {
+			file.mkdirs();
+		}
+		try {
+			multipartFile.transferTo(file);
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+		return insertFileName;
+	}
+
+	public String makeString(List<String> item) {
+		StringBuilder sb = new StringBuilder();
+		for (String str : item) {
+			sb.append(str);
+			sb.append(",");
+		}
+		sb.delete(sb.length() - 1, sb.length());
+		return sb.toString();
+	}
 
 	@Override
 	public int motelInsert(MotelInsertReqDto motelInsertReqDto) {
 		Place place = motelInsertReqDto.toEntity();
-		
 		// benefit_detail
-		StringBuilder sbBenefit = new StringBuilder();
-		for (String str : motelInsertReqDto.getBenefit_detail()) {
-			sbBenefit.append(str);
-			sbBenefit.append(",");
-		}
-		sbBenefit.delete(sbBenefit.length() - 1, sbBenefit.length());
-		place.setBenefit_detail(sbBenefit.toString());
-		
+		place.setBenefit_detail(makeString(motelInsertReqDto.getBenefit_detail()));
 		// event_msg
-		StringBuilder sbEvent = new StringBuilder();
-		for (String str : motelInsertReqDto.getEvent_msg()) {
-			sbEvent.append(str);
-			sbEvent.append(",");
-		}
-		sbEvent.delete(sbEvent.length() - 1, sbEvent.length());
-		place.setEvent_msg(sbEvent.toString());
-		
+		place.setEvent_msg(makeString(motelInsertReqDto.getEvent_msg()));
 		// place_img
-		place.setPlace_img(fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getPlace_img()));
+		place.setPlace_img(filesUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getPlace_img()));
 		
-		PlaceDetail placeDetail = place.toPlaceDetail();
 		List<PlaceDetail> placeDetails = new ArrayList<PlaceDetail>();
-		
-		placeDetail.setRoom_condition_img(fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getRoom_condition_img()));
-//		placeDetail.setRoom_title(motelInsertReqDto.getRoom_title());
-//		placeDetail.setTime_room(motelInsertReqDto.getTime_room());
-//		placeDetail.setTime_price(motelInsertReqDto.getTime_price());
-//		placeDetail.setDead_line(motelInsertReqDto.getDead_line());
-//		placeDetail.setAvailability_time(motelInsertReqDto.getAvailability_time());
-//		placeDetail.setSelect_time_flag(motelInsertReqDto.getSelect_time_flag());
-//		placeDetail.setDay_room(motelInsertReqDto.getDay_room());
-//		placeDetail.setDay_price(motelInsertReqDto.getDay_price());
-//		placeDetail.setCheck_in_time(motelInsertReqDto.getCheck_in_time());
-//		placeDetail.setCheck_out_time(motelInsertReqDto.getCheck_out_time());
-//		placeDetail.setSelect_day_flag(motelInsertReqDto.getSelect_day_flag());
-		
+		for(int i = 0; i < motelInsertReqDto.getRoom_title().size(); i++) {
+			PlaceDetail placeDetail = place.toPlaceDetail();
+			placeDetail.setRoom_title(motelInsertReqDto.getRoom_title().get(i));
+			placeDetail.setTime_room(motelInsertReqDto.getTime_room().get(i));
+			placeDetail.setTime_price(motelInsertReqDto.getTime_price().get(i));
+			placeDetail.setDead_line(motelInsertReqDto.getDead_line().get(i));
+			placeDetail.setAvailability_time(motelInsertReqDto.getAvailability_time().get(i));
+			placeDetail.setSelect_time_flag(motelInsertReqDto.getSelect_time_flag().get(i));
+			placeDetail.setDay_room(motelInsertReqDto.getDay_room().get(i));
+			placeDetail.setDay_price(motelInsertReqDto.getDay_price().get(i));
+			placeDetail.setCheck_in_time(motelInsertReqDto.getCheck_in_time().get(i));
+			placeDetail.setCheck_out_time(motelInsertReqDto.getCheck_out_time().get(i));
+			placeDetail.setSelect_day_flag(motelInsertReqDto.getSelect_day_flag().get(i));
+		}
 		place.setPlace_dtl(placeDetails);
-		
+		System.out.println(placeDetails);
 		return placeRepository.motelInsert(place);
 	}
 

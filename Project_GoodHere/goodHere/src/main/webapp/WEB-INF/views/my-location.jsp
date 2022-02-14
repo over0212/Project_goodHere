@@ -221,8 +221,7 @@
 									<div class="detail-info">
 										<strong class="info-title">서면 TRT Hotel</strong>
 										<div class="info-distance">
-											<span class="km">2.5km</span> <span class="town">부산진구
-												부전동</span>
+											<span class="km">2.5km</span> <span class="town"></span>
 										</div>
 										<p class="info-guest">예약취소가능</p>
 										<div class="event-text">
