@@ -18,9 +18,17 @@ public class PlaceRestController {
 	private final PlaceService placeService;
 	
 	@PostMapping("/motel-insert")
-	public int MotelInsert(@Valid MotelInsertReqDto motelInsertReqDto, BindingResult result) {
-		System.out.println(motelInsertReqDto);
+	public String MotelInsert(@Valid MotelInsertReqDto motelInsertReqDto, BindingResult result) {
 		int flag = placeService.motelInsert(motelInsertReqDto);
-		return flag;
+		if(flag == 1) {
+			StringBuffer stringBuffer = new StringBuffer();
+			stringBuffer.append("<script>");
+			stringBuffer.append("location.href = '/motel-dtl';");
+			stringBuffer.append("</script>");
+			return stringBuffer.toString();
+		} else {
+			return "/motel-insert";
+		}
 	}
+	
 }

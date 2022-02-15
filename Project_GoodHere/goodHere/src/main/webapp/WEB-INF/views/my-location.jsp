@@ -60,7 +60,7 @@
 		<!-- 메인 컨텐츠 -->
 		<main>
 			<ul id="place-btns">
-				<li><a href="#" class="motel">모텔</a></li>
+				<li><a href="/motel-list" class="motel">모텔</a></li>
 				<li><a href="#" class="hotel">호텔</a></li>
 				<li><a href="#" class="pension">펜션</a></li>
 				<li><a href="#" class="resort">리조트</a></li>
@@ -240,7 +240,6 @@
 										</div>
 										<b class="place-price">59,000원</b>
 									</div>
-
 								</div>
 						</a></li>
 

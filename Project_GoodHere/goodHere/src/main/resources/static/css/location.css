@@ -1,225 +1,262 @@
-#sub-box{
-    width: 100%;
-    padding: 8.5em 0 2em;
-    background-color: #f7323f;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#sub-box {
+	width: 100%;
+	padding: 8.5em 0 2em;
+	background-color: #f7323f;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.sub-title{
-    width: 1024px;
-    margin-bottom: 2em;
+
+.sub-title {
+	width: 1024px;
+	margin-bottom: 2em;
 }
-.sub-title h2{
-    font-size: 38px;
-    color: white;
-    font-weight: 400;
+
+.sub-title h2 {
+	font-size: 38px;
+	color: white;
+	font-weight: 400;
 }
-.locations{
-    width: 1024px;
-    display: flex;
-    align-items: center;
+
+.locations {
+	width: 1024px;
+	display: flex;
+	align-items: center;
 }
-.locations p{
-    font-size: 18px;
-    color: white;
-    font-weight: 600;
-    margin-right: 1em;
+
+.locations p {
+	font-size: 18px;
+	color: white;
+	font-weight: 600;
+	margin-right: 1em;
 }
-.locations button{
-    font-size: 14px;
-    color: white;
-    background-color: rgb(237,48,61, 0.7);
-    border: none;
-    border-radius: 5px;
-    padding: 6px;
+
+.locations button {
+	font-size: 14px;
+	color: white;
+	background-color: rgb(237, 48, 61, 0.7);
+	border: none;
+	border-radius: 5px;
+	padding: 6px;
 }
-.locations button:hover{
-    background-color: rgba(237,48,61);
+
+.locations button:hover {
+	background-color: rgba(237, 48, 61);
 }
 
 /* 메인 컨텐츠 */
-main{
-    margin-top: 1em;
-    width: 1024px;
-    display: flex;
-    flex-direction: column;
+main {
+	margin-top: 1em;
+	width: 1024px;
+	display: flex;
+	flex-direction: column;
 }
 
 /* place-btns */
-#place-btns{
-    display: flex;
-    align-items: center;
-    padding-bottom: 1em;
-    border-bottom: 1px solid #ebebeb;
+#place-btns {
+	display: flex;
+	align-items: center;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ebebeb;
 }
-#place-btns li{
-    padding: 1em;
-    margin-right: 0.4em;
+
+#place-btns li {
+	padding: 1em;
+	margin-right: 0.4em;
 }
-#place-btns li a{
-    font-size: 18px;
-    color: #d3d3d3;
-    font-weight: 50;
+
+#place-btns li a {
+	font-size: 18px;
+}
+
+.motel {
+	color: red;
+	font-weight: 600;
+}
+
+.hotel, .pension, .resort, .guest-house, .camping {
+	font-weight: 50;
+	color: #d3d3d3;
 }
 
 /* main nav & list-wrap */
-#contents{
-    width: 100%;
-    margin-top: 3.5em;
-    display: flex;
-    justify-content: space-between;
+#contents {
+	width: 100%;
+	margin-top: 3.5em;
+	display: flex;
+	justify-content: space-between;
 }
-.contents-nav{
-    width: 26.5%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ebebeb;
-    border-radius: 5px;
-    padding: 2em;
+
+.contents-nav {
+	width: 26.5%;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #ebebeb;
+	border-radius: 5px;
+	padding: 2em;
 }
-.contents-nav section{
-    margin-bottom: 2.3em;
+
+.contents-nav section {
+	margin-bottom: 2.3em;
 }
-.contents-nav h3{
-    font-size: 18px;
-    margin-bottom: 0.8em;
+
+.contents-nav h3 {
+	font-size: 18px;
+	margin-bottom: 0.8em;
 }
-.contents-nav strong{
-    display: block;
-    font-size: 16px;
-    color: rgba(0,0,0,0.56);
-    margin-bottom: 1em;
+
+.contents-nav strong {
+	display: block;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.56);
+	margin-bottom: 1em;
 }
 
 /* 날짜  */
-#select-date{
-    padding-bottom: 2.4em;
-    border-bottom: 1px solid #ebebeb;
+#select-date {
+	padding-bottom: 2.4em;
+	border-bottom: 1px solid #ebebeb;
 }
-.date-border{
-    border: 1px solid #ebebeb;
-    background-color: #fbfbfb;
-    padding: 8px 10px;
-    border-radius: 5px;
+
+.date-border {
+	border: 1px solid #ebebeb;
+	background-color: #fbfbfb;
+	padding: 8px 10px;
+	border-radius: 5px;
 }
-.date-border span{
+
+.date-border span {
 	display: inline-flex;
 	font-size: 18px;
 	color: red;
 	width: 50px;
 }
-#datepicker{
+
+#datepicker {
 	margin-bottom: 5px;
 }
-#datepicker, #datepicker2{
-    font-size: 18px;
-    background-color: #fbfbfb;
-    width: 70%;
-    border: none;
-    outline: none;
-    cursor: pointer;
+
+#datepicker, #datepicker2 {
+	font-size: 18px;
+	background-color: #fbfbfb;
+	width: 70%;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }
 
 /* 상세조건 */
-#contents-detail{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+#contents-detail {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
-.detail-btns{
-    display: flex;
-    justify-content: space-between;
+
+.detail-btns {
+	display: flex;
+	justify-content: space-between;
 }
-.detail-btns button{
-    width: 48%;
-    font-size: 16px;
-    padding: 8px 0;
-    border-radius: 5px;
+
+.detail-btns button {
+	width: 48%;
+	font-size: 16px;
+	padding: 8px 0;
+	border-radius: 5px;
 }
-.reset-btn{
-    background-color: white;
-    border: 1px solid #f2074c;
-    color: #f2074c;
+
+.reset-btn {
+	background-color: white;
+	border: 1px solid #f2074c;
+	color: #f2074c;
 }
-.setting-btn{
-    border: none;
-    background-color: #f2074c;
-    color: white;
+
+.setting-btn {
+	border: none;
+	background-color: #f2074c;
+	color: white;
 }
 
 /* 대실, 숙박, 50%할인 */
-.label-chk,
-.label-radio{
-    font-size: 16px;
-    color: rgba(0,0,0,0.56);
-    cursor: pointer;
+.label-chk, .label-radio {
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.56);
+	cursor: pointer;
 }
 
-#earlybird{
-    display: flex;
+#earlybird {
+	display: flex;
 }
-#earlybird ul{
-    width: 100%;
+
+#earlybird ul {
+	width: 100%;
 }
-#earlybird li{
-    width: 100%;
-    margin-bottom: 1.3em;
+
+#earlybird li {
+	width: 100%;
+	margin-bottom: 1.3em;
 }
 
 /* 이색테마 */
-#unique-theme ul{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+#unique-theme ul {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
-#unique-theme li{
-    width: 50%;
-    margin-bottom: 1.3em;
+
+#unique-theme li {
+	width: 50%;
+	margin-bottom: 1.3em;
 }
-#unique-theme label{
-    font-size: 14px;
+
+#unique-theme label {
+	font-size: 14px;
 }
 
 /* 스파테마 */
-#spa-theme ul{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+#spa-theme ul {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
-#spa-theme li{
-    width: 50%;
-    margin-bottom: 1.3em;
+
+#spa-theme li {
+	width: 50%;
+	margin-bottom: 1.3em;
 }
-#spa-theme label{
-    font-size: 14px;
+
+#spa-theme label {
+	font-size: 14px;
 }
 
 /* 놀이테마 */
-#play-theme ul{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+#play-theme ul {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
-#play-theme li{
-    width: 50%;
-    margin-bottom: 1.3em;
+
+#play-theme li {
+	width: 50%;
+	margin-bottom: 1.3em;
 }
-#play-theme label{
-    font-size: 14px;
+
+#play-theme label {
+	font-size: 14px;
 }
 
 /* 금액 */
 
 /* 거리 */
-#distance{
-    display: flex;
-    flex-direction: column;
+#distance {
+	display: flex;
+	flex-direction: column;
 }
-#distance ul{
-    width: 100%;
+
+#distance ul {
+	width: 100%;
 }
-#distance li{
-    width: 100%;
-    margin-bottom: 1.3em;
+
+#distance li {
+	width: 100%;
+	margin-bottom: 1.3em;
 }

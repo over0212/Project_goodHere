@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/motel-dtl.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -45,10 +49,10 @@
                         <div></div>
                         <!-- images -->
                         <ul class="small-pics">
-                            <li><img src="images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
-                            <li><img src="images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
-                            <li><img src="images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
-                            <li><img src="images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
+                            <li><img src="/images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
+                            <li><img src="/images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
+                            <li><img src="/images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
+                            <li><img src="/images/994cc0a70268737f0847f491aa4ec699.jfif" alt=""></li>
                         </ul>
                         <!-- right icon -->
                         <div></div>
@@ -138,6 +142,7 @@
     </div>
     
    	<script src="/js/header.js"></script>
+   	<script src="/js/date-picker.js"></script>
     <script src="https://kit.fontawesome.com/364bcbe9ac.js" crossorigin="anonymous"></script>
 </body>
 

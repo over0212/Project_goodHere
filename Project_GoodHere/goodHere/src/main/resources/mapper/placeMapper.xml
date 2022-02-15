@@ -15,50 +15,55 @@
 		<selectKey keyProperty="place_id" resultType="Integer" order="BEFORE">
 			<include refid="auto_increment"></include>
 		</selectKey>
-
-	insert into
-		place_mst
-	values(
-		#{place_id},
-		#{place_address},
-		#{benefit_detail},
-		#{event_msg},
-		now(),
-		now()
-	);
 	
-	insert into
-		place_img_mst
-	values
-	<foreach collection="place_img" item="img" separator=",">
-	(
-		0,
-		#{place_id},
-		#{img}
-	);
-	</foreach>
-
-	insert into
-		place_dtl
-	values
-	<foreach collection="place_dtl" item="dtl" separator=",">
-	(
-		0,
-		#{place_id},
-		#{dtl.room_condition_img},
-		#{dtl.room_title},
-		#{dtl.time_room},
-		#{dtl.time_price},
-		#{dtl.dead_line},
-		#{dtl.availability_time},
-		#{dtl.select_time_flag},
-		#{dtl.day_room},
-		#{dtl.day_price},
-		#{dtl.check_in_time},
-		#{dtl.check_out_time},
-		#{dtl.select_day_flag}
-	);
-	</foreach>
+		insert into
+			place_mst
+		values(
+			#{place_id},
+			#{place_name},
+			#{place_address},
+			#{benefit_detail},
+			#{event_msg},
+			now(),
+			now()
+		);
+		
+		insert into
+			place_img_mst
+		values
+		<foreach collection="place_img" item="img" separator=",">
+		(
+			0,
+			#{place_id},
+			#{img}
+		)
+		</foreach>
+		;
+	
+		insert into
+			place_dtl
+		values
+		<foreach collection="place_dtl" item="dtl" separator=",">
+		(
+			0,
+			#{place_id},
+			#{dtl.room_condition_img},
+			#{dtl.room_title},
+			#{dtl.time_room},
+			#{dtl.time_price},
+			#{dtl.dead_line},
+			#{dtl.availability_time},
+			#{dtl.select_time_flag},
+			#{dtl.day_room},
+			#{dtl.day_price},
+			#{dtl.check_in_time},
+			#{dtl.check_out_time},
+			#{dtl.select_day_flag},
+			now(),
+			now()
+		)
+		</foreach>
+		;
 	</insert>
 	
 </mapper>

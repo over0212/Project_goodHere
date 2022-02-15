@@ -60,6 +60,7 @@ public class PlaceServiceImpl implements PlaceService {
 		String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
 		String imageFilePath = filePath + placeName + "/";
 		String insertFileName = placeName + "/" + imageName;
+		
 		File file = new File(imageFilePath, imageName);
 		if(!file.exists()) {
 			file.mkdirs();
@@ -72,6 +73,7 @@ public class PlaceServiceImpl implements PlaceService {
 		return insertFileName;
 	}
 
+	// StringBuilder
 	public String makeString(List<String> item) {
 		StringBuilder sb = new StringBuilder();
 		for (String str : item) {
@@ -84,6 +86,7 @@ public class PlaceServiceImpl implements PlaceService {
 
 	@Override
 	public int motelInsert(MotelInsertReqDto motelInsertReqDto) {
+		System.out.println(motelInsertReqDto);
 		Place place = motelInsertReqDto.toEntity();
 		// benefit_detail
 		place.setBenefit_detail(makeString(motelInsertReqDto.getBenefit_detail()));
@@ -92,9 +95,12 @@ public class PlaceServiceImpl implements PlaceService {
 		// place_img
 		place.setPlace_img(filesUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getPlace_img()));
 		
+		// place_dtl
 		List<PlaceDetail> placeDetails = new ArrayList<PlaceDetail>();
 		for(int i = 0; i < motelInsertReqDto.getRoom_title().size(); i++) {
 			PlaceDetail placeDetail = place.toPlaceDetail();
+			placeDetail.setRoom_condition_img(fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getRoom_condition_img().get(i)));
+			System.out.println(placeDetail.getRoom_condition_img());
 			placeDetail.setRoom_title(motelInsertReqDto.getRoom_title().get(i));
 			placeDetail.setTime_room(motelInsertReqDto.getTime_room().get(i));
 			placeDetail.setTime_price(motelInsertReqDto.getTime_price().get(i));
@@ -106,6 +112,7 @@ public class PlaceServiceImpl implements PlaceService {
 			placeDetail.setCheck_in_time(motelInsertReqDto.getCheck_in_time().get(i));
 			placeDetail.setCheck_out_time(motelInsertReqDto.getCheck_out_time().get(i));
 			placeDetail.setSelect_day_flag(motelInsertReqDto.getSelect_day_flag().get(i));
+			placeDetails.add(placeDetail);
 		}
 		place.setPlace_dtl(placeDetails);
 		System.out.println(placeDetails);

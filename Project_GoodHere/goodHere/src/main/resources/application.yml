@@ -11,12 +11,13 @@ spring:  mvc:    view:      prefix: /WEB-INF/views/
       max-request-size: 50MB
       
   datasource:    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:3306/goodhere?serverTimezone=Asia/Seoul
+    url: jdbc:mariadb://127.0.0.1:3306/goodhere?serverTimezone=Asia/Seoul&allowMultiQueries=true
     username: root
     password: toor
     #url: jdbc:mariadb://database-study.coviweicjpvs.us-east-1.rds.amazonaws.com:3306/goodhere?serverTimezone=Asia/Seoul
     #username: aiden
     #password: wjdtkddn!1
+    #&allowMultiQueries=true 가 있어야지만 placeMapper에 있는 멀티쿼리를 사용할 수 있다.
     
   security:    user:      name: test
       password: 1234
