@@ -11,23 +11,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PlaceDetail {
+public class PlaceList {
 	
-	private String room_condition_img;
-	private String room_title;
+	private int place_id;
+	private String place_name;
+	private String place_address;
+	private String benefit_detail;
+	private String event_msg;
+	private String place_img;
 	private String time_room;
 	private String time_price;
-	private String dead_line;
 	private String availability_time;
-	private int select_time_flag;
 	private String day_room;
 	private String day_price;
 	private String check_in_time;
-	private String check_out_time;
-	private int select_day_flag;
 	
-	public PlaceListResDto toPlaceDetailEntity() {
+	public PlaceListResDto toPlaceResDto() {
 		return PlaceListResDto.builder()
+				.place_id(place_id)
+				.place_name(place_name)
+				.place_address(place_address)
+				.place_img(place_img)
 				.time_room(time_room)
 				.time_price(time_price)
 				.availability_time(availability_time)
@@ -36,5 +40,5 @@ public class PlaceDetail {
 				.check_in_time(check_in_time)
 				.build();
 	}
-
+	
 }

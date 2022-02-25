@@ -3,6 +3,9 @@ package com.goodHere.domain.place;
 import java.util.Date;
 import java.util.List;
 
+import com.goodHere.web.model.resDto.PlaceDtlResDto;
+import com.goodHere.web.model.resDto.PlaceListResDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +32,23 @@ public class Place {
 	
 	public PlaceDetail toPlaceDetail() {
 		return PlaceDetail.builder().build();
+	}
+	
+	public PlaceDtlResDto toPlaceDtlResDto() {
+		return PlaceDtlResDto.builder()
+				.place_id(place_id)
+				.place_name(place_name)
+				.place_address(place_address)
+				.build();
+
+	}
+	
+	public PlaceListResDto toPlaceListEntity() {
+		return PlaceListResDto.builder()
+				.place_id(place_id)
+				.place_name(place_name)
+				.place_address(place_address)
+				.build();
 	}
 
 }

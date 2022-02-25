@@ -66,4 +66,60 @@
 		;
 	</insert>
 	
+	<select id="getPlaceList" resultType="com.goodHere.domain.place.PlaceList">
+		select
+			pm.place_id,
+			pm.place_name,
+			pm.place_address,
+			pm.benefit_detail,
+			pm.event_msg,
+			(select
+				place_img
+			from
+				place_img_mst
+			where
+				place_id = pm.place_id
+			ORDER by
+				place_seq
+			LIMIT 1) AS place_img,
+			pd.time_room,
+			pd.time_price,
+			pd.availability_time,
+			pd2.day_room,
+			pd2.day_price,
+			pd2.check_in_time
+		from
+			place_mst pm
+			left outer join place_dtl pd on(pd.place_id = pm.place_id AND pd.time_price = (SELECT MIN(time_price) FROM place_dtl WHERE place_id = pm.place_id))
+			left outer join place_dtl pd2 on(pd2.place_id = pm.place_id AND pd2.day_price = (SELECT MIN(day_price) FROM place_dtl WHERE place_id = pm.place_id));
+	</select>
+	
+	<select id="getPlaceDtl" parameterType="com.goodHere.domain.place.Place" resultType="com.goodHere.domain.place.Place">
+		select
+			pm.place_id,
+			pm.place_name,
+			pm.place_address,
+			pm.benefit_detail,
+			pm.event_msg,
+			pim.place_img,
+			pd.room_condition_img,
+			pd.room_title,
+			pd.time_room,
+			pd.time_price,
+			pd.dead_line,
+			pd.availability_time,
+			pd.select_time_flag,
+			pd.day_room,
+			pd.day_price,
+			pd.check_in_time,
+			pd.check_out_time,
+			pd.select_day_flag
+		from
+			place_mst pm
+			left outer join place_img_mst pim on(pim.place_id = pm.place_id)
+			left outer join place_dtl pd on(pd.place_id = pm.place_id)
+		where
+			pm.place_id = #{place_id};
+	</select>
+	
 </mapper>

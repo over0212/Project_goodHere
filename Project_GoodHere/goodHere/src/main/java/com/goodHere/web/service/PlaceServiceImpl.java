@@ -3,9 +3,9 @@ package com.goodHere.web.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -14,8 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.goodHere.domain.place.Place;
 import com.goodHere.domain.place.PlaceDetail;
+import com.goodHere.domain.place.PlaceList;
 import com.goodHere.domain.place.PlaceRepository;
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.resDto.PlaceListResDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,16 +33,16 @@ public class PlaceServiceImpl implements PlaceService {
 	// 이미지 반복 리스트
 	public List<String> filesUpload(String placeName, List<MultipartFile> multipartFiles) {
 		List<String> arrFiles = new ArrayList<String>();
-		
+
 		for (MultipartFile multipartFile : multipartFiles) {
 			String imageFileName = multipartFile.getOriginalFilename();
 			String originFileExtension = imageFileName.substring(imageFileName.lastIndexOf("."));
 			String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
 			String imageFilePath = filePath + placeName + "/";
 			String insertFileName = placeName + "/" + imageName;
-			
+
 			File file = new File(imageFilePath, imageName);
-			if(!file.exists()) {
+			if (!file.exists()) {
 				file.mkdirs();
 			}
 			try {
@@ -53,16 +55,16 @@ public class PlaceServiceImpl implements PlaceService {
 		}
 		return arrFiles;
 	}
-	
+
 	public String fileUpload(String placeName, MultipartFile multipartFile) {
 		String imageFileName = multipartFile.getOriginalFilename();
 		String originFileExtension = imageFileName.substring(imageFileName.lastIndexOf("."));
 		String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
 		String imageFilePath = filePath + placeName + "/";
 		String insertFileName = placeName + "/" + imageName;
-		
+
 		File file = new File(imageFilePath, imageName);
-		if(!file.exists()) {
+		if (!file.exists()) {
 			file.mkdirs();
 		}
 		try {
@@ -84,9 +86,9 @@ public class PlaceServiceImpl implements PlaceService {
 		return sb.toString();
 	}
 
+	// motel data insert
 	@Override
 	public int motelInsert(MotelInsertReqDto motelInsertReqDto) {
-		System.out.println(motelInsertReqDto);
 		Place place = motelInsertReqDto.toEntity();
 		// benefit_detail
 		place.setBenefit_detail(makeString(motelInsertReqDto.getBenefit_detail()));
@@ -94,13 +96,13 @@ public class PlaceServiceImpl implements PlaceService {
 		place.setEvent_msg(makeString(motelInsertReqDto.getEvent_msg()));
 		// place_img
 		place.setPlace_img(filesUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getPlace_img()));
-		
+
 		// place_dtl
 		List<PlaceDetail> placeDetails = new ArrayList<PlaceDetail>();
-		for(int i = 0; i < motelInsertReqDto.getRoom_title().size(); i++) {
+		for (int i = 0; i < motelInsertReqDto.getRoom_title().size(); i++) {
 			PlaceDetail placeDetail = place.toPlaceDetail();
-			placeDetail.setRoom_condition_img(fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getRoom_condition_img().get(i)));
-			System.out.println(placeDetail.getRoom_condition_img());
+			placeDetail.setRoom_condition_img(
+					fileUpload(motelInsertReqDto.getPlace_name(), motelInsertReqDto.getRoom_condition_img().get(i)));
 			placeDetail.setRoom_title(motelInsertReqDto.getRoom_title().get(i));
 			placeDetail.setTime_room(motelInsertReqDto.getTime_room().get(i));
 			placeDetail.setTime_price(motelInsertReqDto.getTime_price().get(i));
@@ -115,8 +117,33 @@ public class PlaceServiceImpl implements PlaceService {
 			placeDetails.add(placeDetail);
 		}
 		place.setPlace_dtl(placeDetails);
-		System.out.println(placeDetails);
 		return placeRepository.motelInsert(place);
+	}
+
+	public List<String> placeSubString(String data) {
+		StringTokenizer st = new StringTokenizer(data, ",");
+		List<String> infoMsg = new ArrayList<String>();
+		while (st.hasMoreTokens()) {
+			infoMsg.add(st.nextToken());
+		}
+		return infoMsg;
+	}
+
+	// my location list 호출
+	@Override
+	public List<PlaceListResDto> getPlaceList() {
+		List<PlaceList> placeLists = placeRepository.getPlaceList();
+		System.out.println(placeLists);
+		List<PlaceListResDto> placeListResDtos = new ArrayList<PlaceListResDto>();
+		for (PlaceList placeList : placeLists) {
+			PlaceListResDto placeListResDto = placeList.toPlaceResDto();
+			placeListResDto.setBenefit_detail(placeSubString(placeList.getBenefit_detail()));
+			placeListResDto.setEvent_msg(placeSubString(placeList.getEvent_msg()));
+
+			placeListResDtos.add(placeListResDto);
+		}
+		System.out.println(placeListResDtos);
+		return placeListResDtos;
 	}
 
 }

@@ -60,7 +60,7 @@
 		<!-- 메인 컨텐츠 -->
 		<main>
 			<ul id="place-btns">
-				<li><a href="/motel-list" class="motel">모텔</a></li>
+				<li><a href="/my-location" class="motel">모텔</a></li>
 				<li><a href="#" class="hotel">호텔</a></li>
 				<li><a href="#" class="pension">펜션</a></li>
 				<li><a href="#" class="resort">리조트</a></li>
@@ -215,34 +215,7 @@
 					</section>
 
 					<ul class="place-list">
-						<li class="list-detail"><a href=""> <!-- 이미지 -->
-								<div class="place-view"></div> <!-- 설명 -->
-								<div class="detail-content">
-									<div class="detail-info">
-										<strong class="info-title">서면 TRT Hotel</strong>
-										<div class="info-distance">
-											<span class="km">2.5km</span> <span class="town"></span>
-										</div>
-										<p class="info-guest">예약취소가능</p>
-										<div class="event-text">
-											<span>넷플릭스, 마일리지쿠폰, 손소독제, 꼼꼼한 방역 외 3개</span>
-										</div>
-									</div>
-
-									<!-- 가격 -->
-									<div class="detail-price">
-										<p class="time-place">
-											대실&nbsp;<b class="time-place-price">20,000원</b>
-										</p>
-										<div class="mark">
-											<span> <b class="mark-txt">13시부터 입실</b> <i>&nbsp;</i>
-											</span>
-										</div>
-										<b class="place-price">59,000원</b>
-									</div>
-								</div>
-						</a></li>
-
+						
 					</ul>
 
 				</div>
@@ -257,6 +230,7 @@
 	<script src="/js/header.js"></script>
 	<script src="/js/map.js"></script>
 	<script src="/js/location.js"></script>
+	<script src="/js/my-location.js"></script>
 	<script src="/js/date-picker.js"></script>
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>
