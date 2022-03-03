@@ -60,6 +60,7 @@
     background-color: #fefbf5;
     padding: 1em;
     box-sizing: border-box;
+    margin-bottom: 1em;
 }
 .list-detail a{
     width: 100%;
@@ -92,6 +93,15 @@
 .event-text span {
     font-size: 18px;
     margin-bottom: 10px;
+}
+.info-guest{
+	margin-right: 5px;
+}
+.info-guest::after{
+	content: ",";
+}
+.info-guest:last-child::after{
+	content: "";
 }
 .info-distance{
     margin-bottom: 10px;

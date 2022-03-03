@@ -42,6 +42,7 @@ public class PlaceRestController {
 	public Object motelList() {
 		Map<String, List<PlaceListResDto>> map = new HashedMap();
 		map.put("motelList", placeService.getPlaceList());
+		System.out.println(map);
 		return map;
 	}
 	
