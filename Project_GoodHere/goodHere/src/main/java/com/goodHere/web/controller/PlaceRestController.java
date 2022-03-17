@@ -8,10 +8,12 @@ import javax.validation.Valid;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
 import com.goodHere.web.service.PlaceService;
 
@@ -29,8 +31,7 @@ public class PlaceRestController {
 		if(flag == 1) {
 			StringBuffer stringBuffer = new StringBuffer();
 			stringBuffer.append("<script>");
-			stringBuffer.append("location.href = '/motel-dtl/");
-			stringBuffer.append("{place_id}';");
+			stringBuffer.append("location.href = '/index'");
 			stringBuffer.append("</script>");
 			return stringBuffer.toString();
 		}
@@ -43,6 +44,13 @@ public class PlaceRestController {
 		Map<String, List<PlaceListResDto>> map = new HashedMap();
 		map.put("motelList", placeService.getPlaceList());
 		System.out.println(map);
+		return map;
+	}
+	
+	@GetMapping("/motel-dtl/{place_id}")
+	public Object motelDtl(@PathVariable int place_id) {
+		Map<String, PlaceDtlResDto> map = new HashedMap();
+		map.put("motelDtl", placeService.getDtlPlace(place_id));
 		return map;
 	}
 	

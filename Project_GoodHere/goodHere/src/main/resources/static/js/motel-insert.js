@@ -133,7 +133,7 @@ tag_insert_btn.onclick = () => {
 										<li><span>마감시간</span><input type="text" name="dead_line"></li>
 										<li><span>이용시간</span><input type="text" name="availability_time"></li>
 									</ul>
-									<select class="time-choice-btns" name="select_time_flag">
+									<select class="time-choice-box" name="select_time_flag">
 										<option value="">=====선택=====</option>
 										<option value="0">숙소에 문의</option>
 										<option value="1">대실 예약</option>
@@ -149,7 +149,7 @@ tag_insert_btn.onclick = () => {
 										<li><span>입실시간</span><span><input type="text" name="check_in_time"></span></li>
 										<li><span>퇴실시간</span><span><input type="text" name="check_out_time"></span></li>
 									</ul>
-									<select class="day-choice-btns" name="select_day_flag">
+									<select class="day-choice-box" name="select_day_flag">
 										<option value="">=====선택=====</option>
 										<option value="0">숙소에 문의</option>
 										<option value="1">대실 예약</option>

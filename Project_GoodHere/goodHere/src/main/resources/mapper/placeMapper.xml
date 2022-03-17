@@ -107,9 +107,10 @@
 			pd2.check_in_time;
 	</select>
 	
-	<select id="getPlaceDtl" parameterType="com.goodHere.domain.place.Place" resultType="com.goodHere.domain.place.Place">
-		select
+	<select id="getPlaceDtl" resultType="com.goodHere.domain.place.PlaceEachDetail">
+		select distinct
 			pm.place_id,
+			pd.place_seq,
 			pm.place_name,
 			pm.place_address,
 			pm.benefit_detail,

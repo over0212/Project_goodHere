@@ -1,8 +1,7 @@
 package com.goodHere.web.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -12,10 +11,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PlaceController {
 	
-	@GetMapping("/motel-dtl/{place_id}")
-	public String motelDetail(@PathVariable String place_id, @Valid String place_name) {
+	@GetMapping("/motel-detail/{place_id}")
+	public String motelDetail(Model model, @PathVariable String place_id) {
+		model.addAttribute("place_id", place_id);
 		return "motel-dtl";
 	}
 	
-
 }

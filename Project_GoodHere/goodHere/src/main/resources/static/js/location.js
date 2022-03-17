@@ -47,6 +47,7 @@ function getAddress(latitude, longitude) {
 
 // 주소를 해당 구와 동을 잘라 리턴
 function addressDetail(addressName){
+	console.log(addressName);
 	let addressDetailName = addressName.split(" ");
 	let firstAddr = addressDetailName[1];
 	let secondAddr = addressDetailName[2];

@@ -46,5 +46,5 @@ spring:  mvc:    view:      prefix: /WEB-INF/views/
             user-name-attribute: response
     
 mybatis:  mapper-locations:  - /mapper/*.xml
-file:  path: D:/ProjectGoodHere/Project_GoodHere/image/
+file:  path: D:/ProjectGoodHere/Project_GoodHere/image\
   #path: /home/ubuntu/Project_GoodHere/image/

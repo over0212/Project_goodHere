@@ -229,8 +229,8 @@
 
 	<script src="/js/header.js"></script>
 	<script src="/js/map.js"></script>
-	<script src="/js/location.js"></script>
-	<script src="/js/my-location.js"></script>
+	<script src="/js/location.js" defer="defer"></script>
+	<script src="/js/my-location.js" charset="UTF-8"></script>
 	<script src="/js/date-picker.js"></script>
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>

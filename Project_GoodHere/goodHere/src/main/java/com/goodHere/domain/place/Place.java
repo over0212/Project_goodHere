@@ -34,15 +34,6 @@ public class Place {
 		return PlaceDetail.builder().build();
 	}
 	
-	public PlaceDtlResDto toPlaceDtlResDto() {
-		return PlaceDtlResDto.builder()
-				.place_id(place_id)
-				.place_name(place_name)
-				.place_address(place_address)
-				.build();
-
-	}
-	
 	public PlaceListResDto toPlaceListEntity() {
 		return PlaceListResDto.builder()
 				.place_id(place_id)

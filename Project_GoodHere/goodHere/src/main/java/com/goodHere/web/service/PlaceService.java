@@ -10,8 +10,8 @@ public interface PlaceService {
 	
 	public int motelInsert(MotelInsertReqDto motelInsertReqDto);
 	
-//	public PlaceDtlResDto getDtlPlace(String place_id);
-	
 	public List<PlaceListResDto> getPlaceList();
+	
+	public PlaceDtlResDto getDtlPlace(int place_id);
 	
 }

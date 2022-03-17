@@ -9,10 +9,8 @@ public interface PlaceRepository {
 	
 	public int motelInsert(Place place);
 	
-	public Place getPlaceDtl(String place_id);
-	
-	public Place getPlaceLocationList(String place_id);
-	
 	public List<PlaceList> getPlaceList();
-
+	
+	public List<PlaceEachDetail> getPlaceDtl(int place_id);
+	
 }
