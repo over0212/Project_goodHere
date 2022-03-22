@@ -21,6 +21,7 @@ import com.goodHere.domain.place.PlaceEachDetail;
 import com.goodHere.domain.place.PlaceList;
 import com.goodHere.domain.place.PlaceRepository;
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
 import com.goodHere.web.model.resDto.EachRoom;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
@@ -218,6 +219,16 @@ public class PlaceServiceImpl implements PlaceService {
 			return iterator.next();
 		}
 		return null;
+	}
+	
+	@Override
+	public int motelUpdateInfo(MotelUpdateInfoReqDto infoReqDto, int place_id) {
+		Place place = infoReqDto.placeUpdateToEntity();
+		place.setPlace_id(place_id);
+		place.setBenefit_detail(makeString( infoReqDto.getBenefit_detail()));
+		place.setEvent_msg(makeString(infoReqDto.getEvent_msg()));
+		int resultFlag = placeRepository.motelUpdateInfo(place);
+		return resultFlag;
 	}
 
 }

@@ -1,4 +1,5 @@
 const place_id = document.querySelector('#place_id');
+const go_place_update = document.querySelector('.update-place');
 
 const place_big_img = document.querySelector('.big-pics li');
 const place_small_pics = document.querySelector('.small-pics');
@@ -19,13 +20,17 @@ function getDetailData() {
 			dataType: "text",
 			success: function(data) {
 				parsingDetailData(data);
-				alert(data);
 			},
 			error: function() {
 				alert('비동기 처리 오류');
 			}
 		});
 	}
+}
+
+// 업데이트 페이지로 이동
+go_place_update.onclick = () =>{
+	location.href = "/update-place/" + place_id.value;
 }
 
 function parsingDetailData(detailData) {

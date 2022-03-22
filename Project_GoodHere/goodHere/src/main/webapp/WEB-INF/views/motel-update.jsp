@@ -7,7 +7,6 @@
 	<sec:authentication property="principal" var="principal" />
 </sec:authorize>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -18,7 +17,7 @@
 <title>여기어때</title>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/header.css">
-<link rel="stylesheet" href="/css/motel-insert.css">
+<link rel="stylesheet" href="/css/motel-update.css">
 <link rel="stylesheet" href="/css/footer.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -32,7 +31,7 @@
 		<jsp:include page="include/logout.jsp" />
 
 		<!-- 메인 컨텐츠 -->
-		<form action="/motel-insert" method="post" enctype="multipart/form-data">
+		<form class="update-form">
 			<!-- 사진 및 간단한 정보 -->
 			<section class="place-info">
 				<!-- 사진(left) -->
@@ -42,6 +41,7 @@
 					<button type="button" class="delete-img-btn">삭제</button>
 
 					<div class="small-place-pics"></div>
+					<button type="button" class="update-image-btn">숙소 사진 업데이트</button>
 				</div>
 
 				<!-- 정보(right) -->
@@ -59,7 +59,6 @@
 							<button type="button" class="benefit-delete-btn">삭제</button>
 						</div>
 						<div class="benefit-ip">
-							<input type="text" class="benefit-detail" name="benefit_detail">
 						</div>
 					</div>
 					<p class="place-small-text">이벤트 메세지</p>
@@ -69,9 +68,9 @@
 							<button type="button" class="event-delete-btn">삭제</button>
 						</div>
 						<div class="event-msg-list">
-							<input type="text" class="event-message-detail" name="event_msg">
 						</div>
 					</div>
+						<button type="button" class="update-info-btn">숙소 정보 업데이트</button>
 				</div>
 			</section>
 
@@ -93,26 +92,29 @@
 
 				<!-- 태그 추가 및 삭제 버튼 -->
 				<div class="room-detail-insert-btn">
+				<div>
 					<button type="button" id="tag-insert-btn">추가</button>
 					<button type="button" id="tag-delete-btn">삭제</button>
 				</div>
+					<div><button type="button" id="update-room-btn">방 정보 업데이트</button></div>
+				</div>
 
 				<div class="room-detail-repeat">
-					<div class="room-detail">
-						<!-- 이미지 -->
+					<!-- <div class="room-detail">
+						이미지
 						<div class="room-image">
 								<input type="file" class="room-img-ip" name="room_condition_img">
 							<div class="room-img">
 							</div>
 						</div>
 
-						<!-- 객실 정보 -->
+						객실 정보
 						<div class="room-condition">
 						<p class="room-condition-text">객실 타입</p>
 							<input type="text" class="room-condition-title" name="room_title">
 
 							<div class="room-condition-info">
-								<!-- 대실 -->
+								대실
 								<div class="time-room">
 									<p class="room-condition-text">대실</p>
 									<input type="text" class="time-room-title" name="time_room">
@@ -133,7 +135,7 @@
 									</select>
 								</div>
 
-								<!-- 숙박 -->
+								숙박
 								<div class="day-room">
 									<p class="room-condition-text">숙박</p>
 									<input type="text" class="day-room-title" name="day_room">
@@ -155,18 +157,20 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</section>
-			<button type="submit" class="insert-all-data">추가</button>
+			<button type="button" class="go-detail-page">상세페이지로 이동하기</button>
 		</form>
+		<input type="hidden" id="place_id" value="${place_id }">
 		<jsp:include page="include/delete.jsp" />
 		<!-- 하단 -->
 		<jsp:include page="include/footer.jsp" />
 	</div>
 
 	<script src="/js/header.js"></script>
-	<script src="/js/motel-insert.js"></script>
+	<script src="/js/motel-update.js"></script>
+	<!-- <script src="/js/motel-insert.js"></script> -->
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>
 </body>

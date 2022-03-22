@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
@@ -83,6 +84,9 @@
                 <button type="button" class="room-reserve"><span>객실안내/예약</span></button>
                 <button type="button" class="room-info"><span>숙소정보</span></button>
                 <button type="button" class="review"><span>리뷰</span></button>
+                <%-- <c:if test="${principal.user.email == 'liberty0212@naver.com'}"> --%>
+                	<button type="button" class="update-place"><span>숙박업소 정보 수정</span></button>
+                <%-- </c:if> --%>
             </section>
 
             <!-- room detail -->

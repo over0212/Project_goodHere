@@ -23,12 +23,15 @@
 			<li class="more-btn"><a>더보기</a>
 				<div class="more-menu">
 					<ul>
-						<li><a href="#">공지사항</a></li>
-						<li><a href="#">이벤트</a></li>
-						<li><a href="/insert-place">혁신 프로젝트</a></li>
-						<li><a href="#">자주 묻는 질문</a></li>
-						<li><a href="#">1:1 문의</a></li>
-						<li><a href="#">약관 및 정책</a></li>
+						<li><a>공지사항</a></li>
+						<li><a href="/insert-place">이벤트</a></li>
+						<li><a>혁신 프로젝트</a></li>
+						<li><a>자주 묻는 질문</a></li>
+						<li><a>1:1 문의</a></li>
+						<li><a>약관 및 정책</a></li>
+						<c:if test="${principal.user.email == 'liberty0212@naver.com'}">
+							<li><a href="/insert-place">숙박업소 추가</a></li>
+						</c:if>
 					</ul>
 				</div>
 			</li>

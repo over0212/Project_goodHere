@@ -33,6 +33,17 @@ input[type="text"]{
 	width: 150px;
 	height: 150px;
 }
+.update-image-btn,
+.update-info-btn{
+	margin: 1em 0;
+	padding: 10px;
+	background: #f2114c;
+	font-size: 16px;
+	color: white;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+}
 
  .place-small-text{
  	font-size: 16px;
@@ -137,7 +148,9 @@ input[type="text"]{
     margin-top: 4em;
 }
 .room-detail-insert-btn{
+	display: flex;
     margin-bottom: 1em;
+    justify-content: space-between;
 }
 .room-detail-insert-btn button{
     outline: none;
@@ -148,6 +161,10 @@ input[type="text"]{
 }
 #tag-insert-btn{
     margin-right: 0.5em;
+    background-color: #f2114c;
+    color: white;
+}
+#update-room-btn{
     background-color: #f2114c;
     color: white;
 }

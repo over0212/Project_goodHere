@@ -3,6 +3,7 @@ package com.goodHere.web.service;
 import java.util.List;
 
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
 
@@ -13,5 +14,7 @@ public interface PlaceService {
 	public List<PlaceListResDto> getPlaceList();
 	
 	public PlaceDtlResDto getDtlPlace(int place_id);
+	
+	public int motelUpdateInfo(MotelUpdateInfoReqDto infoReqDto, int place_id);
 	
 }

@@ -8,11 +8,15 @@ import javax.validation.Valid;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
 import com.goodHere.web.service.PlaceService;
@@ -52,6 +56,15 @@ public class PlaceRestController {
 		Map<String, PlaceDtlResDto> map = new HashedMap();
 		map.put("motelDtl", placeService.getDtlPlace(place_id));
 		return map;
+	}
+	
+	@PutMapping("/motel/info/{place_id}")
+	public int updateMotelInfo(@RequestBody MotelUpdateInfoReqDto infoReqDto, @PathVariable int place_id) {
+		System.out.println(infoReqDto);
+		System.out.println("place_id : " + place_id);
+		int flag = placeService.motelUpdateInfo(infoReqDto, place_id);
+		System.out.println("flag : " + flag);
+		return flag;
 	}
 	
 }

@@ -13,4 +13,6 @@ public interface PlaceRepository {
 	
 	public List<PlaceEachDetail> getPlaceDtl(int place_id);
 	
+	public int motelUpdateInfo(Place place);
+	
 }

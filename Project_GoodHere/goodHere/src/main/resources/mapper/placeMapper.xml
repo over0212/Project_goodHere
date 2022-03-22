@@ -136,4 +136,16 @@
 			pm.place_id = #{place_id};
 	</select>
 	
+	<update id="motelUpdateInfo" parameterType="com.goodHere.domain.place.Place">
+		update
+			place_mst
+		set
+			place_name = #{place_name},
+			place_address = #{place_name},
+			benefit_detail = #{benefit_detail},
+			event_msg = #{event_msg}
+		where
+			place_id = #{place_id};
+	</update>
+	
 </mapper>
