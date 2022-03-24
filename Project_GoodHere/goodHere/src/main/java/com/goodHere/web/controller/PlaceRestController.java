@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.reqDto.MotelUpdateImgReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
@@ -26,13 +27,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class PlaceRestController {
-	
+
 	private final PlaceService placeService;
-	
+
 	@PostMapping("/motel-insert")
 	public String MotelInsert(@Valid MotelInsertReqDto motelInsertReqDto, BindingResult result) {
 		int flag = placeService.motelInsert(motelInsertReqDto);
-		if(flag == 1) {
+		if (flag == 1) {
 			StringBuffer stringBuffer = new StringBuffer();
 			stringBuffer.append("<script>");
 			stringBuffer.append("location.href = '/index'");
@@ -41,7 +42,7 @@ public class PlaceRestController {
 		}
 		return Integer.toString(flag);
 	}
-	
+
 	// my-location의 list data 전부 호출
 	@GetMapping("/motel-list")
 	public Object motelList() {
@@ -50,21 +51,25 @@ public class PlaceRestController {
 		System.out.println(map);
 		return map;
 	}
-	
+
 	@GetMapping("/motel-dtl/{place_id}")
 	public Object motelDtl(@PathVariable int place_id) {
 		Map<String, PlaceDtlResDto> map = new HashedMap();
 		map.put("motelDtl", placeService.getDtlPlace(place_id));
 		return map;
 	}
-	
+
 	@PutMapping("/motel/info/{place_id}")
 	public int updateMotelInfo(@RequestBody MotelUpdateInfoReqDto infoReqDto, @PathVariable int place_id) {
-		System.out.println(infoReqDto);
-		System.out.println("place_id : " + place_id);
 		int flag = placeService.motelUpdateInfo(infoReqDto, place_id);
-		System.out.println("flag : " + flag);
 		return flag;
 	}
-	
+
+	@PostMapping("/motel/image/{place_id}")
+	public int updateMotelImage(MotelUpdateImgReqDto imgReqDto, @PathVariable int place_id) {
+		System.out.println("imgUpdate : " + imgReqDto);
+		int resultFlag = placeService.motelUpdateImg(imgReqDto, place_id);
+		return resultFlag;
+	}
+
 }

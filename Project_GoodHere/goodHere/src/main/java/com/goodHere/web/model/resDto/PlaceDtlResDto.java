@@ -21,6 +21,6 @@ public class PlaceDtlResDto {
 	// img_mst
 	private List<String> place_img;
 	// dtl
-	private List<EachRoom> eachRoomDetail;
+	private List<ResEachRoom> eachRoomDetail;
 
 }

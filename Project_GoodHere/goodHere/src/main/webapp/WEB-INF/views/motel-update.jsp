@@ -100,64 +100,7 @@
 				</div>
 
 				<div class="room-detail-repeat">
-					<!-- <div class="room-detail">
-						이미지
-						<div class="room-image">
-								<input type="file" class="room-img-ip" name="room_condition_img">
-							<div class="room-img">
-							</div>
-						</div>
-
-						객실 정보
-						<div class="room-condition">
-						<p class="room-condition-text">객실 타입</p>
-							<input type="text" class="room-condition-title" name="room_title">
-
-							<div class="room-condition-info">
-								대실
-								<div class="time-room">
-									<p class="room-condition-text">대실</p>
-									<input type="text" class="time-room-title" name="time_room">
-									<p class="room-condition-text">대실 가격</p>
-									<div class="price">
-										<input type="text" class="time-price" name="time_price">
-									</div>
-									<ul class="time-set">
-										<li><span>마감시간</span><input type="text" name="dead_line"></li>
-										<li><span>이용시간</span><input type="text" name="availability_time"></li>
-									</ul>
-									<p class="room-condition-text">예약 버튼 활성화/비활성화</p>
-									<select class="time-choice-box" name="select_time_flag">
-										<option value="">=====선택=====</option>
-										<option value="0">숙소에 문의</option>
-										<option value="1">대실 예약</option>
-										<option value="2">숙박 예약</option>
-									</select>
-								</div>
-
-								숙박
-								<div class="day-room">
-									<p class="room-condition-text">숙박</p>
-									<input type="text" class="day-room-title" name="day_room">
-									<p class="room-condition-text">숙박 가격</p>
-									<div class="price">
-										<input type="text" class="day-price" name="day_price">
-									</div>
-									<ul class="time-set">
-										<li><span>입실시간</span><input type="text" name="check_in_time"></li>
-										<li><span>퇴실시간</span><input type="text" name="check_out_time"></li>
-									</ul>
-									<p class="room-condition-text">예약 버튼 활성화/비활성화</p>
-									<select class="day-choice-box" name="select_day_flag">
-										<option value="">=====선택=====</option>
-										<option value="0">숙소에 문의</option>
-										<option value="1">대실 예약</option>
-										<option value="2">숙박 예약</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div> -->
+					
 				</div>
 			</section>
 			<button type="button" class="go-detail-page">상세페이지로 이동하기</button>
@@ -170,7 +113,6 @@
 
 	<script src="/js/header.js"></script>
 	<script src="/js/motel-update.js"></script>
-	<!-- <script src="/js/motel-insert.js"></script> -->
 	<script src="https://kit.fontawesome.com/364bcbe9ac.js"
 		crossorigin="anonymous"></script>
 </body>

@@ -32,6 +32,12 @@ const originImageData = {
 	"place_img": []
 }
 
+let roomDetailFlag = false;
+const deleteRoomData = {
+	"place_seq": [],
+	"room_condition_img": []
+}
+
 getReadData();
 
 place_imgs_ip.onchange = () => {
@@ -169,6 +175,7 @@ function insertData(data) {
 		let room_datail_ip = document.createElement('div');
 		room_datail_ip.className = 'room-detail';
 		room_datail_ip.innerHTML += `
+						<input type="hidden" class="room-seq" value="${detailRoomObj[i].place_seq}">
 						<div class="room-image">
 								<input type="file" class="room-img-ip" name="room_condition_img">
 							<div class="room-img">
@@ -177,8 +184,10 @@ function insertData(data) {
 						</div>
 						<div class="room-condition">
 						<p class="room-condition-text">객실 타입</p>
+						<div class="room-title-box">
 							<input type="text" class="room-condition-title" name="room_title" value="${detailRoomObj[i].room_title}">
-
+							<div class="room-delete-btn"><img src="/icons/cancel-button.png"></div>
+                        </div>
 							<div class="room-condition-info">
 								<div class="time-room">
 									<p class="room-condition-text">대실</p>
@@ -221,14 +230,31 @@ function insertData(data) {
 							</div>
 						</div>`;
 
+		// 대실 select box db에서 넘어온 값으로 seleted 설정
+		// 총 4개의 option이 있기에 +1 을 해줘야 한다.
 		room_detail_repeat.appendChild(room_datail_ip);
 		let time_choice_box = room_datail_ip.querySelector('.time-choice-box');
-		let option_value = time_choice_box.options;
-		option_value[detailRoomObj[i].select_time_flag + 1].selected = true;
+		let time_option_value = time_choice_box.options;
+		time_option_value[detailRoomObj[i].select_time_flag + 1].selected = true;
 
-		/*let time_choice_box = room_datail_ip.querySelector('.time-choice-box');
-		let option_value = time_choice_box.options;
-		option_value[detailRoomObj[i].select_time_flag + 1].selected = true;*/
+		// 숙박 select box db에서 넘어온 값으로 seleted 설정
+		// 총 4개의 option이 있기에 +1 을 해줘야 한다.
+		let day_choice_box = room_datail_ip.querySelector('.day-choice-box');
+		let day_option_value = day_choice_box.options;
+		day_option_value[detailRoomObj[i].select_day_flag + 1].selected = true;
+
+		let room_delete_btn = room_datail_ip.querySelector('.room-delete-btn');
+		room_delete_btn.onclick = () => {
+			if (tag_count > 1) {
+				room_datail_ip.remove();
+				roomDetailFlag = true;
+				deleteRoomData.place_seq.push(room_datail_ip.querySelector('.room-seq').value);
+				deleteRoomData.room_condition_img.push(detailRoomObj[i].room_condition_img);
+				console.log(deleteRoomData);
+				tag_count--;
+				repeatOnchange();
+			}
+		}
 		tag_count++;
 	}
 	// 기존에 있는 태그가 실행할 수 있게 한번 실행해준다.
@@ -249,7 +275,10 @@ tag_insert_btn.onclick = () => {
 						</div>
 						<div class="room-condition">
 						<p class="room-condition-text">객실 타입</p>
+							<div class="room-title-box">
 							<input type="text" class="room-condition-title" name="room_title">
+							<div class="room-delete-btn"><img src="/icons/cancel-button.png"></div>
+                        </div>
 
 							<div class="room-condition-info">
 								<div class="time-room">
@@ -294,6 +323,14 @@ tag_insert_btn.onclick = () => {
 						</div>`;
 		room_detail_repeat.appendChild(room_datail_ip);
 		tag_count++;
+		let room_delete_btn = room_datail_ip.querySelector('.room-delete-btn');
+		room_delete_btn.onclick = () => {
+			if (tag_count > 1) {
+				room_datail_ip.remove();
+				tag_count--;
+				repeatOnchange();
+			}
+		}
 		repeatOnchange(); // 태그가 삽입되었을 때 먼저 선언되었던 input 변수에 덮어씌운다.
 	}
 }
@@ -330,23 +367,48 @@ function showRoomImage(indexNumber) {
 	room_img[indexNumber].appendChild(insert_room_img);
 }
 
-const update_img_btn = document.querySelector('.update-image-btn');
-/*update_img_btn.onclick = () => {
-	let imageForm = {
-		"imageDeleteFlag" : imageDeleteFlag,
-		"place_img" : place_images_ip.value
-	}
-	$.ajax({
-		type: 'patch',
-		url: '/mypage/imgUpload/' + place_id.value,
-		data: imageForm,
-		enctype: 'multipart/form-data',
-		processData: false,
-		contentType: false,
-	})
-}*/
-const update_info_btn = document.querySelector('.update-info-btn');
+const go_detail_page = document.querySelector('.go-detail-page');
+go_detail_page.onclick = () => {
+	location.replace("/motel-detail/" + place_id.value);
+}
 
+const update_img_btn = document.querySelector('.update-image-btn');
+update_img_btn.onclick = () => {
+
+	let formData = new FormData();
+	for (let i = 0; i < place_imgs_ip.files.length; i++) {
+		formData.append("multipartFiles", place_imgs_ip.files[i]);
+	}
+	if (originImageData.place_img != null) {
+		for (let i = 0; i < originImageData.place_img.length; i++) {
+			formData.append("origin_imgs", originImageData.place_img[i]);
+		}
+	}
+	console.log(formData);
+	if (imageDeleteFlag == true) {
+		$.ajax({
+			type: 'post',
+			url: '/motel/image/' + place_id.value,
+			data: formData,
+			enctype: 'multipart/form-data',
+			processData: false,
+			contentType: false,
+			success: function(data) {
+				if (data > 0) {
+					location.reload();
+				} else {
+					alert("업데이트 실패!");
+				}
+			},
+			error: function() {
+				alert("비동기 처리 오류!");
+			}
+		});
+	} else {
+		location.reload();
+	}
+}
+const update_info_btn = document.querySelector('.update-info-btn');
 update_info_btn.onclick = () => {
 	let benefit_detail = document.querySelectorAll('.benefit-detail');
 	let event_msg = document.querySelectorAll('.event-message-detail');
@@ -368,15 +430,88 @@ update_info_btn.onclick = () => {
 		data: JSON.stringify(infoData),
 		contentType: "application/json; charset=UTF-8",
 		dataType: "text",
-		success: function(data){
-			if(data == 1){
+		success: function(data) {
+			if (data == 1) {
 				location.reload();
+			} else {
+				alert("숙소 정보 수정 오류!");
 			}
 		},
-		error: function(){
+		error: function() {
 			alert("비동기 처리 오류!");
 		}
 	});
 }
 
-const update_room_btn = document.querySelector('.update-room-btn');
+const update_room_btn = document.querySelector('#update-room-btn');
+update_room_btn.onclick = () => {
+	/*let roomDetailData = [{
+		"roomDeleteFlag": false,
+		"place_seq": "",
+		"update_img": "",
+		"room_condition_img": "",
+		"room_title": "",
+		"time_room": "",
+		"time_price": "",
+		"dead_line": "",
+		"availability_time": "",
+		"select_time_flag": "",
+		"day_room": "",
+		"day_price": "",
+		"check_in_time": "",
+		"check_out_time": "",
+		"select_day_flag": ""
+	}]*/
+	let makeListData = [];
+	let roomFormData = new FormData();
+	let room_dtl_tags = document.querySelectorAll(".room-detail");
+	for (let i = 0; i < room_dtl_tags.length; i++) {
+		let updateObj = new Object();
+		let room_dtl_tag = room_dtl_tags[i];
+		updateObj.place_seq = room_dtl_tag.querySelector('.room-seq') == null ? 0 : room_dtl_tag.querySelector('.room-seq').value;
+		updateObj.roomDeleteFlag = false;
+		updateObj.update_img = room_dtl_tag.querySelector('.room-img-ip').files[0];
+		if(updateObj.update_img == null){
+			let room_img_src = room_dtl_tag.querySelector('.room-img img').src;
+			updateObj.room_condition_img = room_img_src.split("/")[4];
+			console.log(room_img_src);
+		}
+		updateObj.room_title = room_dtl_tag.querySelector("input[name='room_title']").value;
+		updateObj.time_room = room_dtl_tag.querySelector("input[name='time_room']").value;
+		updateObj.time_price = room_dtl_tag.querySelector("input[name='time_price']").value;
+		updateObj.dead_line = room_dtl_tag.querySelector("input[name='dead_line']").value;
+		updateObj.availability_time = room_dtl_tag.querySelector("input[name='availability_time']").value;
+		let time_selected = room_dtl_tag.querySelector('.time-choice-box').options;
+		for (let j = 1; j < time_selected.length; j++) {
+			if (time_selected[j].selected == true) {
+				updateObj.select_time_flag = time_selected[j].value;
+			}
+		}
+		updateObj.day_room = room_dtl_tag.querySelector("input[name='day_room']").value;
+		updateObj.day_price = room_dtl_tag.querySelector("input[name='day_price']").value;
+		updateObj.check_in_time = room_dtl_tag.querySelector("input[name='check_in_time']").value;
+		updateObj.check_out_time = room_dtl_tag.querySelector("input[name='check_out_time']").value;
+		let day_selected = room_dtl_tag.querySelector('.day-choice-box').options;
+		for (let j = 1; j < day_selected.length; j++) {
+			if (day_selected[j].selected == true) {
+				updateObj.select_day_flag = day_selected[j].value;
+			}
+		}
+		makeListData.push(updateObj);
+		//roomFormData.append("ReqEachRoom", updateObj);
+		console.log(updateObj);
+	}
+	if (roomDetailFlag) {
+		console.log(deleteRoomData.place_seq.length);
+		for (let i = 0; i < deleteRoomData.place_seq.length; i++) {
+			let updateObj = new Object();
+			updateObj.place_seq = deleteRoomData.place_seq[i];
+			updateObj.roomDeleteFlag = true;
+			updateObj.room_condition_img = deleteRoomData.room_condition_img[i];
+			makeListData.push(updateObj);
+			//roomFormData.append("ReqEachRoom", updateObj);
+			console.log(updateObj);
+		}
+	}
+	console.log(makeListData);
+}

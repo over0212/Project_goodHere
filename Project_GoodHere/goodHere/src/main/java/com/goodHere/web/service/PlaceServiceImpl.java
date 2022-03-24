@@ -21,8 +21,9 @@ import com.goodHere.domain.place.PlaceEachDetail;
 import com.goodHere.domain.place.PlaceList;
 import com.goodHere.domain.place.PlaceRepository;
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
+import com.goodHere.web.model.reqDto.MotelUpdateImgReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
-import com.goodHere.web.model.resDto.EachRoom;
+import com.goodHere.web.model.resDto.ResEachRoom;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
 
@@ -45,8 +46,8 @@ public class PlaceServiceImpl implements PlaceService {
 			String imageFileName = multipartFile.getOriginalFilename();
 			String originFileExtension = imageFileName.substring(imageFileName.lastIndexOf("."));
 			String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
-			String imageFilePath = filePath  + "/";
-			String insertFileName =  imageName;
+			String imageFilePath = filePath + "/";
+			String insertFileName = imageName;
 
 			File file = new File(imageFilePath, imageName);
 			if (!file.exists()) {
@@ -67,7 +68,7 @@ public class PlaceServiceImpl implements PlaceService {
 		String imageFileName = multipartFile.getOriginalFilename();
 		String originFileExtension = imageFileName.substring(imageFileName.lastIndexOf("."));
 		String imageName = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
-		String imageFilePath = filePath +  "/";
+		String imageFilePath = filePath + "/";
 		String insertFileName = imageName;
 
 		File file = new File(imageFilePath, imageName);
@@ -108,8 +109,7 @@ public class PlaceServiceImpl implements PlaceService {
 		List<PlaceDetail> placeDetails = new ArrayList<PlaceDetail>();
 		for (int i = 0; i < motelInsertReqDto.getRoom_title().size(); i++) {
 			PlaceDetail placeDetail = place.toPlaceDetail();
-			placeDetail.setRoom_condition_img(
-					fileUpload(motelInsertReqDto.getRoom_condition_img().get(i)));
+			placeDetail.setRoom_condition_img(fileUpload(motelInsertReqDto.getRoom_condition_img().get(i)));
 			placeDetail.setRoom_title(motelInsertReqDto.getRoom_title().get(i));
 			placeDetail.setTime_room(motelInsertReqDto.getTime_room().get(i));
 			placeDetail.setTime_price(motelInsertReqDto.getTime_price().get(i));
@@ -135,7 +135,6 @@ public class PlaceServiceImpl implements PlaceService {
 		}
 		return infoMsg;
 	}
-	
 
 	// my location list 호출
 	@Override
@@ -152,28 +151,28 @@ public class PlaceServiceImpl implements PlaceService {
 		}
 		return placeListResDtos;
 	}
-	
+
 	// motel-detail 정보 들고오기
 	@Override
 	public PlaceDtlResDto getDtlPlace(int place_id) {
 		List<PlaceEachDetail> eachDetailList = placeRepository.getPlaceDtl(place_id);
 		PlaceDtlResDto placeDtlResDto = new PlaceDtlResDto();
-		
+
 		// set을 통해 데이터를 하나씩 가져온다.
 		Set<Integer> seq_id = new HashSet<Integer>();
 		Set<String> name = new HashSet<String>();
 		Set<String> address = new HashSet<String>();
 		Set<String> benefit = new HashSet<String>();
 		Set<String> msg = new HashSet<String>();
-		
+
 		Set<String> detailImg = new HashSet<String>();
-		Set<EachRoom> roomDtl = new HashSet<EachRoom>();
-		
+		Set<ResEachRoom> roomDtl = new HashSet<ResEachRoom>();
+
 		/**
-		 * List로 들고온 PlaceEachDetail을 set으로 선언해 놓은 데이터를 하나씩 넣어주고
-		 * EachRoom 의 데이터는 테이블에 자동으로 생성되는 아이디 값을 가져온다.
+		 * List로 들고온 PlaceEachDetail을 set으로 선언해 놓은 데이터를 하나씩 넣어주고 EachRoom 의 데이터는 테이블에
+		 * 자동으로 생성되는 아이디 값을 가져온다.
 		 */
-		for(PlaceEachDetail detail : eachDetailList) {
+		for (PlaceEachDetail detail : eachDetailList) {
 			name.add(detail.getPlace_name());
 			address.add(detail.getPlace_address());
 			benefit.add(detail.getBenefit_detail());
@@ -181,8 +180,9 @@ public class PlaceServiceImpl implements PlaceService {
 			detailImg.add(detail.getPlace_img());
 
 			// seq_id가 하나라도 들어왔을 때
-			if(seq_id.add(detail.getPlace_seq())) {
-				EachRoom room = new EachRoom();
+			if (seq_id.add(detail.getPlace_seq())) {
+				ResEachRoom room = new ResEachRoom();
+				room.setPlace_seq(detail.getPlace_seq());
 				room.setRoom_condition_img(detail.getRoom_condition_img());
 				room.setRoom_title(detail.getRoom_title());
 				room.setTime_room(detail.getTime_room());
@@ -198,37 +198,81 @@ public class PlaceServiceImpl implements PlaceService {
 				roomDtl.add(room);
 			} // end of if
 		} // end of for
-		
+
 		placeDtlResDto.setPlace_name(getSimpleData(name));
 		placeDtlResDto.setPlace_address(getSimpleData(address));
 		placeDtlResDto.setBenefit_detail(placeSubString(getSimpleData(benefit)));
 		placeDtlResDto.setEvent_msg(placeSubString(getSimpleData(msg)));
-		
+
 		List<String> place_img_addr = new ArrayList<String>(detailImg);
 		placeDtlResDto.setPlace_img(place_img_addr);
-		List<EachRoom> eachRooms = new ArrayList<EachRoom>(roomDtl);
+		List<ResEachRoom> eachRooms = new ArrayList<ResEachRoom>(roomDtl);
 		placeDtlResDto.setEachRoomDetail(eachRooms);
-		
+
 		System.out.println(placeDtlResDto);
 		return placeDtlResDto;
 	}
-	
-	public <E extends Collection<T>, T> T getSimpleData(E e){
-		Iterator<T> iterator =  e.iterator();
-		if(iterator.hasNext()) {
+
+	public <E extends Collection<T>, T> T getSimpleData(E e) {
+		Iterator<T> iterator = e.iterator();
+		if (iterator.hasNext()) {
 			return iterator.next();
 		}
 		return null;
 	}
-	
+
 	@Override
 	public int motelUpdateInfo(MotelUpdateInfoReqDto infoReqDto, int place_id) {
 		Place place = infoReqDto.placeUpdateToEntity();
 		place.setPlace_id(place_id);
-		place.setBenefit_detail(makeString( infoReqDto.getBenefit_detail()));
+		place.setBenefit_detail(makeString(infoReqDto.getBenefit_detail()));
 		place.setEvent_msg(makeString(infoReqDto.getEvent_msg()));
 		int resultFlag = placeRepository.motelUpdateInfo(place);
 		return resultFlag;
+	}
+
+	@Override
+	public int motelUpdateImg(MotelUpdateImgReqDto imgReqDto, int place_id) {
+		Place place = new Place();
+		place.setPlace_id(place_id);
+		String imageFilePath = filePath + "/";
+		boolean deleteFlag = false;
+		boolean insertFlag = false;
+		int totalResult = 0;
+		// origin img 삭제
+		if (! imgReqDto.getOrigin_imgs().get(0).equals("null")) {
+			deleteFlag = true;
+		}
+		if(imgReqDto.getMultipartFiles() != null) {
+			insertFlag = true;
+		}
+		
+		if(deleteFlag) {
+			int deleteResult = placeRepository.deleteByPlaceImg(place_id);
+			totalResult += deleteResult;
+			if (deleteResult  == imgReqDto.getOrigin_imgs().size()) {
+				for(int i = 0; i < imgReqDto.getOrigin_imgs().size(); i++) {
+					File file = new File(imageFilePath, imgReqDto.getOrigin_imgs().get(i));
+					if (file.exists()) {
+						file.delete();
+					}
+				}
+				if(insertFlag) {
+					place.setPlace_img(filesUpload(imgReqDto.getMultipartFiles()));
+					int insertResult = placeRepository.insertByPlaceImg(place);
+					totalResult += insertResult;
+				}
+			}
+		} else {
+			if(insertFlag) {
+				place.setPlace_img(filesUpload(imgReqDto.getMultipartFiles()));
+				int insertResult = placeRepository.insertByPlaceImg(place);
+				totalResult += insertResult;
+			}
+		}
+		System.out.println(totalResult);
+		return totalResult;
+		
 	}
 
 }

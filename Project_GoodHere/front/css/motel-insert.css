@@ -161,11 +161,23 @@ input[type="text"]{
 }
 .room-condition-info{
     display: flex;
+    justify-content: space-between;
+}
+.room-title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .room-condition-title{
+    width: 80%;
     font-size: 20px;
     margin-bottom: 0.8em;
     outline: none;
+}
+.room-delete-btn img{
+    width: 30px;
+    margin-bottom: 0.8em;
+    cursor: pointer;
 }
 
 /* 대살 및 숙박 정보 */

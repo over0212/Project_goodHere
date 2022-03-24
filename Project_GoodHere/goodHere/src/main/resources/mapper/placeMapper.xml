@@ -141,11 +141,34 @@
 			place_mst
 		set
 			place_name = #{place_name},
-			place_address = #{place_name},
+			place_address = #{place_address},
 			benefit_detail = #{benefit_detail},
-			event_msg = #{event_msg}
+			event_msg = #{event_msg},
+			update_date = now()
 		where
 			place_id = #{place_id};
 	</update>
+	
+	<delete id="deleteByPlaceImg" parameterType="com.goodHere.domain.place.Place">
+		delete
+		from
+			place_img_mst
+		where
+			place_id = #{place_id};
+	</delete>
+	
+	<insert id="insertByPlaceImg" parameterType="com.goodHere.domain.place.Place">
+		insert into
+			place_img_mst
+		values
+		<foreach collection="place_img" item="img" separator=",">
+		(
+			0,
+			#{place_id},
+			#{img}
+		)
+		</foreach>
+		;
+	</insert>
 	
 </mapper>

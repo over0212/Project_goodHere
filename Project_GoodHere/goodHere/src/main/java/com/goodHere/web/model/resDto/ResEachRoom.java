@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EachRoom {
+public class ResEachRoom {
 
+	private int place_seq;
 	private String room_condition_img;
 	private String room_title;
 	private String time_room;

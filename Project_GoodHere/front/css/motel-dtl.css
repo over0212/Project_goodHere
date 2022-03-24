@@ -159,6 +159,16 @@ main{
     width: 376px;
     height: 226px;
 }
+.delete-room{
+    position: relative;
+}
+.delete-room img{
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    left: 950px;
+}
 
 /* 객실 정보 */
 .room-condition{

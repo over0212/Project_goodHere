@@ -15,4 +15,10 @@ public interface PlaceRepository {
 	
 	public int motelUpdateInfo(Place place);
 	
+	public int deleteByPlaceImg(int place_id);
+	
+	public int insertByPlaceImg(Place place);
+	
+	public int deletePlaceData(int place_id);
+	
 }
