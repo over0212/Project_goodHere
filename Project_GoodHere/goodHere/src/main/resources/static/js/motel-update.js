@@ -250,7 +250,6 @@ function insertData(data) {
 				roomDetailFlag = true;
 				deleteRoomData.place_seq.push(room_datail_ip.querySelector('.room-seq').value);
 				deleteRoomData.room_condition_img.push(detailRoomObj[i].room_condition_img);
-				console.log(deleteRoomData);
 				tag_count--;
 				repeatOnchange();
 			}
@@ -367,11 +366,13 @@ function showRoomImage(indexNumber) {
 	room_img[indexNumber].appendChild(insert_room_img);
 }
 
+// 제일 하단에 있는 상세페이지로 이동 버튼
 const go_detail_page = document.querySelector('.go-detail-page');
 go_detail_page.onclick = () => {
 	location.replace("/motel-detail/" + place_id.value);
 }
 
+// 숙소 전경 이미지를 변경 버튼
 const update_img_btn = document.querySelector('.update-image-btn');
 update_img_btn.onclick = () => {
 
@@ -408,6 +409,7 @@ update_img_btn.onclick = () => {
 		location.reload();
 	}
 }
+// 숙소의 이름 및 주소 등 숙소 정보 변경 버튼
 const update_info_btn = document.querySelector('.update-info-btn');
 update_info_btn.onclick = () => {
 	let benefit_detail = document.querySelectorAll('.benefit-detail');
@@ -443,54 +445,42 @@ update_info_btn.onclick = () => {
 	});
 }
 
+// 방의 데이터 변경 버튼(수정 및 추가, 삭제 포함)
 const update_room_btn = document.querySelector('#update-room-btn');
 update_room_btn.onclick = () => {
-	/*let roomDetailData = [{
-		"roomDeleteFlag": false,
-		"place_seq": "",
-		"update_img": "",
-		"room_condition_img": "",
-		"room_title": "",
-		"time_room": "",
-		"time_price": "",
-		"dead_line": "",
-		"availability_time": "",
-		"select_time_flag": "",
-		"day_room": "",
-		"day_price": "",
-		"check_in_time": "",
-		"check_out_time": "",
-		"select_day_flag": ""
-	}]*/
 	let makeListData = [];
 	let roomFormData = new FormData();
 	let room_dtl_tags = document.querySelectorAll(".room-detail");
 	for (let i = 0; i < room_dtl_tags.length; i++) {
 		let updateObj = new Object();
+
 		let room_dtl_tag = room_dtl_tags[i];
 		updateObj.place_seq = room_dtl_tag.querySelector('.room-seq') == null ? 0 : room_dtl_tag.querySelector('.room-seq').value;
 		updateObj.roomDeleteFlag = false;
 		updateObj.update_img = room_dtl_tag.querySelector('.room-img-ip').files[0];
-		if(updateObj.update_img == null){
+		if (updateObj.update_img == null) {
 			let room_img_src = room_dtl_tag.querySelector('.room-img img').src;
 			updateObj.room_condition_img = room_img_src.split("/")[4];
-			console.log(room_img_src);
 		}
 		updateObj.room_title = room_dtl_tag.querySelector("input[name='room_title']").value;
 		updateObj.time_room = room_dtl_tag.querySelector("input[name='time_room']").value;
 		updateObj.time_price = room_dtl_tag.querySelector("input[name='time_price']").value;
 		updateObj.dead_line = room_dtl_tag.querySelector("input[name='dead_line']").value;
 		updateObj.availability_time = room_dtl_tag.querySelector("input[name='availability_time']").value;
+		//updateObj.select_time_flag = room_dtl_tag.querySelector('.time-choice-box').value;
 		let time_selected = room_dtl_tag.querySelector('.time-choice-box').options;
 		for (let j = 1; j < time_selected.length; j++) {
 			if (time_selected[j].selected == true) {
 				updateObj.select_time_flag = time_selected[j].value;
 			}
 		}
+
 		updateObj.day_room = room_dtl_tag.querySelector("input[name='day_room']").value;
 		updateObj.day_price = room_dtl_tag.querySelector("input[name='day_price']").value;
 		updateObj.check_in_time = room_dtl_tag.querySelector("input[name='check_in_time']").value;
 		updateObj.check_out_time = room_dtl_tag.querySelector("input[name='check_out_time']").value;
+		//updateObj.select_day_flag = room_dtl_tag.querySelector('.day-choice-box').value;
+
 		let day_selected = room_dtl_tag.querySelector('.day-choice-box').options;
 		for (let j = 1; j < day_selected.length; j++) {
 			if (day_selected[j].selected == true) {
@@ -498,9 +488,9 @@ update_room_btn.onclick = () => {
 			}
 		}
 		makeListData.push(updateObj);
-		//roomFormData.append("ReqEachRoom", updateObj);
 		console.log(updateObj);
-	}
+	} // end of room_dtl.tags for
+
 	if (roomDetailFlag) {
 		console.log(deleteRoomData.place_seq.length);
 		for (let i = 0; i < deleteRoomData.place_seq.length; i++) {
@@ -509,9 +499,43 @@ update_room_btn.onclick = () => {
 			updateObj.roomDeleteFlag = true;
 			updateObj.room_condition_img = deleteRoomData.room_condition_img[i];
 			makeListData.push(updateObj);
-			//roomFormData.append("ReqEachRoom", updateObj);
 			console.log(updateObj);
 		}
 	}
 	console.log(makeListData);
-}
+
+	for (let i = 0; i < makeListData.length; i++) {
+		roomFormData.append("roomDeleteFlag", makeListData[i].roomDeleteFlag);
+		roomFormData.append("place_seq", makeListData[i].place_seq);
+		roomFormData.append("update_img", makeListData[i].update_img);
+		roomFormData.append("room_condition_img", makeListData[i].room_condition_img);
+		roomFormData.append("room_title", makeListData[i].room_title);
+		roomFormData.append("time_room", makeListData[i].time_room);
+		roomFormData.append("time_price", makeListData[i].time_price);
+		roomFormData.append("dead_line", makeListData[i].dead_line);
+		roomFormData.append("availability_time", makeListData[i].availability_time);
+		roomFormData.append("select_time_flag", makeListData[i].select_time_flag);
+		console.log(makeListData[i].select_time_flag);
+		roomFormData.append("day_room", makeListData[i].day_room);
+		roomFormData.append("day_price", makeListData[i].day_price);
+		roomFormData.append("check_in_time", makeListData[i].check_in_time);
+		roomFormData.append("check_out_time", makeListData[i].check_out_time);
+		roomFormData.append("select_day_flag", makeListData[i].select_day_flag);
+		console.log(makeListData[i].select_day_flag);
+	}
+
+	$.ajax({
+		type: "post",
+		url: "/motel/room/" + place_id.value,
+		data: roomFormData,
+		enctype: 'multipart/form-data',
+		processData: false,
+		contentType: false,
+		success: function(data) {
+			location.reload();
+		},
+		error: function() {
+			alert("비동기 처리 오류!!");
+		}
+	});
+} // end of update_room_btn eventListener

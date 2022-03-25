@@ -2,6 +2,7 @@ package com.goodHere.web.service;
 
 import java.util.List;
 
+import com.goodHere.web.model.reqDto.EachRoomReqDto;
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateImgReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
@@ -19,5 +20,7 @@ public interface PlaceService {
 	public int motelUpdateInfo(MotelUpdateInfoReqDto infoReqDto, int place_id);
 	
 	public int motelUpdateImg(MotelUpdateImgReqDto imgReqDto, int place_id);
+	
+	public int motelRoomUpdate(EachRoomReqDto eachRoomReqDto, int place_id);
 	
 }

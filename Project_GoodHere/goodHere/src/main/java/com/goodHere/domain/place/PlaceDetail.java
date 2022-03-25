@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PlaceDetail {
 	
+	private int place_seq;
 	private String room_condition_img;
 	private String room_title;
 	private String time_room;

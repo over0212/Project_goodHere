@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MotelUpdateRoomReqDto {
+public class ListReqDto {
 	
-	private List<ReqEachRoom> reqEachRooms;
-	
+	private List<RoomDataDto> dto2s;
+
 }

@@ -20,9 +20,11 @@ import com.goodHere.domain.place.PlaceDetail;
 import com.goodHere.domain.place.PlaceEachDetail;
 import com.goodHere.domain.place.PlaceList;
 import com.goodHere.domain.place.PlaceRepository;
+import com.goodHere.web.model.reqDto.EachRoomReqDto;
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateImgReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
+import com.goodHere.web.model.reqDto.RoomDataDto;
 import com.goodHere.web.model.resDto.ResEachRoom;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
@@ -166,7 +168,7 @@ public class PlaceServiceImpl implements PlaceService {
 		Set<String> msg = new HashSet<String>();
 
 		Set<String> detailImg = new HashSet<String>();
-		Set<ResEachRoom> roomDtl = new HashSet<ResEachRoom>();
+		List<ResEachRoom> roomDtl = new ArrayList<ResEachRoom>();
 
 		/**
 		 * List로 들고온 PlaceEachDetail을 set으로 선언해 놓은 데이터를 하나씩 넣어주고 EachRoom 의 데이터는 테이블에
@@ -196,6 +198,7 @@ public class PlaceServiceImpl implements PlaceService {
 				room.setCheck_out_time(detail.getCheck_out_time());
 				room.setSelect_day_flag(detail.getSelect_day_flag());
 				roomDtl.add(room);
+				
 			} // end of if
 		} // end of for
 
@@ -206,8 +209,8 @@ public class PlaceServiceImpl implements PlaceService {
 
 		List<String> place_img_addr = new ArrayList<String>(detailImg);
 		placeDtlResDto.setPlace_img(place_img_addr);
-		List<ResEachRoom> eachRooms = new ArrayList<ResEachRoom>(roomDtl);
-		placeDtlResDto.setEachRoomDetail(eachRooms);
+		//List<ResEachRoom> eachRooms = new ArrayList<ResEachRoom>(roomDtl);
+		placeDtlResDto.setEachRoomDetail(roomDtl);
 
 		System.out.println(placeDtlResDto);
 		return placeDtlResDto;
@@ -240,31 +243,31 @@ public class PlaceServiceImpl implements PlaceService {
 		boolean insertFlag = false;
 		int totalResult = 0;
 		// origin img 삭제
-		if (! imgReqDto.getOrigin_imgs().get(0).equals("null")) {
+		if (!imgReqDto.getOrigin_imgs().get(0).equals("null")) {
 			deleteFlag = true;
 		}
-		if(imgReqDto.getMultipartFiles() != null) {
+		if (imgReqDto.getMultipartFiles() != null) {
 			insertFlag = true;
 		}
-		
-		if(deleteFlag) {
+
+		if (deleteFlag) {
 			int deleteResult = placeRepository.deleteByPlaceImg(place_id);
 			totalResult += deleteResult;
-			if (deleteResult  == imgReqDto.getOrigin_imgs().size()) {
-				for(int i = 0; i < imgReqDto.getOrigin_imgs().size(); i++) {
+			if (deleteResult == imgReqDto.getOrigin_imgs().size()) {
+				for (int i = 0; i < imgReqDto.getOrigin_imgs().size(); i++) {
 					File file = new File(imageFilePath, imgReqDto.getOrigin_imgs().get(i));
 					if (file.exists()) {
 						file.delete();
 					}
 				}
-				if(insertFlag) {
+				if (insertFlag) {
 					place.setPlace_img(filesUpload(imgReqDto.getMultipartFiles()));
 					int insertResult = placeRepository.insertByPlaceImg(place);
 					totalResult += insertResult;
 				}
 			}
 		} else {
-			if(insertFlag) {
+			if (insertFlag) {
 				place.setPlace_img(filesUpload(imgReqDto.getMultipartFiles()));
 				int insertResult = placeRepository.insertByPlaceImg(place);
 				totalResult += insertResult;
@@ -272,7 +275,125 @@ public class PlaceServiceImpl implements PlaceService {
 		}
 		System.out.println(totalResult);
 		return totalResult;
+	}
+
+	/**
+	 * EachRoomReqDto( roomDeleteFlag=[false, false, false, true], place_seq=[9, 0,
+	 * 0, 8],
+	 * update_img=[org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@1f78a5f3,
+	 * org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@5866caf6],
+	 * room_condition_img=[629ac3ce90cd43ebae8265a2ad3afef9.png, undefined,
+	 * undefined, e7db9b5b0d26400f94c15736930338a1.png], room_title=[스탠다드, 스탠다드,
+	 * 스탠다드, undefined], time_room=[대실, 대실, 대실, undefined], time_price=[30000,
+	 * 30000, 30000, undefined], dead_line=[24시까지, 24시까지, 24시까지, undefined],
+	 * availability_time=[최대 8시간, 최대 8시간, 최대 8시간, undefined], select_time_flag=[0,
+	 * 1, 1, undefined], day_room=[숙박, 숙박, 숙박, undefined], day_price=[50000, 50000,
+	 * 50000, undefined], check_in_time=[오후 12시부터, 오후 12시부터, 오후 12시부터, undefined],
+	 * check_out_time=[익일 11시까지, 익일 11시까지, 익일 11시까지, undefined], select_day_flag=[2,
+	 * 2, 2, undefined])
+	 */
+	@Override
+	public int motelRoomUpdate(EachRoomReqDto eachRoomReqDto, int place_id) {
+		int totalFlag = 0;
+		int updateImageIndex = 0;
+		int deleteCount = 0;
+		int insertCount = 0;
+		String imageFilePath = filePath + "/";
+		Place updatePlace = new Place();
+		Place insertPlace = new Place();
+		Place deletePlace = new Place();
+		List<PlaceDetail> insertDetails = new ArrayList<PlaceDetail>();
+		List<PlaceDetail> updateDetails = new ArrayList<PlaceDetail>();
+		List<PlaceDetail> deleteDetails = new ArrayList<PlaceDetail>();
+
+		for (int i = 0; i < eachRoomReqDto.getRoomDeleteFlag().size(); i++) {
+
+			if (eachRoomReqDto.getRoomDeleteFlag().get(i) == true) {
+				PlaceDetail placeDetail = new PlaceDetail();
+				placeDetail.setPlace_seq(eachRoomReqDto.getPlace_seq().get(i));
+				placeDetail.setRoom_condition_img(eachRoomReqDto.getRoom_condition_img().get(i));
+				deleteDetails.add(placeDetail);
+				System.out.println("delete 예정" + eachRoomReqDto.getPlace_seq().get(i));
+				deleteCount++;
+
+				// 업데이트 혹은 추가
+			} else if (eachRoomReqDto.getRoom_condition_img().get(i).equals("undefined")) {
+				PlaceDetail placeDetail = new PlaceDetail();
+				placeDetail.setRoom_title(eachRoomReqDto.getRoom_title().get(i));
+				placeDetail.setRoom_condition_img(fileUpload(eachRoomReqDto.getUpdate_img().get(updateImageIndex++)));
+				placeDetail.setTime_room(eachRoomReqDto.getTime_room().get(i));
+				placeDetail.setTime_price(eachRoomReqDto.getTime_price().get(i));
+				placeDetail.setDead_line(eachRoomReqDto.getDead_line().get(i));
+				placeDetail.setAvailability_time(eachRoomReqDto.getAvailability_time().get(i));
+				placeDetail.setSelect_time_flag(Integer.parseInt(eachRoomReqDto.getSelect_time_flag().get(i)));
+				placeDetail.setDay_room(eachRoomReqDto.getDay_room().get(i));
+				placeDetail.setDay_price(eachRoomReqDto.getDay_price().get(i));
+				placeDetail.setCheck_in_time(eachRoomReqDto.getCheck_in_time().get(i));
+				placeDetail.setCheck_out_time(eachRoomReqDto.getCheck_out_time().get(i));
+				placeDetail.setSelect_day_flag(Integer.parseInt(eachRoomReqDto.getSelect_day_flag().get(i)));
+
+				// 추가
+				if (eachRoomReqDto.getPlace_seq().get(i) == 0) {
+					insertDetails.add(placeDetail);
+					insertCount++;
+					// 업데이트
+				} else {
+					String roomImgForDelete = placeRepository.getRoomImgForDelete(eachRoomReqDto.getPlace_seq().get(i));
+					File file = new File(imageFilePath, roomImgForDelete);
+					if (file.exists()) {
+						file.delete();
+					}
+					placeDetail.setPlace_seq(eachRoomReqDto.getPlace_seq().get(i));
+					updateDetails.add(placeDetail);
+				}
+				System.out.println("수정 이미지가 있을 때" + placeDetail);
+
+				// 무조건 업데이트를 실행함
+			} else {
+				PlaceDetail placeDetail = new PlaceDetail();
+				placeDetail.setRoom_title(eachRoomReqDto.getRoom_title().get(i));
+				placeDetail.setRoom_condition_img(eachRoomReqDto.getRoom_condition_img().get(i));
+				placeDetail.setTime_room(eachRoomReqDto.getTime_room().get(i));
+				placeDetail.setTime_price(eachRoomReqDto.getTime_price().get(i));
+				placeDetail.setDead_line(eachRoomReqDto.getDead_line().get(i));
+				placeDetail.setAvailability_time(eachRoomReqDto.getAvailability_time().get(i));
+				placeDetail.setSelect_time_flag(Integer.parseInt(eachRoomReqDto.getSelect_time_flag().get(i)));
+				placeDetail.setDay_room(eachRoomReqDto.getDay_room().get(i));
+				placeDetail.setDay_price(eachRoomReqDto.getDay_price().get(i));
+				placeDetail.setCheck_in_time(eachRoomReqDto.getCheck_in_time().get(i));
+				placeDetail.setCheck_out_time(eachRoomReqDto.getCheck_out_time().get(i));
+				placeDetail.setSelect_day_flag(Integer.parseInt(eachRoomReqDto.getSelect_day_flag().get(i)));
+				placeDetail.setPlace_seq(eachRoomReqDto.getPlace_seq().get(i));
+				updateDetails.add(placeDetail);
+				System.out.println("수정 이미지가 없을 때" + placeDetail);
+			}
+
+		} // end of for
 		
+		updatePlace.setPlace_id(place_id);
+		updatePlace.setPlace_dtl(updateDetails);
+
+		insertPlace.setPlace_id(place_id);
+		insertPlace.setPlace_dtl(insertDetails);
+
+		deletePlace.setPlace_dtl(deleteDetails);
+
+		if (deleteCount > 0) {
+			totalFlag += placeRepository.deleteRoomData(deletePlace);
+			for (PlaceDetail placeDetail : deleteDetails) {
+				File file = new File(imageFilePath, placeDetail.getRoom_condition_img());
+				if (file.exists()) {
+					file.delete();
+				}
+			}
+		}
+
+		totalFlag += placeRepository.updateRoomData(updatePlace);
+
+		if (insertCount > 0) {
+			totalFlag += placeRepository.insertRoomData(insertPlace);
+		}
+		return totalFlag;
 	}
 
 }

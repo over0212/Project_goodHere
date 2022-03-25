@@ -8,7 +8,6 @@ import javax.validation.Valid;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.goodHere.web.model.reqDto.MotelInsertReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateImgReqDto;
 import com.goodHere.web.model.reqDto.MotelUpdateInfoReqDto;
+import com.goodHere.web.model.reqDto.EachRoomReqDto;
+import com.goodHere.web.model.reqDto.ListReqDto;
 import com.goodHere.web.model.resDto.PlaceDtlResDto;
 import com.goodHere.web.model.resDto.PlaceListResDto;
 import com.goodHere.web.service.PlaceService;
@@ -69,6 +70,14 @@ public class PlaceRestController {
 	public int updateMotelImage(MotelUpdateImgReqDto imgReqDto, @PathVariable int place_id) {
 		System.out.println("imgUpdate : " + imgReqDto);
 		int resultFlag = placeService.motelUpdateImg(imgReqDto, place_id);
+		return resultFlag;
+	}
+	
+	@PostMapping("/motel/room/{place_id}")
+	public int updateRoomData(@Valid EachRoomReqDto eachRoomReqDto, BindingResult result, @PathVariable int place_id) {
+		int resultFlag = placeService.motelRoomUpdate(eachRoomReqDto, place_id);
+		System.out.println("room data : " + eachRoomReqDto);
+		System.out.println("place_id : " + place_id);
 		return resultFlag;
 	}
 

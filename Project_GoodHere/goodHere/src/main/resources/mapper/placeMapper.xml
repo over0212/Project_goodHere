@@ -171,4 +171,77 @@
 		;
 	</insert>
 	
+	<update id="updateRoomData" parameterType="com.goodHere.domain.place.Place">
+		<foreach collection="place_dtl" item="dtl" separator=";">
+		update
+			place_dtl
+		set
+			room_condition_img = #{dtl.room_condition_img},
+			room_title = #{dtl.room_title},
+			time_room = #{dtl.time_room},
+			time_price = #{dtl.time_price}, 
+			dead_line = #{dtl.dead_line}, 
+			availability_time = #{dtl.availability_time}, 
+			select_time_flag = #{dtl.select_time_flag}, 
+			day_room = #{dtl.day_room}, 
+			day_price = #{dtl.day_price}, 
+			check_in_time = #{dtl.check_in_time}, 
+			check_out_time = #{dtl.check_out_time}, 
+			select_day_flag = #{dtl.select_day_flag}, 
+			update_date = now()
+		where
+			place_seq = #{dtl.place_seq}
+		</foreach>
+			;
+	</update>
+	
+	<insert id="insertRoomData" parameterType="com.goodHere.domain.place.Place">
+		insert into
+			place_dtl
+		values
+		<foreach collection="place_dtl" item="dtl" separator=",">
+		(
+			0,
+			#{place_id},
+			#{dtl.room_condition_img},
+			#{dtl.room_title},
+			#{dtl.time_room},
+			#{dtl.time_price},
+			#{dtl.dead_line},
+			#{dtl.availability_time},
+			#{dtl.select_time_flag},
+			#{dtl.day_room},
+			#{dtl.day_price},
+			#{dtl.check_in_time},
+			#{dtl.check_out_time},
+			#{dtl.select_day_flag},
+			now(),
+			now()
+		)
+		</foreach>
+		;
+	</insert>
+	
+	<delete id="deleteRoomData" parameterType="com.goodHere.domain.place.Place">
+		delete
+		from
+			place_dtl
+		where
+		<foreach collection="place_dtl" item="dtl" separator=",">
+		(
+			place_seq = #{dtl.place_seq}
+			)
+		</foreach>
+		;
+	</delete>
+	
+	<select id="getRoomImgForDelete" resultType="String">
+	select
+		room_condition_img
+	from
+		place_dtl
+	where
+		place_seq = #{place_seq};
+	</select>
+	
 </mapper>
